@@ -1,0 +1,158 @@
+.section {
+  background-color: var(--cream);
+}
+
+.head {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.heading {
+  max-width: 20ch;
+}
+
+.lede {
+  max-width: 92ch;
+}
+
+/* ---------- Grid ---------- */
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background-color: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-lg);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 1.25rem;
+}
+
+.media,
+.mediaFeatured {
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-sm);
+}
+
+.badge {
+  margin-bottom: 0.625rem;
+}
+
+.title {
+  font-size: clamp(1.1875rem, 1.1rem + 0.35vw, 1.375rem);
+  letter-spacing: -0.01em;
+}
+
+.titleLarge {
+  font-size: clamp(1.375rem, 1.2rem + 0.7vw, 1.625rem);
+  letter-spacing: -0.015em;
+}
+
+.description {
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+/* Outline buttons fill the card; the featured teal button stays compact. */
+.book {
+  margin-top: auto;
+  width: 100%;
+}
+
+.bookFeatured {
+  margin-top: auto;
+  align-self: flex-start;
+  min-width: 118px;
+}
+
+/* ---------- Add-ons strip ---------- */
+
+.addOns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background-color: #f4f1ec;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-lg);
+}
+
+.addOnsMedia {
+  width: 160px;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-sm);
+  flex-shrink: 0;
+}
+
+.addOnsCopy {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.addOnsCopy .description {
+  margin-bottom: 0;
+}
+
+.addOnsBook {
+  flex-shrink: 0;
+  min-height: 42px;
+}
+
+/* ---------- Breakpoints ---------- */
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Featured occupies the left column across the first two rows; the four
+     remaining cards then auto-flow into column two and the third row. */
+  .cardFeatured {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .media {
+    aspect-ratio: 25 / 8;
+  }
+
+  .mediaFeatured {
+    aspect-ratio: 7 / 3;
+  }
+
+  .cardFeatured .cardBody {
+    padding-top: 1.75rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .addOns {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .addOnsMedia {
+    width: 100%;
+  }
+
+  .addOnsBook {
+    width: 100%;
+    min-height: 46px;
+  }
+}
