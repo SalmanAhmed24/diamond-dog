@@ -1,0 +1,204 @@
+.section {
+  background-color: var(--sand);
+}
+
+.head {
+  display: grid;
+  gap: 0.875rem;
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.75rem);
+}
+
+.heading {
+  max-width: 22ch;
+}
+
+.lede {
+  max-width: 100ch;
+}
+
+/* ==========================================================================
+   Mosaic
+   The 1px grid gap over a rule-coloured background paints the hairlines, so
+   individual cells stay border-free and the photos butt right up to the edge.
+   ========================================================================== */
+
+.grid {
+  display: grid;
+  gap: 1px;
+  background-color: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.featured,
+.card,
+.addOns {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cream);
+  min-width: 0;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Standard card ---------- */
+
+.media {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background-color: var(--sand);
+}
+
+.cardBody,
+.featuredBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.title {
+  font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+  letter-spacing: -0.01em;
+}
+
+.titleLarge {
+  font-size: clamp(1.375rem, 1.15rem + 1vw, 1.875rem);
+  letter-spacing: -0.015em;
+}
+
+.badge {
+  margin-bottom: 0.625rem;
+}
+
+.description {
+  margin-top: 0.625rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.62;
+}
+
+.book {
+  margin-top: auto;
+  align-self: flex-start;
+  min-height: 42px;
+  padding-inline: 1.25rem;
+}
+
+/* ---------- Featured cell ---------- */
+
+.featuredMedia {
+  overflow: hidden;
+  background-color: var(--sand);
+  aspect-ratio: 3 / 2;
+}
+
+/* ---------- Add-ons strip ---------- */
+
+.addOnsMedia {
+  overflow: hidden;
+  background-color: var(--sand);
+  aspect-ratio: 5 / 3;
+}
+
+.addOnsBody {
+  flex: 1;
+  padding: 1.5rem;
+  min-width: 0;
+}
+
+.addOnsBody .description {
+  margin-bottom: 0;
+}
+
+.addOnsBook {
+  align-self: flex-start;
+  margin: 0 1.5rem 1.5rem;
+  min-height: 42px;
+  padding-inline: 1.25rem;
+}
+
+/* ---------- Closing prompt ---------- */
+
+.cta {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  margin-top: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.ctaHeading {
+  font-size: clamp(1.375rem, 1rem + 1.6vw, 2.125rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  max-width: 24ch;
+}
+
+.ctaBody {
+  margin-top: 0.625rem;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* ==========================================================================
+   Breakpoints
+   ========================================================================== */
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* Featured takes two of the three columns on the first row; the four other
+     services then auto-flow into column three and the row beneath. */
+  .featured {
+    grid-column: span 2;
+    flex-direction: row;
+  }
+
+  .featuredMedia {
+    flex: 0 0 50%;
+    aspect-ratio: auto;
+  }
+
+  .featuredBody {
+    flex: 1;
+    padding: 1.75rem;
+  }
+
+  .addOns {
+    grid-column: span 3;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .addOnsMedia {
+    flex: 0 0 clamp(14rem, 24vw, 21rem);
+    align-self: stretch;
+    aspect-ratio: auto;
+  }
+
+  .addOnsBody {
+    padding: 1.75rem 2rem;
+  }
+
+  .addOnsBook {
+    /* The row is align-items: center; this cell opted out for the stacked
+       layout, so opt back in here. */
+    align-self: center;
+    margin: 0 1.75rem 0 0;
+  }
+}

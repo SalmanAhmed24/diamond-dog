@@ -1,0 +1,71 @@
+.section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(3rem, 6vw, 5rem);
+  background-color: var(--navy);
+}
+
+.backdrop,
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.backdrop {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Fixed scrim rather than a filter on the photo, so white text is legible
+   before the image has decoded. */
+/* Opacity solved from the design render rather than eyeballed: the flat layer
+   plus the gradient composites to ~0.48 mid-band, which is what the home page
+   measures. A fixed colour rather than a filter on the photo, so white text is
+   legible before the image has decoded. */
+.scrim {
+  background-color: rgba(16, 12, 8, 0.42);
+  background-image: linear-gradient(
+    180deg,
+    rgba(16, 12, 8, 0.2) 0%,
+    rgba(16, 12, 8, 0.1) 50%,
+    rgba(16, 12, 8, 0.2) 100%
+  );
+}
+
+/* The About page's backdrop carries a heavier scrim in the design (0.63
+   measured, against 0.48 on the home page). */
+.scrimStrong {
+  background-color: rgba(16, 12, 8, 0.56);
+}
+
+.inner {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.heading {
+  font-size: clamp(2.125rem, 1.3rem + 3.4vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.body {
+  margin-top: 0.75rem;
+  color: #f0ede8;
+  font-size: 1rem;
+  max-width: 46ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}

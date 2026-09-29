@@ -1,0 +1,63 @@
+.section {
+  background-color: var(--sand);
+}
+
+.grid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.copy {
+  min-width: 0;
+}
+
+.heading {
+  margin-top: 1.25rem;
+  font-size: clamp(1.875rem, 1.3rem + 2.4vw, 2.875rem);
+  line-height: 1.08;
+  /* h2 inherits text-wrap: balance globally, which would even the two lines out
+     to "Grooming is where / wellness starts". The design fills greedily, so the
+     break lands after "wellness". */
+  text-wrap: normal;
+}
+
+.body {
+  margin-top: 1.125rem;
+  max-width: 48ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.875rem 1.75rem;
+  margin-top: 1.75rem;
+}
+
+/* The teal note repeats the "call, don't book" rule right under the buttons. */
+.note {
+  margin-top: 1.5rem;
+  color: var(--text);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.media {
+  aspect-ratio: 17 / 10;
+}
+
+@media (max-width: 899px) {
+  .media {
+    aspect-ratio: 3 / 2;
+  }
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.02fr);
+    /* 68px at 1440 leaves the copy column ~600px wide, which is what keeps the
+       heading on two lines rather than three. */
+    gap: clamp(2rem, 4.7vw, 4.25rem);
+  }
+}

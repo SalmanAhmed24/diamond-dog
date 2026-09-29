@@ -1,0 +1,359 @@
+/* ==========================================================================
+   The Diamond Dog — design tokens
+   Colours sampled directly from the Figma export.
+   ========================================================================== */
+
+:root {
+  /* Surfaces — sampled from the design export */
+  --cream: #fff9ee;   /* page background */
+  --sand: #f5ebd8;    /* services + wellness bands */
+  --navy: #16262c;    /* stat cards, hero badge */
+  --ink: #0b0b0b;     /* footer */
+
+  /* Type */
+  --text: #14110f;
+  --text-muted: #4a4643;
+  --text-soft: #67625d;
+  --text-on-dark: #ffffff;
+  --text-on-dark-muted: #cfcac3;
+
+  /* Accent */
+  --teal: #17808f;      /* fills and on-dark text */
+  --teal-ink: #12707e;  /* teal text on light surfaces — clears 4.5:1 on sand */
+  --teal-deep: #0f5f6b; /* hover */
+  --gold: #c2a26b;      /* eyebrow + figures on the dark band */
+
+  /* Lines */
+  --rule: #e6ddcc;
+  --rule-on-dark: #2e2e2e;
+
+  /* Geometry — the new design is square-cornered throughout */
+  --radius: 0px;
+
+  /* Layout */
+  --container: 1280px;
+  --gutter: clamp(1.25rem, 5.5vw, 5rem);
+  --section-y: clamp(3.5rem, 7vw, 6.25rem);
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  color-scheme: light;
+}
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--text);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 1.0625rem; /* 17px */
+  line-height: 1.65;
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+picture,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* ==========================================================================
+   Typography scale
+   ========================================================================== */
+
+.serif {
+  font-family: var(--font-serif), ui-serif, Georgia, 'Times New Roman', serif;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+
+.script {
+  font-family: var(--font-script), ui-serif, cursive;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* Section eyebrow — small teal label with the diamond mark */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--teal-ink);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.eyebrow--gold {
+  color: var(--gold);
+  justify-content: center;
+}
+
+.sectionTitle {
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(2rem, 1.35rem + 2.6vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+}
+
+.lede {
+  color: var(--text-muted);
+  font-size: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+  line-height: 1.7;
+  max-width: 62ch;
+}
+
+/* Old-style figures make the serif numerals sit on the baseline like the design */
+.oldstyle {
+  font-variant-numeric: oldstyle-nums;
+  font-feature-settings: 'onum' 1;
+}
+
+/* ==========================================================================
+   Layout primitives
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+/* ==========================================================================
+   Buttons — square-cornered, matching the design
+   ========================================================================== */
+
+.btn {
+  --btn-bg: var(--teal);
+  --btn-fg: #ffffff;
+  --btn-border: var(--teal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 46px;
+  padding: 0.6875rem 1.5rem;
+  border: 1px solid var(--btn-border);
+  border-radius: var(--radius);
+  background-color: var(--btn-bg);
+  color: var(--btn-fg);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease),
+    color 0.2s var(--ease);
+}
+
+.btn--teal:hover {
+  --btn-bg: var(--teal-deep);
+  --btn-border: var(--teal-deep);
+}
+
+/* "Call / Text" — hairline outline in the text colour */
+.btn--outline {
+  --btn-bg: transparent;
+  --btn-fg: var(--text);
+  --btn-border: var(--text);
+}
+
+.btn--outline:hover {
+  --btn-bg: var(--text);
+  --btn-fg: #ffffff;
+}
+
+.btn--onDark {
+  --btn-bg: transparent;
+  --btn-fg: #ffffff;
+  --btn-border: #ffffff;
+}
+
+.btn--onDark:hover {
+  --btn-bg: #ffffff;
+  --btn-fg: var(--text);
+}
+
+/* Arrow link — "Read the philosophy →" */
+.arrowLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text);
+  padding-block: 0.25rem;
+  border-bottom: 1px solid currentColor;
+  transition: color 0.2s var(--ease);
+}
+
+.arrowLink svg {
+  transition: transform 0.25s var(--ease);
+}
+
+.arrowLink:hover svg {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   Media
+   ========================================================================== */
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background-color: var(--cream);
+}
+
+.frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skipLink {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  z-index: 200;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius);
+  background-color: var(--ink);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transform: translateY(-150%);
+  transition: transform 0.2s var(--ease);
+}
+
+.skipLink:focus-visible {
+  transform: translateY(0);
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--teal-ink);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+::selection {
+  background-color: var(--teal);
+  color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+
+  /* Framer Motion writes its values to the inline style attribute every frame,
+     so only an author !important rule can hold these elements at their final
+     state. Doing it here rather than in JS also keeps SSR and the client's first
+     render identical, which avoids a hydration mismatch. */
+  [data-reveal],
+  [data-script-wipe] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}

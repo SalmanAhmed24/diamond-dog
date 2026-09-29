@@ -1,0 +1,98 @@
+.section {
+  background-color: var(--sand);
+}
+
+.sectionCream {
+  background-color: var(--cream);
+}
+
+.heading {
+  margin-top: 0.875rem;
+}
+
+.list {
+  margin-top: clamp(1.75rem, 3.5vw, 2.75rem);
+  border-top: 1px solid var(--rule);
+}
+
+.item {
+  border-bottom: 1px solid var(--rule);
+}
+
+.questionWrap {
+  margin: 0;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1.375rem 0;
+  text-align: left;
+  color: var(--text);
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: clamp(1.0625rem, 0.98rem + 0.4vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: color 0.18s var(--ease);
+}
+
+.question:hover {
+  color: var(--teal-ink);
+}
+
+/* ---------- Plus / minus toggle ---------- */
+
+.toggle {
+  position: relative;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  color: var(--teal-ink);
+}
+
+.toggleBar {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 14px;
+  height: 1.5px;
+  margin-top: -0.75px;
+  background-color: currentColor;
+}
+
+/* The vertical bar rotates away to turn the plus into a minus. */
+.toggleBarV {
+  transform: rotate(90deg);
+  transition: transform 0.25s var(--ease);
+}
+
+.toggleBarOpen {
+  transform: rotate(0deg);
+}
+
+/* ---------- Answer ---------- */
+
+.panel {
+  overflow: hidden;
+}
+
+.panelInner {
+  padding-bottom: 1.5rem;
+}
+
+.answer {
+  max-width: 78ch;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.readMore {
+  margin-top: 1.25rem;
+  font-size: 0.875rem;
+}

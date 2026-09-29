@@ -1,0 +1,37 @@
+.wrap {
+  padding-top: clamp(1.5rem, 3vw, 2.375rem);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.link {
+  color: var(--text-soft);
+  transition: color 0.18s var(--ease);
+}
+
+.link:hover {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.current {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.sep {
+  color: var(--rule);
+}

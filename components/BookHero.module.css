@@ -1,0 +1,113 @@
+.hero {
+  padding-block: clamp(2.25rem, 4.5vw, 3.75rem) clamp(3rem, 6vw, 5.5rem);
+}
+
+.grid {
+  display: grid;
+  gap: clamp(2rem, 4.5vw, 3.5rem);
+  align-items: start;
+}
+
+.copy {
+  min-width: 0;
+}
+
+.headline {
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(2rem, 1.35rem + 2.7vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+}
+
+.body {
+  margin-top: 1.125rem;
+  max-width: 46ch;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+/* ---------- "Have these ready" card ---------- */
+
+.card {
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  border: 1px solid var(--rule);
+  background-color: var(--cream);
+}
+
+.cardTitle {
+  margin-bottom: 0.25rem;
+  color: var(--text-soft);
+}
+
+.cardList {
+  display: grid;
+}
+
+.cardItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  padding-block: 1.125rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.cardItem:last-child {
+  border-bottom: 0;
+  padding-bottom: 0.25rem;
+}
+
+.cardIcon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  color: var(--teal-ink);
+}
+
+.cardCopy {
+  min-width: 0;
+}
+
+.cardLabel {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.cardText {
+  margin-top: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.cardLink {
+  color: var(--text);
+  font-weight: 500;
+  border-bottom: 1px solid var(--text);
+  transition: color 0.18s var(--ease), border-color 0.18s var(--ease);
+}
+
+.cardLink:hover {
+  color: var(--teal-ink);
+  border-bottom-color: var(--teal-ink);
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.88fr);
+    gap: clamp(2.5rem, 6vw, 5rem);
+  }
+}

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="The Diamond Dog">
+  <rect width="64" height="64" fill="#16262C"/>
+  <path d="M32 13 51 32 32 51 13 32Z" fill="none" stroke="#3FA3B3" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M32 23 41 32 32 41 23 32Z" fill="#7FCBD6"/>
+</svg>

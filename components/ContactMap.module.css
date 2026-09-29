@@ -1,0 +1,21 @@
+.section {
+  background-color: var(--cream);
+  padding-block: clamp(1rem, 2vw, 2rem) clamp(3rem, 6vw, 5rem);
+}
+
+.head {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.heading {
+  font-size: clamp(1.75rem, 1.25rem + 2vw, 2.375rem);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
