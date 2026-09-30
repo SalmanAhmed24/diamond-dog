@@ -24,6 +24,11 @@ import contactCtaBackdrop from '@/public/images/contact-cta-backdrop.webp'
 import wellnessTowelDog from '@/public/images/wellness-towel-dog.webp'
 import wellnessAutumnWalk from '@/public/images/wellness-autumn-walk.webp'
 
+import anxiousHeroCollie from '@/public/images/anxious-hero-collie.webp'
+import anxiousGentleBrushing from '@/public/images/anxious-gentle-brushing.webp'
+import anxiousPlayPen from '@/public/images/anxious-play-pen.webp'
+import anxiousCtaBackdrop from '@/public/images/anxious-cta-backdrop.webp'
+
 import glTerriers from '@/public/images/glowup-terrier-pair-ties.webp'
 import glRolling from '@/public/images/glowup-dog-rolling.webp'
 import glBwCoat from '@/public/images/glowup-bw-coat-before.webp'
@@ -63,6 +68,10 @@ export {
   contactCtaBackdrop,
   wellnessTowelDog,
   wellnessAutumnWalk,
+  anxiousHeroCollie,
+  anxiousGentleBrushing,
+  anxiousPlayPen,
+  anxiousCtaBackdrop,
 }
 
 /** Keyed by the service slug used in lib/site.ts */

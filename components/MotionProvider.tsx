@@ -1,6 +1,7 @@
 'use client'
 
 import { LazyMotion, domAnimation } from 'framer-motion'
+import type { ReactNode } from 'react'
 
 /**
  * Framer Motion ships ~34kB if you import `motion` directly. `LazyMotion` with the
@@ -11,7 +12,7 @@ import { LazyMotion, domAnimation } from 'framer-motion'
  * `strict` throws in development if a component imports `motion` instead of `m`,
  * so the saving can't silently regress later.
  */
-export function MotionProvider({ children }: { children: React.ReactNode }) {
+export function MotionProvider({ children }: { children: ReactNode }) {
   return (
     <LazyMotion features={domAnimation} strict>
       {children}

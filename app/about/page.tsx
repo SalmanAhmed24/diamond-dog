@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 import { SiteHeader } from '@/components/SiteHeader'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
-import { AboutHero } from '@/components/AboutHero'
+import { MediaHero } from '@/components/MediaHero'
 import { ProseBand } from '@/components/ProseBand'
 import { SplitSection } from '@/components/SplitSection'
 import { Faq } from '@/components/Faq'
@@ -10,7 +10,7 @@ import { FinalCta } from '@/components/FinalCta'
 import { SiteFooter } from '@/components/SiteFooter'
 
 import { SITE_URL, about, aboutFaqs, business } from '@/lib/site'
-import { aboutCtaBackdrop, aboutGuideDog } from '@/lib/images'
+import { aboutCtaBackdrop, aboutGuideDog, aboutHeroCorgi } from '@/lib/images'
 
 const title = 'About The Diamond Dog | Health Over Hair'
 const description =
@@ -82,7 +82,17 @@ export default function AboutPage() {
       <Breadcrumbs trail={about.breadcrumb} />
 
       <main id="main">
-        <AboutHero />
+        <MediaHero
+          heading={about.hero.heading}
+          headingId="about-heading"
+          body={about.hero.body}
+          image={aboutHeroCorgi}
+          imageAlt={about.hero.imageAlt}
+          aspect="577 / 455"
+          callLabel={about.cta.callLabel}
+          proof={about.hero.proof}
+          badge={about.hero.badge}
+        />
         <ProseBand
           heading={about.process.heading}
           body={about.process.body}

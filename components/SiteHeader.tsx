@@ -10,6 +10,7 @@ import { ChevronDown, CloseIcon, MenuIcon } from './icons'
 import { BOOKING_URL, business, callHref, primaryNav } from '@/lib/site'
 import { logo } from '@/lib/images'
 import styles from './SiteHeader.module.css'
+import { EASE } from '@/lib/motion'
 
 export function SiteHeader() {
   const [stuck, setStuck] = useState(false)
@@ -142,7 +143,7 @@ export function SiteHeader() {
                           initial={reduce ? false : { opacity: 0, y: -6 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={reduce ? { opacity: 0 } : { opacity: 0, y: -6 }}
-                          transition={{ duration: 0.18, ease: [0.22, 0.61, 0.36, 1] }}
+                          transition={{ duration: 0.18, ease: EASE }}
                         >
                           {item.children?.map((child) => (
                             <li key={child.href}>
@@ -189,7 +190,7 @@ export function SiteHeader() {
               initial={reduce ? { opacity: 0 } : { opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={reduce ? { opacity: 0 } : { opacity: 0, y: -10 }}
-              transition={{ duration: 0.22, ease: [0.22, 0.61, 0.36, 1] }}
+              transition={{ duration: 0.22, ease: EASE }}
             >
               <nav className={`container ${styles.drawerInner}`} aria-label="Mobile">
                 <ul className={styles.drawerList}>

@@ -2,6 +2,7 @@
 
 import { m } from 'framer-motion'
 import type { ElementType, ReactNode } from 'react'
+import { EASE } from '@/lib/motion'
 
 type RevealProps = {
   children: ReactNode
@@ -37,7 +38,7 @@ export function Reveal({ children, delayStep = 0, className, as = 'div' }: Revea
       transition={{
         duration: 0.5,
         delay: delayStep * 0.07,
-        ease: [0.22, 0.61, 0.36, 1],
+        ease: EASE,
       }}
     >
       {children}

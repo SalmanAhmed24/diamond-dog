@@ -6,6 +6,7 @@ import { useId, useState } from 'react'
 
 import { ArrowRight, Diamond } from './icons'
 import styles from './Faq.module.css'
+import { EASE } from '@/lib/motion'
 
 export type FaqItem = {
   question: string
@@ -93,7 +94,7 @@ export function Faq({
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{
-                        height: { duration: 0.28, ease: [0.22, 0.61, 0.36, 1] },
+                        height: { duration: 0.28, ease: EASE },
                         opacity: { duration: 0.2 },
                       }}
                     >

@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((href) => href.startsWith('/') && !href.startsWith('/services/'))
 
   // /book is a real page now, so it is included rather than filtered out.
-  const paths = Array.from(new Set(['/', '/book', '/about', '/contact', '/faq', '/glow-up-gallery', '/service-agreement', '/vaccine-requirements', '/wellness', '/services', ...servicePaths, ...contentPaths]))
+  const paths = Array.from(new Set(['/', '/book', '/about', '/contact', '/faq', '/glow-up-gallery', '/service-agreement', '/vaccine-requirements', '/wellness', '/anxious-and-senior-dogs', '/services', ...servicePaths, ...contentPaths]))
 
   return paths.map((path) => ({
     url: `${SITE_URL}${path === '/' ? '' : path}`,

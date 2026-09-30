@@ -229,7 +229,11 @@ export const about = {
     heading: 'Health Over Hair - About The Diamond Dog',
     body:
       'Health over hair, personally guided from start to finish. Meet Kaylie Chalupa, the groomer behind The Diamond Dog, with over 18 years of experience in Urbandale.',
-    proof: ['Never kenneled', 'One dog at a time', 'Home in 45 min to 1 hr'],
+    proof: [
+      { label: 'Never kenneled' },
+      { label: 'One dog at a time' },
+      { label: 'Home in 45 min to 1 hr' },
+    ],
     badge: { value: '18+', label: 'Years experience' },
     imageAlt:
       'A corgi sitting on the grooming table beside the pile of undercoat removed during its de-shed.',
@@ -734,6 +738,50 @@ export const wellnessPage = {
       'Give me a call or text and let\u2019s start the conversation - no booking widget, just a real talk about your dog.',
     callLabel: 'Call or text',
     note: 'Wellness is a conversation, not a booking. This one is by phone.',
+  },
+}
+
+export const anxiousSeniorDogs = {
+  breadcrumb: [
+    { label: 'Home', href: '/' },
+    { label: 'Anxious & Senior Dogs', href: '/anxious-and-senior-dogs' },
+  ],
+  hero: {
+    heading: 'Grooming for Anxious & Senior Dogs in Urbandale',
+    body:
+      'We take a little extra time with our senior pets, making sure they feel safe, comfortable and never rushed. Our senior pups truly have our hearts, and our goal is for them to enjoy their time with us and leave feeling clean, comfortable and refreshed.',
+    callLabel: 'Call or text',
+    proof: [
+      { icon: 'home', label: 'Never kenneled' },
+      { icon: 'paw', label: 'One dog at a time' },
+      { icon: 'clock', label: 'Home in 45 min to 1 hr' },
+    ],
+    imageAlt:
+      'A long-coated black and white dog standing calmly on the grooming table in the salon.',
+  },
+  why: {
+    heading: 'Why this model suits an anxious or senior dog',
+    body:
+      'An anxious or senior dog does best when the things that usually make grooming stressful are simply removed. Here, your dog is personally guided through their groom by me, with no room full of barking dogs and no kennel while they wait their turn, just a comfortable play pen. Most grooms are done in 45 minutes to an hour, with large and extra large dogs taking a bit longer, so there\u2019s no long, anxious wait built into the day. If your dog has had a rough grooming experience before, whether at a busy salon or somewhere they were kenneled between steps, this structure is built to be different and more personal.',
+    imageAlt: 'A small red poodle being gently brushed around the face with a slicker brush.',
+  },
+  exception: {
+    heading: 'The one exception',
+    body:
+      'I have a play pen provided should your dog need, or want to be in their own space away from other dogs. Otherwise, it\u2019s toys and play in the main grooming room while we wait for you to arrive! Reminder, we do not provide daycare services and ask for pick up to be within 40 minutes of their finished appointment.',
+    imageAlt: 'A bichon resting beside a soft bed and water bowl inside the open play pen.',
+  },
+  faq: {
+    eyebrow: 'Questions',
+    heading: 'Frequently asked questions',
+    /** Pulled from faqPage.items by id, so the wording can never drift. */
+    itemIds: ['anxious-senior', 'kenneling'],
+  },
+  cta: {
+    heading: 'Ready to get started?',
+    body:
+      'Not sure how your dog will handle grooming? Call or text to talk it through, or book online when you\u2019re ready.',
+    callLabel: 'Call or text',
   },
 }
 

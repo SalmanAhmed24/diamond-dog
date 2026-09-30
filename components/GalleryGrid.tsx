@@ -1,26 +1,27 @@
 'use client'
 
 import Image from 'next/image'
-import { m } from 'framer-motion'
+import { m, type Variants } from 'framer-motion'
 import { useMemo, useState } from 'react'
 
 import { Diamond } from './icons'
 import { GALLERY_TAGS, glowUpGallery, type GalleryTag } from '@/lib/site'
 import { glowUpImages } from '@/lib/images'
+import { EASE } from '@/lib/motion'
 import styles from './GalleryGrid.module.css'
 
 /* Re-keying the list on filter change replays a short stagger, which reads as a
    deliberate transition without needing Framer's layout projection. That matters:
    layout animations require the `domMax` feature bundle, roughly 10kB more than
    the `domAnimation` set the rest of the site runs on. */
-const listVariants = {
+const listVariants: Variants = {
   hidden: {},
   shown: { transition: { staggerChildren: 0.035 } },
 }
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 8 },
-  shown: { opacity: 1, y: 0, transition: { duration: 0.32, ease: [0.22, 0.61, 0.36, 1] } },
+  shown: { opacity: 1, y: 0, transition: { duration: 0.32, ease: EASE } },
 }
 
 export function GalleryGrid() {

@@ -344,6 +344,19 @@ photos. If you want a guaranteed pass, raise the flat layer by about 0.1.
 
 ---
 
+## A note on Framer types
+
+`lib/motion.ts` holds the easing curves as explicitly typed 4-tuples. Framer's
+`Easing` accepts `[number, number, number, number]`, but a bare array literal
+written outside a contextually typed position — in an extracted `variants`
+object, say — widens to `number[]` and fails the production type-check even
+though it compiles fine inline in JSX. Import `EASE` rather than writing the
+numbers inline, and annotate extracted variants with Framer's `Variants` type.
+
+React types are imported explicitly (`import type { CSSProperties } from 'react'`)
+rather than reached through the `React.*` UMD global, which is fragile across
+TypeScript and `@types/react` versions.
+
 ## Verify before shipping
 
 The project was written without a package install available, so run these once

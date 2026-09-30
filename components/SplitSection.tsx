@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import type { CSSProperties } from 'react'
 import Link from 'next/link'
 import type { StaticImageData } from 'next/image'
 
@@ -83,7 +84,7 @@ export function SplitSection({
           '--media-ratio': `${mediaRatio}fr`,
           '--media-aspect': aspect,
           '--body-measure': `${bodyMeasure}ch`,
-        } as React.CSSProperties
+        } as CSSProperties
       }
     >
       <div className={`container ${styles.grid}`}>
