@@ -35,10 +35,16 @@
 }
 
 .signatureName {
-  font-size: clamp(2rem, 1.6rem + 1.5vw, 2.625rem);
-  line-height: 1;
-  color: var(--teal);
-  padding-bottom: 0.12em;
+  display: flex;
+  align-items: center;
+}
+
+/* Width-driven, so the SVG's own 127:105 ratio sets the height and nothing
+   shifts while it loads. */
+.signatureMark img {
+  display: block;
+  width: clamp(6.25rem, 5.4rem + 3vw, 7.875rem);
+  height: auto;
 }
 
 .signatureMeta {

@@ -2,6 +2,10 @@
   padding-top: clamp(1.5rem, 3vw, 2.375rem);
 }
 
+.center .list {
+  justify-content: center;
+}
+
 .list {
   display: flex;
   flex-wrap: wrap;

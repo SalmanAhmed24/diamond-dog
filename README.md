@@ -91,8 +91,8 @@ The two photo-backed bands ("Why owners choose me" and the final CTA) use a fixe
 colour scrim rather than a CSS filter on the image, so white text is legible
 before the photo has decoded rather than only after.
 
-Type is Playfair Display (display), Hanken Grotesk (body) and Great Vibes (the
-signature), matched to the design's letterforms — the PDF embeds unnamed Type 3
+Type is Playfair Display (display) and Hanken Grotesk (body), matched to the
+design's letterforms — the PDF embeds unnamed Type 3
 subsets, so these are close visual equivalents rather than confirmed originals.
 Swap them in `app/layout.tsx` if the brand has licensed faces. The stats, the hero
 subhead and the badge use old-style figures via `font-variant-numeric`, as in the
@@ -103,6 +103,19 @@ design.
 ## Performance notes
 
 Two decisions do most of the work, and both are easy to undo by accident:
+
+**The signature.** `components/SignatureReveal.tsx` signs Kaylie's name on when
+it scrolls into view, once. The SVG is a single filled outline rather than
+centreline strokes, so the usual `stroke-dashoffset` draw isn't available;
+instead the clip edge sweeps across it, slanted and leading from the top so it
+tracks the forward lean of the script the way a pen tip would. A straight
+vertical wipe gives itself away immediately — the slant is what sells it. Only
+`clip-path` animates, so it stays on the compositor, and the 8kB of path data is
+passed in as children from the server component rather than landing in the
+client bundle.
+
+Replacing the lettered version with the real signature also retired Great Vibes,
+so the site now loads two fonts instead of three.
 
 **Nothing above the fold animates in.** Fading the `<h1>` from `opacity: 0` delays
 Largest Contentful Paint by the length of the animation — it's the most common
@@ -180,6 +193,13 @@ edge, and the featured cell spanning two columns needs no special casing.
 | `/book` | `app/book/page.tsx` | WebPage + ReserveAction + BreadcrumbList + ContactPoint JSON-LD |
 | `/contact` | `app/contact/page.tsx` | ContactPage + BreadcrumbList + ContactPoint JSON-LD |
 | `/faq` | `app/faq/page.tsx` | FAQPage + BreadcrumbList JSON-LD |
+| `/glow-up-gallery` | `app/glow-up-gallery/page.tsx` | CollectionPage + ImageGallery + BreadcrumbList JSON-LD |
+| `/service-agreement` | `app/service-agreement/page.tsx` | WebPage + BreadcrumbList JSON-LD |
+| `/vaccine-requirements` | `app/vaccine-requirements/page.tsx` | WebPage + hasPart + BreadcrumbList JSON-LD |
+| `/wellness` | `app/wellness/page.tsx` | WebPage + BreadcrumbList JSON-LD |
+
+Routes still linked from the nav or footer but not built:
+`/anxious-and-senior-dogs`, `/blog`, and the `/services` detail pages.
 
 `BOOKING_URL` is `/book`, so every "Book now" across the site now lands on a real
 page. On `/book` itself the button anchors to `#booking` instead of linking to
@@ -245,6 +265,62 @@ brand block, social icons in bordered squares, Google in place of X, "Add-Ons &
 Single Services" spelled out, and a copyright line in the meta row. Hours live in
 `business.hours` with both a short `label` and a long `labelLong`, plus
 `business.hoursSummary` for the single-line version.
+
+### Shared page furniture
+
+Four components cover most of the site, each taking its content as props:
+
+| Component | Used by |
+| --- | --- |
+| `PageHero` | `/faq`, `/glow-up-gallery`, `/service-agreement` — `align` switches between the ranged-left and centred designs, `body` is optional |
+| `ProseBand` | `/about` and both Service Agreement sections — `surface` picks sand or cream, `textAlign` ranges the paragraph left or centres it |
+| `PolicySections` | `/vaccine-requirements` — stacked ranged-left sections with full-bleed hairlines between them |
+| `SplitSection` | `/about`, `/book`, `/contact`, `/wellness` — one image beside one block of copy. `mediaSide`, `surface`, `mediaRatio`, `bodyMeasure` and `aspect` cover every variant in the designs |
+
+`mediaRatio` is emitted as `0.86fr`, not `0.86`. A bare number inside `minmax()`
+is not a valid grid track, and one invalid track makes the browser discard the
+whole `grid-template-columns` declaration — which silently collapses the section
+to a single stacked column on every page that uses it.
+| `FeatureGrid` | `/wellness` — informational cells, so unlike `ResourceLinks` they aren't links |
+| `NoticeCard` | `/wellness` — a bordered aside for a caveat that shouldn't read as body copy |
+| `Faq` | `/faq`, `/about`, `/service-agreement` |
+| `ResourceLinks` | `/book`, `/contact`, `/faq` |
+| `FinalCta` | every page. `variant="callOnly"` drops the Book now button and `note` adds a line beneath, which is how `/wellness` stays phone-only |
+
+`Breadcrumbs` takes `align` for the same reason as `PageHero`.
+
+### Reusing a question
+
+`faqPage.items` each carry a stable `id`, and `faqsById(['holding-pickup'])`
+pulls one out by name. `/service-agreement` and `/vaccine-requirements` show their questions that way
+rather than restating them, so editing an answer on the FAQ page updates every
+page that shows it.
+Validation fails if an `itemIds` entry names an id that doesn't exist.
+
+### The gallery filter
+
+`components/GalleryGrid.tsx` filters one grid rather than switching between
+panels, so the tags are toggle buttons with `aria-pressed` rather than a
+tablist, and a visually hidden live region announces the result count on each
+change.
+
+The grid is six columns: landscape tiles span three, squares span two. At 1280px
+that resolves to 630px and 413px cells with a 20px gutter, matching the design
+exactly, and it reflows to two-up then one-up without special cases.
+
+Filtering replays a short stagger by re-keying the list rather than using
+Framer's `layout` prop. That is deliberate: layout animations need the `domMax`
+feature bundle, roughly 10kB more than the `domAnimation` set the rest of the
+site runs on, and a crossfade reads just as well here.
+
+Gallery-page photos are prefixed `glowup-` and the home page's own gallery crops
+`gallery-`. They are different crops of overlapping subjects, so the prefixes
+stop one silently overwriting the other.
+
+Add a photo by dropping the file in `public/images`, adding a line to
+`glowUpImages` in `lib/images.ts` and an entry to `glowUpGallery.items`. The
+filter, the count and the `ImageGallery` structured data all follow from that
+one array.
 
 ### Scrim opacities
 

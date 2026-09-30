@@ -4,13 +4,13 @@ import { SiteHeader } from '@/components/SiteHeader'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { BookHero } from '@/components/BookHero'
 import { BookingEmbed } from '@/components/BookingEmbed'
-import { BookBeforeYouBook } from '@/components/BookBeforeYouBook'
+import { SplitSection } from '@/components/SplitSection'
 import { ResourceLinks } from '@/components/ResourceLinks'
 import { FinalCta } from '@/components/FinalCta'
 import { SiteFooter } from '@/components/SiteFooter'
 
 import { SITE_URL, book, business, phone } from '@/lib/site'
-import { bookCtaBackdrop } from '@/lib/images'
+import { bookBeforeYouBook, bookCtaBackdrop } from '@/lib/images'
 
 const title = 'Book Your Groom'
 const description =
@@ -88,7 +88,15 @@ export default function BookPage() {
       <main id="main">
         <BookHero />
         <BookingEmbed />
-        <BookBeforeYouBook />
+        <SplitSection
+          heading={book.beforeYouBook.heading}
+          body={book.beforeYouBook.body}
+          headingId="before-heading"
+          image={bookBeforeYouBook}
+          imageAlt={book.beforeYouBook.imageAlt}
+          aspect="427 / 315"
+          mediaRatio={0.62}
+        />
         <ResourceLinks heading={book.resources.heading} items={book.resources.items} />
         <FinalCta
           heading={book.cta.heading}

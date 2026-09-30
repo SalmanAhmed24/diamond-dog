@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 import { Reveal } from './Reveal'
-import { ScriptReveal } from './ScriptReveal'
+import { SignatureReveal } from './SignatureReveal'
 import { ArrowRight } from './icons'
 import { business, philosophy } from '@/lib/site'
 import { philosophyKaylie } from '@/lib/images'
@@ -29,7 +29,17 @@ export function Philosophy() {
 
           <figure className={styles.signature}>
             <figcaption className={styles.signatureName}>
-              <ScriptReveal className="script">{business.owner}</ScriptReveal>
+              <SignatureReveal className={styles.signatureMark}>
+                {/* Plain img, not next/image: an SVG has nothing to optimise,
+                    and the intrinsic size here prevents any layout shift. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/kaylie-signature.svg"
+                  alt={business.owner}
+                  width={127}
+                  height={105}
+                />
+              </SignatureReveal>
             </figcaption>
             <div className={styles.signatureMeta}>
               <span>{business.ownerRole}</span>

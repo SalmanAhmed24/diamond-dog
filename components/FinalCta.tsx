@@ -2,6 +2,7 @@ import Image from 'next/image'
 import type { StaticImageData } from 'next/image'
 
 import { Reveal } from './Reveal'
+import { Mark } from './icons'
 import { BOOKING_URL, callHref, finalCta } from '@/lib/site'
 import { ctaBackdrop } from '@/lib/images'
 import styles from './FinalCta.module.css'
@@ -12,6 +13,10 @@ type FinalCtaProps = {
   callLabel?: string
   /** Defaults to the booking provider; /book points at its own embed. */
   bookHref?: string
+  /** 'callOnly' drops the Book now button — wellness is a phone conversation. */
+  variant?: 'default' | 'callOnly'
+  /** Small line under the buttons. */
+  note?: string
   /** Each page passes its own backdrop; defaults to the home page photo. */
   backdrop?: StaticImageData
   backdropScrim?: 'default' | 'strong'
@@ -22,6 +27,8 @@ export function FinalCta({
   body = finalCta.body,
   callLabel = 'Call / Text',
   bookHref = BOOKING_URL,
+  variant = 'default',
+  note,
   backdrop = ctaBackdrop,
   backdropScrim = 'default',
 }: FinalCtaProps = {}) {
@@ -49,13 +56,21 @@ export function FinalCta({
           <p className={styles.body}>{body}</p>
 
           <div className={styles.actions}>
-            <a href={bookHref} className="btn btn--teal">
-              Book now
-            </a>
-            <a href={callHref} className="btn btn--onDark">
+            {variant === 'default' && (
+              <a href={bookHref} className="btn btn--teal">
+                Book now
+              </a>
+            )}
+            <a
+              href={callHref}
+              className={variant === 'callOnly' ? 'btn btn--teal' : 'btn btn--onDark'}
+            >
+              {variant === 'callOnly' && <Mark name="chat" size={17} />}
               {callLabel}
             </a>
           </div>
+
+          {note && <p className={styles.note}>{note}</p>}
         </Reveal>
       </div>
     </section>

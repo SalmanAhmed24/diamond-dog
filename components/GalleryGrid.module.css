@@ -1,0 +1,111 @@
+.section {
+  background-color: var(--cream);
+  padding-block: clamp(1rem, 2vw, 2rem) clamp(3.5rem, 7vw, 6rem);
+}
+
+.heading {
+  margin-top: 0.875rem;
+}
+
+/* ---------- Filter pills ---------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+.filter {
+  min-height: 42px;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--rule);
+  background-color: var(--cream);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.2;
+  transition: background-color 0.18s var(--ease), border-color 0.18s var(--ease),
+    color 0.18s var(--ease);
+}
+
+.filter:hover {
+  border-color: var(--text);
+  color: var(--text);
+}
+
+.filterActive {
+  background-color: var(--ink);
+  border-color: var(--ink);
+  color: #ffffff;
+}
+
+/* ---------- Grid ----------
+   Six columns: landscape tiles span three, squares span two. At 1280px that
+   gives 630px and 413px cells with a 20px gutter, matching the design. */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.wide {
+  grid-column: span 3;
+}
+
+.square {
+  grid-column: span 2;
+}
+
+.tile {
+  overflow: hidden;
+  background-color: var(--sand);
+  height: 100%;
+}
+
+.wide .tile {
+  aspect-ratio: 3 / 2;
+}
+
+.square .tile {
+  aspect-ratio: 1 / 1;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s var(--ease);
+}
+
+.tile:hover .photo {
+  transform: scale(1.035);
+}
+
+@media (max-width: 1023px) {
+  .wide {
+    grid-column: span 6;
+  }
+
+  .square {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 599px) {
+  .grid {
+    gap: 12px;
+  }
+
+  .square {
+    grid-column: span 6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile:hover .photo {
+    transform: none;
+  }
+}

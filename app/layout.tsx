@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Playfair_Display, Hanken_Grotesk, Great_Vibes } from 'next/font/google'
+import { Playfair_Display, Hanken_Grotesk } from 'next/font/google'
 
 import { MotionProvider } from '@/components/MotionProvider'
 import { SITE_URL, business, seo } from '@/lib/site'
@@ -18,13 +18,6 @@ const sans = Hanken_Grotesk({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-sans',
-})
-
-const script = Great_Vibes({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-script',
-  weight: '400',
 })
 
 export const metadata: Metadata = {
@@ -94,7 +87,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable} ${script.variable}`}>
+    <html lang="en" className={`${serif.variable} ${sans.variable}`}>
       <body>
         <MotionProvider>{children}</MotionProvider>
       </body>

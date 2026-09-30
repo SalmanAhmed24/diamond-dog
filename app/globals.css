@@ -130,12 +130,6 @@ p {
   letter-spacing: -0.005em;
 }
 
-.script {
-  font-family: var(--font-script), ui-serif, cursive;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-}
-
 /* Section eyebrow — small teal label with the diamond mark */
 .eyebrow {
   display: flex;
@@ -350,8 +344,7 @@ p {
      so only an author !important rule can hold these elements at their final
      state. Doing it here rather than in JS also keeps SSR and the client's first
      render identical, which avoids a hydration mismatch. */
-  [data-reveal],
-  [data-script-wipe] {
+  [data-reveal] {
     opacity: 1 !important;
     transform: none !important;
     clip-path: none !important;

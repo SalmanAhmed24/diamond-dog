@@ -1,0 +1,47 @@
+.section {
+  background-color: var(--cream);
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+.card {
+  max-width: 62rem;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem) clamp(1.25rem, 3vw, 2.25rem)
+    clamp(1.5rem, 3vw, 2rem);
+  border: 1px solid var(--teal);
+  /* A heavier left edge marks this as an aside rather than another band. */
+  border-left-width: 3px;
+  background-color: var(--cream);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.icon {
+  color: var(--teal-ink);
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+.heading {
+  font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.body {
+  margin-top: 0.875rem;
+  padding-left: calc(22px + 0.875rem);
+  max-width: 68ch;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.72;
+}
+
+@media (max-width: 599px) {
+  .body {
+    padding-left: 0;
+  }
+}

@@ -283,60 +283,70 @@ export const faqPage = {
   heading: 'The questions',
   items: [
     {
+      id: 'kenneling',
       question: 'Is my dog kenneled during grooming?',
       answer:
         'No, I don\u2019t kennel your dog during grooming. While waiting, dogs stay in a comfortable, open play pen rather than a cage.',
       readMoreHref: '/about',
     },
     {
+      id: 'bordetella',
       question: 'Why don\u2019t you require the Bordetella vaccine?',
       answer:
         'I don\u2019t require Bordetella, because it\u2019s meant for long-term boarding, not a grooming visit. The vaccine protects against kennel cough, which spreads through prolonged, close contact between dogs in boarding environments. Since I groom your dog and send them home the same day rather than boarding them, that level of exposure doesn\u2019t apply.',
       readMoreHref: '/vaccine-requirements',
     },
     {
+      id: 'how-long',
       question: 'How long will my dog\u2019s grooming take?',
       answer:
         'I have most dogs home in 45 minutes to an hour. Large and extra large dogs typically take a bit longer. The exact time depends on the service and your dog\u2019s size and coat, and I personally plan and guide every groom.',
       readMoreHref: '/about',
     },
     {
+      id: 'matting',
       question: 'My dog is matted - what will you do?',
       answer:
         'I\u2019ll remove the unhealthy matted coat humanely, then build a grow-out plan back to the coat you want. Health over hair means I take the mats out safely first, then work back toward your dog\u2019s full coat over time.',
       readMoreHref: '/services/full-groom',
     },
     {
+      id: 'vaccines',
       question: 'What vaccines does my dog need before grooming?',
       answer:
         'I only need your dog to have distemper/parvo and rabies - nothing more. Puppies can start after two sets of distemper/parvo, typically around 12 weeks, with rabies added after 16 weeks.',
       readMoreHref: '/vaccine-requirements',
     },
     {
+      id: 'bath-vs-deshed',
       question: 'What\u2019s the difference between a bath and a de-shed?',
       answer:
         'A bath cleans the coat; my de-shedding treatment removes the dead undercoat trapped underneath it. Double-coated breeds need the de-shed, not a bath, since a bath alone won\u2019t release that undercoat - and the de-shed can reduce shedding by up to 90%.',
       readMoreHref: '/services/de-shedding-treatment',
     },
     {
+      id: 'how-often',
       question: 'How often should I groom my doodle or double-coated dog?',
       answer:
         'I recommend grooming most doodle and double-coated dogs every 4 to 6 weeks. I\u2019ll work with you to build a regular pattern that fits your specific dog\u2019s coat and lifestyle.',
       readMoreHref: '/services',
     },
     {
+      id: 'anxious-senior',
       question: 'Do you groom anxious or senior dogs?',
       answer:
         'Yes, anxious and senior dogs are exactly who I built my model for. Personal, unhurried attention with no kennel and no long wait tends to suit a nervous or older dog far better than a typical grooming environment.',
       readMoreHref: '/anxious-and-senior-dogs',
     },
     {
+      id: 'puppy-first-groom',
       question: 'When can my puppy have its first groom?',
       answer:
         'I can give your puppy its first groom after two sets of distemper/parvo, usually around 12 weeks. Rabies is required after 16 weeks, in line with standard puppy vaccine timing.',
       readMoreHref: '/vaccine-requirements',
     },
     {
+      id: 'holding-pickup',
       question: 'What if I can\u2019t pick up my dog right away?',
       answer:
         'I offer holding for a fee if you can\u2019t pick your dog up right away. A respectful heads-up is appreciated and may waive that fee - communication matters more to me than a strict cutoff time.',
@@ -485,6 +495,245 @@ export const contact = {
     heading: 'Ready to get started?',
     body: 'Let\u2019s get started! Book online, or call or text anytime.',
     callLabel: 'Call or text',
+  },
+}
+
+export const GALLERY_TAGS = [
+  'All',
+  'De-Shedding Treatment',
+  'Full Groom',
+  'Bath',
+  'Sanitary Groom',
+  'Cat Grooming',
+  'Add-Ons & Single Services',
+] as const
+
+export type GalleryTag = (typeof GALLERY_TAGS)[number]
+
+export const glowUpGallery = {
+  breadcrumb: [
+    { label: 'Home', href: '/' },
+    { label: 'Gallery', href: '/glow-up-gallery' },
+  ],
+  hero: {
+    heading: 'The Glow Up Gallery - before, after, and the plan in between',
+    body:
+      'Welcome to the Glow Up Gallery. Real dogs, real transformations, including full before-and-after photos that show what a health-over-hair plan looks like over time.',
+    callLabel: 'Call or text',
+  },
+  eyebrow: 'The Glow Up Gallery',
+  heading: 'The gallery',
+  /** Order here is the order shown under "All". */
+  items: [
+    {
+      key: 'terrier-pair-ties',
+      tag: 'Add-Ons & Single Services',
+      shape: 'wide',
+      alt: 'Two freshly groomed terriers in matching donut-print ties on the grooming table.',
+    },
+    {
+      key: 'dog-rolling',
+      tag: 'Sanitary Groom',
+      shape: 'wide',
+      alt: 'A tan and white dog rolling happily on its back on the salon floor after a sanitary groom.',
+    },
+    {
+      key: 'bw-coat-before',
+      tag: 'De-Shedding Treatment',
+      shape: 'square',
+      alt: 'A black and white double-coated dog standing on the table before its de-shedding treatment.',
+    },
+    {
+      key: 'aussie-resting',
+      tag: 'De-Shedding Treatment',
+      shape: 'square',
+      alt: 'An Australian shepherd resting on the salon floor with a bright, de-shedded coat.',
+    },
+    {
+      key: 'bath-suds',
+      tag: 'Bath',
+      shape: 'square',
+      alt: 'A short-coated dog covered in suds standing in the grooming tub.',
+    },
+    {
+      key: 'cream-doodle',
+      tag: 'Full Groom',
+      shape: 'square',
+      alt: 'A cream goldendoodle standing in front of a bookshelf after a full groom.',
+    },
+    {
+      key: 'red-doodle-floor',
+      tag: 'Full Groom',
+      shape: 'square',
+      alt: 'A red goldendoodle lying on a wooden floor after a full groom, wearing a patterned collar.',
+    },
+    {
+      key: 'red-poodle-bandana',
+      tag: 'Add-Ons & Single Services',
+      shape: 'square',
+      alt: 'A red poodle in a paw-print bandana sitting on the grooming table.',
+    },
+    {
+      key: 'orange-cat',
+      tag: 'Cat Grooming',
+      shape: 'square',
+      alt: 'An orange cat resting on the table after a lion-cut shave-down.',
+    },
+  ] satisfies {
+    key: string
+    tag: GalleryTag
+    shape: 'wide' | 'square'
+    alt: string
+  }[],
+  cta: {
+    heading: 'Ready to get started?',
+    body: 'Like what you see? Let\u2019s get started! Book online, or call or text anytime.',
+    callLabel: 'Call or text',
+  },
+}
+
+export const serviceAgreement = {
+  breadcrumb: [
+    { label: 'Home', href: '/' },
+    { label: 'Service Agreement', href: '/service-agreement' },
+  ],
+  heading: 'Service Agreement',
+  callLabel: 'Call or text',
+  sections: [
+    {
+      id: 'matting-behavior-fee',
+      heading: 'The matting & behavior fee',
+      body:
+        'Some grooms carry an added fee for heavy matting or difficult behavior, assessed in person when your dog arrives. It reflects the real time and care a harder groom takes, and is assessed honestly on the day of arrival.',
+    },
+    {
+      id: 'holding-pickup',
+      heading: 'Holding & pickup',
+      body:
+        'A fee applies if your dog is held for an extended time after their groom is finished, since holding your dog isn\u2019t the same as daycare and takes up time and space meant for the next appointment. That said, communication goes a long way here, a respectful heads-up that you\u2019ll be running late is genuinely appreciated and may waive that fee entirely.',
+    },
+  ],
+  faq: {
+    eyebrow: 'Questions',
+    heading: 'Frequently asked questions',
+    /** Pulled from faqPage.items by id, so the wording can never drift. */
+    itemIds: ['holding-pickup'],
+  },
+  cta: {
+    heading: 'Ready to get started?',
+    body: 'Like what you see? Let\u2019s get started! Book online, or call or text anytime.',
+    callLabel: 'Call or text',
+  },
+}
+
+/** Look up FAQ entries by id for pages that reuse a question. */
+export function faqsById(ids: string[]) {
+  return ids
+    .map((id) => faqPage.items.find((item) => item.id === id))
+    .filter((item): item is (typeof faqPage.items)[number] => Boolean(item))
+}
+
+export const vaccineRequirements = {
+  breadcrumb: [
+    { label: 'Home', href: '/' },
+    { label: 'Vaccine Requirements', href: '/vaccine-requirements' },
+  ],
+  heading: 'Vaccine Requirements',
+  callLabel: 'Call or text',
+  sections: [
+    {
+      id: 'what-the-law-requires',
+      heading: 'What the law requires',
+      body:
+        'Only two vaccines are actually required before grooming: distemper/parvo and rabies. Nothing else is needed to book.',
+    },
+    {
+      id: 'why-no-bordetella',
+      heading: 'Why we don\u2019t require the Bordetella vaccine',
+      body:
+        'Bordetella is typically required for long-term boarding, not for a grooming visit. Most groomers require it because dogs are co-mingled and kenneled together over extended stays, which is exactly the environment where airborne illness like kennel cough spreads. A grooming appointment here doesn\u2019t create that kind of prolonged exposure, so the vaccine that exists to guard against it isn\u2019t required.',
+    },
+    {
+      id: 'puppies',
+      heading: 'Puppies',
+      body:
+        'A puppy\u2019s earliest groom can happen after two sets of distemper/parvo vaccines, typically around 12 weeks old. Rabies vaccination is required after 16 weeks, which lines up with standard puppy vaccine schedules most owners are already following with their vet.',
+    },
+    {
+      id: 'how-to-send-records',
+      heading: 'How to send your records',
+      body:
+        'Sending vaccine records is simple. Just email them over ahead of your appointment, and they\u2019ll be kept on file so you don\u2019t need to bring paperwork every visit.',
+    },
+  ],
+  faq: {
+    eyebrow: 'Questions',
+    heading: 'Frequently asked questions',
+    /** Pulled from faqPage.items by id, so the wording can never drift. */
+    itemIds: ['bordetella', 'puppy-first-groom'],
+  },
+  cta: {
+    heading: 'Ready to get started?',
+    body: 'Let\u2019s get started! Book online, or call or text anytime.',
+    callLabel: 'Call or text',
+  },
+}
+
+export const wellnessPage = {
+  breadcrumb: [
+    { label: 'Home', href: '/' },
+    { label: 'Wellness', href: '/wellness' },
+  ],
+  hero: {
+    heading: 'Where Grooming Meets Wellness',
+    body:
+      'When I groom your dog, I\u2019m looking at more than the haircut - I\u2019m looking at their comfort, their skin, and their coat health. That\u2019s where grooming meets wellness. Call or text to book a wellness check or visit.',
+    callLabel: 'Call or text',
+    imageAlt: 'A freshly bathed white spitz wrapped in a bright blue towel, tongue out and happy.',
+  },
+  signals: {
+    eyebrow: 'What I watch while I work',
+    heading: 'A groom is a window into how your dog is doing',
+    items: [
+      { icon: 'sparkle', title: 'Coat health', description: 'A coat that\u2019s gone dull' },
+      { icon: 'leaf', title: 'Skin', description: 'Skin that reacts differently than it used to' },
+      {
+        icon: 'heart',
+        title: 'Comfort',
+        description: 'A dog suddenly uncomfortable being brushed in one spot',
+      },
+      {
+        icon: 'calendar',
+        title: 'The right schedule',
+        description: 'The right bath, the right schedule, the things to watch',
+      },
+    ],
+  },
+  philosophy: {
+    heading: 'The wellness philosophy',
+    body:
+      '\u201CWhere grooming meets wellness\u201D means I treat every groom as a window into how your dog is really doing. A coat that\u2019s gone dull, skin that reacts differently than it used to, a dog who\u2019s suddenly uncomfortable being brushed in one spot - I notice those things while I work, because I\u2019m with your dog one-on-one from start to finish, not rushing them through a line. To me, none of that is separate from grooming. It\u2019s the same health-over-hair thinking that shapes every cut I do: your dog\u2019s comfort and long-term skin and coat health come first, and the look follows from that. So instead of sending you home with a nice haircut and nothing else, I\u2019ll tell you what I\u2019m seeing and help you build a plan around it - the right bath, the right schedule, the things to keep an eye on. It\u2019s a plan built around your whole dog, not just today\u2019s appointment.',
+    link: { label: 'Read the philosophy', href: '/about' },
+    imageAlt: 'An owner crouching beside her golden retriever among autumn leaves.',
+  },
+  assess: {
+    heading: 'Come in and let me assess your dog',
+    body:
+      'The best way to start is simple: bring your dog in and tell me about them. What their coat\u2019s been doing, how they handle grooming, what\u2019s worked and what hasn\u2019t, anything you\u2019ve been wondering about. From there I\u2019ll take a real look and guide you on what they actually need - both the grooming side and the wellness side. I don\u2019t do one-size-fits-all packages, and I don\u2019t guess. I\u2019d rather have a real conversation with you, because that\u2019s genuinely how I work best. I also follow up after we build a plan, because I want every client to feel like they\u2019re my only client, not one dog moving through a busy day. If that sounds like what you\u2019ve been looking for, give me a call and let\u2019s talk through your dog.',
+    callLabel: 'Call or text',
+    link: { label: 'Anxious and senior dogs', href: '/anxious-and-senior-dogs' },
+  },
+  boundary: {
+    heading: 'Where wellness ends and the vet begins',
+    body:
+      'To be clear about where my line is: wellness with me means comfort, skin, and coat health - nothing medical. I\u2019m not diagnosing or treating anything. If I notice something that looks like it needs a vet, I\u2019ll tell you plainly and point you to your vet or the right specialist. That boundary matters to me, and I take it seriously. It\u2019s part of taking real care of your dog.',
+  },
+  cta: {
+    heading: 'Want to talk through your dog\u2019s coat, comfort, or overall wellness?',
+    body:
+      'Give me a call or text and let\u2019s start the conversation - no booking widget, just a real talk about your dog.',
+    callLabel: 'Call or text',
+    note: 'Wellness is a conversation, not a booking. This one is by phone.',
   },
 }
 

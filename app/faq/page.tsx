@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 import { SiteHeader } from '@/components/SiteHeader'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
-import { FaqHero } from '@/components/FaqHero'
+import { PageHero } from '@/components/PageHero'
 import { Faq } from '@/components/Faq'
 import { ResourceLinks } from '@/components/ResourceLinks'
 import { FinalCta } from '@/components/FinalCta'
@@ -74,7 +74,11 @@ export default function FaqPage() {
       <Breadcrumbs trail={faqPage.breadcrumb} />
 
       <main id="main">
-        <FaqHero />
+        <PageHero
+          heading={faqPage.hero.heading}
+          headingId="faq-page-heading"
+          callLabel={faqPage.hero.callLabel}
+        />
         <Faq
           heading={faqPage.heading}
           items={faqPage.items}

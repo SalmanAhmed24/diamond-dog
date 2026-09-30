@@ -1,0 +1,28 @@
+/* Visible by default. The animation below only ever adds motion on top, so a
+   failure can never leave the signature hidden. */
+.mark {
+  display: inline-block;
+  line-height: 0;
+}
+
+.signing {
+  animation: sign 1.25s cubic-bezier(0.35, 0.05, 0.25, 1) both;
+}
+
+/* The clip edge leans forward, leading from the top, so it tracks the slant of
+   the script the way a pen tip would. A straight vertical wipe reads as a wipe;
+   the slant is what makes it read as writing. */
+@keyframes sign {
+  from {
+    clip-path: polygon(-40% 0%, -15% 0%, -40% 100%, -40% 100%);
+  }
+  to {
+    clip-path: polygon(-40% 0%, 130% 0%, 100% 100%, -40% 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signing {
+    animation: none;
+  }
+}

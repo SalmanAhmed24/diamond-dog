@@ -3,14 +3,14 @@ import type { Metadata } from 'next'
 import { SiteHeader } from '@/components/SiteHeader'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { AboutHero } from '@/components/AboutHero'
-import { AboutProcess } from '@/components/AboutProcess'
-import { AboutGuide } from '@/components/AboutGuide'
+import { ProseBand } from '@/components/ProseBand'
+import { SplitSection } from '@/components/SplitSection'
 import { Faq } from '@/components/Faq'
 import { FinalCta } from '@/components/FinalCta'
 import { SiteFooter } from '@/components/SiteFooter'
 
 import { SITE_URL, about, aboutFaqs, business } from '@/lib/site'
-import { aboutCtaBackdrop } from '@/lib/images'
+import { aboutCtaBackdrop, aboutGuideDog } from '@/lib/images'
 
 const title = 'About The Diamond Dog | Health Over Hair'
 const description =
@@ -83,8 +83,22 @@ export default function AboutPage() {
 
       <main id="main">
         <AboutHero />
-        <AboutProcess />
-        <AboutGuide />
+        <ProseBand
+          heading={about.process.heading}
+          body={about.process.body}
+          headingId="process-heading"
+          textAlign="left"
+        />
+        <SplitSection
+          heading={about.guide.heading}
+          body={about.guide.body}
+          headingId="guide-heading"
+          image={aboutGuideDog}
+          imageAlt={about.guide.imageAlt}
+          aspect="599 / 486"
+          mediaSide="right"
+          mediaRatio={1.02}
+        />
         <Faq
           heading={aboutFaqs.heading}
           eyebrow={aboutFaqs.eyebrow}

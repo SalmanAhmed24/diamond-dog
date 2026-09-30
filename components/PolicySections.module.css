@@ -1,0 +1,26 @@
+.section {
+  background-color: var(--cream);
+}
+
+.item {
+  border-top: 1px solid var(--rule);
+  padding-block: clamp(2.25rem, 4.5vw, 3.5rem);
+}
+
+.heading {
+  /* Narrower than the body, so longer titles break onto two lines the way the
+     design does rather than running the full measure. */
+  max-width: 18ch;
+  font-size: clamp(1.5rem, 1.1rem + 1.7vw, 2.125rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.body {
+  margin-top: 1rem;
+  max-width: 75ch;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}

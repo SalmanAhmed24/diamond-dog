@@ -21,6 +21,19 @@ import bookCtaBackdrop from '@/public/images/book-cta-backdrop.webp'
 import contactWhereIWork from '@/public/images/contact-where-i-work.webp'
 import contactCtaBackdrop from '@/public/images/contact-cta-backdrop.webp'
 
+import wellnessTowelDog from '@/public/images/wellness-towel-dog.webp'
+import wellnessAutumnWalk from '@/public/images/wellness-autumn-walk.webp'
+
+import glTerriers from '@/public/images/glowup-terrier-pair-ties.webp'
+import glRolling from '@/public/images/glowup-dog-rolling.webp'
+import glBwCoat from '@/public/images/glowup-bw-coat-before.webp'
+import glAussie from '@/public/images/glowup-aussie-resting.webp'
+import glBath from '@/public/images/glowup-bath-suds.webp'
+import glCreamDoodle from '@/public/images/glowup-cream-doodle.webp'
+import glRedDoodle from '@/public/images/glowup-red-doodle-floor.webp'
+import glRedPoodle from '@/public/images/glowup-red-poodle-bandana.webp'
+import glOrangeCat from '@/public/images/glowup-orange-cat.webp'
+
 import svcDeShedding from '@/public/images/service-de-shedding.webp'
 import svcFullGroom from '@/public/images/service-full-groom.webp'
 import svcBath from '@/public/images/service-bath.webp'
@@ -48,6 +61,8 @@ export {
   bookCtaBackdrop,
   contactWhereIWork,
   contactCtaBackdrop,
+  wellnessTowelDog,
+  wellnessAutumnWalk,
 }
 
 /** Keyed by the service slug used in lib/site.ts */
@@ -60,7 +75,20 @@ export const serviceImages: Record<string, StaticImageData> = {
   'add-ons': svcAddOns,
 }
 
-/** Keyed by the `key` field on each gallery entry in lib/site.ts */
+/** Keyed by the `key` field on each entry in `glowUpGallery.items` */
+export const glowUpImages: Record<string, StaticImageData> = {
+  'terrier-pair-ties': glTerriers,
+  'dog-rolling': glRolling,
+  'bw-coat-before': glBwCoat,
+  'aussie-resting': glAussie,
+  'bath-suds': glBath,
+  'cream-doodle': glCreamDoodle,
+  'red-doodle-floor': glRedDoodle,
+  'red-poodle-bandana': glRedPoodle,
+  'orange-cat': glOrangeCat,
+}
+
+/** Keyed by the `key` field on each home-page gallery entry in lib/site.ts */
 export const galleryImages: Record<string, StaticImageData> = {
   'doodle-bookshelf': galDoodle,
   'terrier-pair': galTerriers,

@@ -4,13 +4,13 @@ import { SiteHeader } from '@/components/SiteHeader'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { ContactHero } from '@/components/ContactHero'
 import { ContactMap } from '@/components/ContactMap'
-import { ContactWhereIWork } from '@/components/ContactWhereIWork'
+import { SplitSection } from '@/components/SplitSection'
 import { ResourceLinks } from '@/components/ResourceLinks'
 import { FinalCta } from '@/components/FinalCta'
 import { SiteFooter } from '@/components/SiteFooter'
 
 import { SITE_URL, book, business, contact, phone } from '@/lib/site'
-import { contactCtaBackdrop } from '@/lib/images'
+import { contactCtaBackdrop, contactWhereIWork } from '@/lib/images'
 
 const title = 'Contact & Hours'
 const description = `Call or text The Diamond Dog in Urbandale, Iowa on ${phone.display}. Open Monday to Friday 8 to 5 and Saturday 8 to 3 by appointment, serving Clive, Windsor Heights, Johnston and West Des Moines.`
@@ -81,7 +81,15 @@ export default function ContactPage() {
       <main id="main">
         <ContactHero />
         <ContactMap />
-        <ContactWhereIWork />
+        <SplitSection
+          heading={contact.whereIWork.heading}
+          body={contact.whereIWork.body}
+          headingId="where-heading"
+          image={contactWhereIWork}
+          imageAlt={contact.whereIWork.imageAlt}
+          aspect="412 / 312"
+          mediaRatio={0.6}
+        />
         <ResourceLinks heading={book.resources.heading} items={book.resources.items} />
         <FinalCta
           heading={contact.cta.heading}
