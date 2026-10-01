@@ -11,7 +11,6 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { SITE_URL, faqsById, serviceAgreement } from '@/lib/site'
 import { contactCtaBackdrop } from '@/lib/images'
 
-const title = 'Service Agreement'
 const description =
   'The Diamond Dog service agreement in plain terms: how the matting and behavior fee works, and how holding and pickup are handled after your dog\u2019s groom is finished.'
 
@@ -23,31 +22,33 @@ export const metadata: Metadata = {
   twitter: { title, description },
 }
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'WebPage',
-      '@id': `${SITE_URL}/service-agreement#page`,
-      url: `${SITE_URL}/service-agreement`,
-      name: title,
-      description,
-      isPartOf: { '@id': `${SITE_URL}/#website` },
-      about: { '@id': `${SITE_URL}/#business` },
-    },
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: serviceAgreement.breadcrumb.map((crumb, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        name: crumb.label,
-        item: `${SITE_URL}${crumb.href === '/' ? '' : crumb.href}`,
-      })),
-    },
-  ],
-}
-
 export default function ServiceAgreementPage() {
+  const title = 'Service Agreement'
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': `${SITE_URL}/service-agreement#page`,
+        url: `${SITE_URL}/service-agreement`,
+        name: title,
+        description,
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        about: { '@id': `${SITE_URL}/#business` },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: serviceAgreement.breadcrumb.map((crumb, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: crumb.label,
+          item: `${SITE_URL}${crumb.href === '/' ? '' : crumb.href}`,
+        })),
+      },
+    ],
+  }
+
   // Reused verbatim from the FAQ page rather than restated, so the two can
   // never drift. FAQPage markup stays on /faq only.
   const faqItems = faqsById(serviceAgreement.faq.itemIds)

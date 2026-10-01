@@ -12,9 +12,6 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { SITE_URL, book, business, contact, phone } from '@/lib/site'
 import { contactCtaBackdrop, contactWhereIWork } from '@/lib/images'
 
-const title = 'Contact & Hours'
-const description = `Call or text The Diamond Dog in Urbandale, Iowa on ${phone.display}. Open Monday to Friday 8 to 5 and Saturday 8 to 3 by appointment, serving Clive, Windsor Heights, Johnston and West Des Moines.`
-
 export const metadata: Metadata = {
   title,
   description,
@@ -23,46 +20,50 @@ export const metadata: Metadata = {
   twitter: { title, description },
 }
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'ContactPage',
-      '@id': `${SITE_URL}/contact#page`,
-      url: `${SITE_URL}/contact`,
-      name: title,
-      description,
-      isPartOf: { '@id': `${SITE_URL}/#website` },
-      about: { '@id': `${SITE_URL}/#business` },
-      mainEntity: { '@id': `${SITE_URL}/#business` },
-    },
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: contact.breadcrumb.map((crumb, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        name: crumb.label,
-        item: `${SITE_URL}${crumb.href === '/' ? '' : crumb.href}`,
-      })),
-    },
-    {
-      '@type': 'ContactPoint',
-      '@id': `${SITE_URL}/contact#point`,
-      telephone: phone.number,
-      contactType: 'Customer service',
-      areaServed: business.areaServed,
-      availableLanguage: 'English',
-      hoursAvailable: business.hours.map((slot) => ({
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: slot.days,
-        opens: slot.opens,
-        closes: slot.closes,
-      })),
-    },
-  ],
-}
-
 export default function ContactPage() {
+  const title = 'Contact & Hours'
+
+  const description = `Call or text The Diamond Dog in Urbandale, Iowa on ${phone.display}. Open Monday to Friday 8 to 5 and Saturday 8 to 3 by appointment, serving Clive, Windsor Heights, Johnston and West Des Moines.`
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'ContactPage',
+        '@id': `${SITE_URL}/contact#page`,
+        url: `${SITE_URL}/contact`,
+        name: title,
+        description,
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        about: { '@id': `${SITE_URL}/#business` },
+        mainEntity: { '@id': `${SITE_URL}/#business` },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: contact.breadcrumb.map((crumb, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: crumb.label,
+          item: `${SITE_URL}${crumb.href === '/' ? '' : crumb.href}`,
+        })),
+      },
+      {
+        '@type': 'ContactPoint',
+        '@id': `${SITE_URL}/contact#point`,
+        telephone: phone.number,
+        contactType: 'Customer service',
+        areaServed: business.areaServed,
+        availableLanguage: 'English',
+        hoursAvailable: business.hours.map((slot) => ({
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: slot.days,
+          opens: slot.opens,
+          closes: slot.closes,
+        })),
+      },
+    ],
+  }
+
   return (
     <>
       <script

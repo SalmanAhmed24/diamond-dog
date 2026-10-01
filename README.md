@@ -197,9 +197,38 @@ edge, and the featured cell spanning two columns needs no special casing.
 | `/service-agreement` | `app/service-agreement/page.tsx` | WebPage + BreadcrumbList JSON-LD |
 | `/vaccine-requirements` | `app/vaccine-requirements/page.tsx` | WebPage + hasPart + BreadcrumbList JSON-LD |
 | `/wellness` | `app/wellness/page.tsx` | WebPage + BreadcrumbList JSON-LD |
+| `/anxious-and-senior-dogs` | `app/anxious-and-senior-dogs/page.tsx` | WebPage + Audience + BreadcrumbList JSON-LD |
+| `/services/add-ons` | `app/services/add-ons/page.tsx` | Service + OfferCatalog + BreadcrumbList JSON-LD |
+| `/services/bath` | `app/services/bath/page.tsx` | Service + OfferCatalog + BreadcrumbList JSON-LD |
+| `/services/cat-grooming` | `app/services/cat-grooming/page.tsx` | Service + Audience + OfferCatalog + BreadcrumbList JSON-LD |
+| `/services/de-shedding-treatment` | `app/services/de-shedding-treatment/page.tsx` | Service + OfferCatalog + BreadcrumbList JSON-LD |
+| `/services/full-groom` | `app/services/full-groom/page.tsx` | Service + OfferCatalog + BreadcrumbList JSON-LD |
+| `/services/sanitary-groom` | `app/services/sanitary-groom/page.tsx` | Service + OfferCatalog + BreadcrumbList JSON-LD |
 
-Routes still linked from the nav or footer but not built:
-`/anxious-and-senior-dogs`, `/blog`, and the `/services` detail pages.
+All six services now have a page. Every "Book now" on the home page deep-links
+into one of them with `?service=<slug>`.
+
+Routes still linked but not built: `/services` (the index every service
+breadcrumb points at) and `/blog`.
+
+### Open pricing questions — read before launch
+
+Two service designs carry amber "Price pending client confirmation" panels.
+Those are notes to whoever builds the page, not copy for a customer, so neither
+is on the site. Read together they describe three unresolved items:
+
+1. **Full Groom, Large 46-85 is priced at $140.** The de-shedding note says the
+   client corrected a long-coat de-shed to **$125, not $140** — but no `$140`
+   exists in either de-shed table, and the full-groom note concedes the
+   correction "didn't name a table". The only $140 on the site is this one.
+   Either it should be $125, or the correction belongs somewhere else.
+2. **A de-shed add-on was added for "full groom and mini groom"** with no price
+   supplied. The full-groom table footnote reads `$25-$65 depending on size and
+   coat`, which may or may not be that figure.
+3. **No "mini groom" service exists** anywhere in the package, so nothing links
+   to it.
+
+Every price shipped is exactly the one printed in its table.
 
 `BOOKING_URL` is `/book`, so every "Book now" across the site now lands on a real
 page. On `/book` itself the button anchors to `#booking` instead of linking to
@@ -283,6 +312,11 @@ whole `grid-template-columns` declaration — which silently collapses the secti
 to a single stacked column on every page that uses it.
 | `FeatureGrid` | `/wellness` — informational cells, so unlike `ResourceLinks` they aren't links |
 | `NoticeCard` | `/wellness` — a bordered aside for a caveat that shouldn't read as body copy |
+| `MediaHero` | `/about`, `/anxious-and-senior-dogs`, `/services/add-ons` — copy beside a photo with proof points below. The experience badge, the proof icons and the Call button are each optional |
+| `PriceTable` | every service page — real `<table>` elements with `scope` attributes and captions, since this is tabular data. Takes an array of tables, each with its own `columns`, `rows` and optional `footnote`, so one section can hold both the de-shed bath and husky tables |
+| `DetailPanel` | `/services/de-shedding-treatment` — heading and copy beside a labelled detail list |
+| `ServiceIncludes` | every service page — photo beside a "what's included" write-up and a two-column checklist. The image is optional, so the same component renders the copy-only block on `/services/sanitary-groom`, and `divider` adds the full-bleed rule above it |
+| `FullBleedPhoto` | `/services/cat-grooming` — one photo spanning the viewport, with a real alt since nothing sits over it |
 | `Faq` | `/faq`, `/about`, `/service-agreement` |
 | `ResourceLinks` | `/book`, `/contact`, `/faq` |
 | `FinalCta` | every page. `variant="callOnly"` drops the Book now button and `note` adds a line beneath, which is how `/wellness` stays phone-only |

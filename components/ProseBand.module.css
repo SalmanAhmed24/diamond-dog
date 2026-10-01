@@ -33,3 +33,17 @@
 .bodyLeft {
   text-align: left;
 }
+
+/* Service pages range the whole block left against the container edge. */
+.alignLeft {
+  justify-items: start;
+}
+
+.alignLeft .heading,
+.alignLeft .body {
+  text-align: left;
+}
+
+.alignLeft .body {
+  max-width: 62ch;
+}

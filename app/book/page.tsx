@@ -12,7 +12,6 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { SITE_URL, book, business, phone } from '@/lib/site'
 import { bookBeforeYouBook, bookCtaBackdrop } from '@/lib/images'
 
-const title = 'Book Your Groom'
 const description =
   'Book a groom with The Diamond Dog in Urbandale, Iowa. Pick the service that fits your dog by breed, size and coat, or call or text and Kaylie will help you choose.'
 
@@ -24,52 +23,54 @@ export const metadata: Metadata = {
   twitter: { title, description },
 }
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'WebPage',
-      '@id': `${SITE_URL}/book#page`,
-      url: `${SITE_URL}/book`,
-      name: title,
-      description,
-      isPartOf: { '@id': `${SITE_URL}/#website` },
-      about: { '@id': `${SITE_URL}/#business` },
-      // Marks this as the page a booking intent should be sent to.
-      potentialAction: {
-        '@type': 'ReserveAction',
-        target: {
-          '@type': 'EntryPoint',
-          urlTemplate: `${SITE_URL}/book`,
-          actionPlatform: [
-            'https://schema.org/DesktopWebPlatform',
-            'https://schema.org/MobileWebPlatform',
-          ],
-        },
-        result: { '@type': 'Reservation', name: 'Grooming appointment' },
-      },
-    },
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: book.breadcrumb.map((crumb, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        name: crumb.label,
-        item: `${SITE_URL}${crumb.href === '/' ? '' : crumb.href}`,
-      })),
-    },
-    {
-      '@type': 'ContactPoint',
-      '@id': `${SITE_URL}/book#contact`,
-      telephone: phone.number,
-      contactType: 'Reservations',
-      areaServed: business.areaServed,
-      availableLanguage: 'English',
-    },
-  ],
-}
-
 export default function BookPage() {
+  const title = 'Book Your Groom'
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': `${SITE_URL}/book#page`,
+        url: `${SITE_URL}/book`,
+        name: title,
+        description,
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        about: { '@id': `${SITE_URL}/#business` },
+        // Marks this as the page a booking intent should be sent to.
+        potentialAction: {
+          '@type': 'ReserveAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: `${SITE_URL}/book`,
+            actionPlatform: [
+              'https://schema.org/DesktopWebPlatform',
+              'https://schema.org/MobileWebPlatform',
+            ],
+          },
+          result: { '@type': 'Reservation', name: 'Grooming appointment' },
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: book.breadcrumb.map((crumb, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: crumb.label,
+          item: `${SITE_URL}${crumb.href === '/' ? '' : crumb.href}`,
+        })),
+      },
+      {
+        '@type': 'ContactPoint',
+        '@id': `${SITE_URL}/book#contact`,
+        telephone: phone.number,
+        contactType: 'Reservations',
+        areaServed: business.areaServed,
+        availableLanguage: 'English',
+      },
+    ],
+  }
+
   return (
     <>
       <script

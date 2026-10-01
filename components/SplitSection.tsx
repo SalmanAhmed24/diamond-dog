@@ -9,7 +9,8 @@ import styles from './SplitSection.module.css'
 
 type SplitSectionProps = {
   heading: string
-  body: string
+  /** A single paragraph, or several. */
+  body: string | string[]
   headingId: string
   image: StaticImageData
   imageAlt: string
@@ -22,6 +23,8 @@ type SplitSectionProps = {
   link?: { label: string; href: string }
   /** Copy measure in ch. /wellness runs a wider column than the others. */
   bodyMeasure?: number
+  /** Optional label/value rows under the copy, e.g. opening hours. */
+  details?: { label: string; value: string }[]
   priority?: boolean
 }
 
@@ -42,6 +45,7 @@ export function SplitSection({
   mediaRatio = 1,
   link,
   bodyMeasure = 54,
+  details,
   priority = false,
 }: SplitSectionProps) {
   const media = (
@@ -62,7 +66,23 @@ export function SplitSection({
       <h2 id={headingId} className={`sectionTitle ${styles.heading}`}>
         {heading}
       </h2>
-      <p className={styles.body}>{body}</p>
+      {(Array.isArray(body) ? body : [body]).map((paragraph) => (
+        <p key={paragraph} className={styles.body}>
+          {paragraph}
+        </p>
+      ))}
+
+      {details && details.length > 0 && (
+        <dl className={styles.details}>
+          {details.map((row) => (
+            <div key={row.label} className={styles.detailRow}>
+              <dt className={styles.detailLabel}>{row.label}</dt>
+              <dd className={styles.detailValue}>{row.value}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+
       {link && (
         <Link href={link.href} className={`arrowLink ${styles.link}`}>
           {link.label}

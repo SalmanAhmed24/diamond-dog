@@ -21,6 +21,8 @@ type MediaHeroProps = {
   /** The About page overlays a years-of-experience badge on the photo. */
   badge?: { value: string; label: string }
   mediaRatio?: number
+  /** Some service pages show Book now on its own. */
+  showCall?: boolean
 }
 
 /** Copy beside a photo, with buttons and a row of proof points underneath. */
@@ -35,6 +37,7 @@ export function MediaHero({
   proof,
   badge,
   mediaRatio = 0.92,
+  showCall = true,
 }: MediaHeroProps) {
   return (
     <section
@@ -59,9 +62,11 @@ export function MediaHero({
             <a href={BOOKING_URL} className="btn btn--teal">
               Book now
             </a>
-            <a href={callHref} className="btn btn--outline">
-              {callLabel}
-            </a>
+            {showCall && (
+              <a href={callHref} className="btn btn--outline">
+                {callLabel}
+              </a>
+            )}
           </div>
 
           {proof && proof.length > 0 && (

@@ -1,0 +1,90 @@
+.section {
+  background-color: var(--cream);
+}
+
+/* Full-bleed rule above, while the copy stays inside the container. */
+.divided {
+  border-top: 1px solid var(--rule);
+}
+
+.grid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
+}
+
+.media {
+  aspect-ratio: var(--media-aspect);
+}
+
+.copy {
+  min-width: 0;
+}
+
+.heading {
+  font-size: clamp(1.625rem, 1.2rem + 1.9vw, 2.25rem);
+  line-height: 1.15;
+}
+
+.subheading {
+  font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.block {
+  margin-top: 1.5rem;
+}
+
+.body {
+  margin-top: 0.75rem;
+  max-width: 56ch;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.72;
+}
+
+/* Two columns, filling down each one as the design does. */
+.list {
+  display: grid;
+  gap: 0.875rem 2rem;
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--text);
+}
+
+.icon {
+  color: var(--teal-ink);
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+@media (min-width: 520px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, auto);
+  }
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, var(--media-ratio)) minmax(0, 1fr);
+    gap: clamp(2.5rem, 5.5vw, 4.5rem);
+  }
+
+  /* No photo: one column, and the checklist sits under a narrower measure. */
+  .gridSolo {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gridSolo .list {
+    max-width: 44rem;
+  }
+}

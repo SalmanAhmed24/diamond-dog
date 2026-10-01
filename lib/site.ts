@@ -785,6 +785,550 @@ export const anxiousSeniorDogs = {
   },
 }
 
+export const addOnsPage = {
+  breadcrumb: [
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/services' },
+    { label: 'Add-Ons & Single Services', href: '/services/add-ons' },
+  ],
+  hero: {
+    heading: 'Add-Ons & Single Services in Urbandale',
+    body:
+      'Need just one thing, like a nail trim or a medicated bath? Single services and add-ons are available in Urbandale. Walk-ins are welcome for nail trims and gland expression during grooming hours - Monday to Friday 8 to 5, Saturday 8 to 3.',
+    imageAlt: 'A dalmatian\u2019s paw held gently while its nails are clipped.',
+  },
+  nails: {
+    heading: 'Nails',
+    body:
+      'No appointment needed for a quick nail trim. Just text me to see if I\u2019m in, and I respond quickly. Anal gland expression works the same way. Bring in any pet for a nail trim, and yes, I mean any: dogs, cats, whatever needs a trim. If you\u2019d rather lock in a time you can still book online. The salon runs by appointment, so text before coming by.',
+    details: [
+      { label: 'Monday to Friday', value: '8:00 to 5:00' },
+      { label: 'Saturday', value: '8:00 to 3:00, by appointment' },
+    ],
+    imageAlt: 'A groomer in black gloves trimming the paw hair of a yorkshire terrier.',
+  },
+  overview: {
+    heading: 'Single services & add-ons',
+    body:
+      'Beyond a full groom or bath, several services are available on their own or as an add-on to a groom: anal gland expression, a nail trim for any pet, a medicated bath, a flea bath added onto a groom, skunk treatment added onto a groom, and ear hair plucking. Some of these work well as standalone visits, and others make the most sense tacked onto a groom you already have scheduled. We can help you sort out which fits your dog.',
+  },
+  fun: {
+    heading: 'The fun ones',
+    body:
+      'For dogs who could use a little extra flair, coat color and nail polish are both available. It\u2019s a small touch that a lot of owners enjoy for a special occasion or just for fun, done with the same care as everything else.',
+    imageAlt: 'A dog\u2019s paw resting in a person\u2019s hand, nails freshly trimmed.',
+  },
+  pricing: {
+    eyebrow: 'Pricing',
+    heading: 'Prices',
+    note: 'All services are subject to a matting or behavior fee, assessed in person.',
+    tables: [
+      {
+        caption: 'Add-Ons & Single Services',
+        columns: ['Service', 'Price'],
+        rows: [
+          ['Anal gland expression', '$20'],
+          ['Nail trim, any pet', '$15'],
+          ['Medicated bath', '$15 small-medium \u00B7 $25 large-XL'],
+          ['Paw soak', '$15'],
+          ['Flea bath', '$25 small-medium \u00B7 $45 large-XL'],
+          ['Skunk treatment', '$50 starting'],
+          ['Coat color, dye on tail, feet and/or ears', '$15 starting'],
+          ['Nail polish', '$20'],
+          ['Teeth brushing, dogs with no tartar only', '$10'],
+        ],
+      },
+    ],
+  },
+  more: {
+    eyebrow: 'More services',
+    heading: 'Other ways I can help your dog',
+    items: [
+      {
+        icon: 'wind',
+        title: 'De-Shedding Treatment',
+        description:
+          'A de-shedding treatment removes the dead undercoat trapped beneath your dog\u2019s fur, reducing shedding by up to 90%.',
+        href: '/services/de-shedding-treatment',
+      },
+      { icon: 'scissors', title: 'Full Groom', href: '/services/full-groom' },
+      { icon: 'droplet', title: 'Bath', href: '/services/bath' },
+    ],
+  },
+  cta: {
+    heading: 'Ready to get started?',
+    body: 'Just need one thing done? Book online, call, or text to ask what fits your dog.',
+    callLabel: 'Call or text',
+  },
+}
+
+export const bathPage = {
+  breadcrumb: [
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/services' },
+    { label: 'Bath', href: '/services/bath' },
+  ],
+  hero: {
+    heading: 'Dog Bath & Tidy in Urbandale',
+    body:
+      'A dog bath is a full clean and tidy-up for short-coated dogs, or a quick refresh after a dirty day, done right here in Urbandale.',
+    imageAlt: 'A short-coated dog standing happily in a tub full of suds.',
+  },
+  included: {
+    blocks: [
+      {
+        heading: 'What\u2019s included',
+        body:
+          'The bath service covers nail trim, ear cleaning, anal gland expression, a full bath, brush-out, and blow out. It\u2019s a complete refresh for a dog that doesn\u2019t need a haircut, just a proper clean.',
+      },
+      {
+        heading: 'Typical breeds',
+        body:
+          'This service fits short-coated breeds well. Pitbulls, Frenchies, bulldogs, and German shorthair pointers, along with any dog that just needs a bath after a muddy walk or a rough day outside.',
+      },
+    ],
+    items: [
+      { icon: 'scissors', label: 'Nail trim' },
+      { icon: 'droplet', label: 'Anal gland expression' },
+      { icon: 'sparkle', label: 'Brush-out' },
+      { icon: 'ear', label: 'Ear cleaning' },
+      { icon: 'droplet', label: 'Full bath' },
+      { icon: 'wind', label: 'Blow out' },
+    ],
+    imageAlt: 'A wet red setter grinning over the edge of the stainless grooming tub.',
+  },
+  doubleCoated: {
+    heading: 'Double-coated dog? You need a de-shed, not a bath',
+    body:
+      'If your dog is double-coated, a regular bath won\u2019t get the job done. A bath cleans the topcoat, but it doesn\u2019t remove the dead undercoat trapped underneath, which is the part actually driving most of the shedding you\u2019re dealing with at home. For that, a de-shedding treatment is the right service, built specifically to pull that dead undercoat out rather than just rinse over it.',
+  },
+  faq: {
+    eyebrow: 'Questions',
+    heading: 'Frequently asked questions',
+    /** Pulled from faqPage.items by id, so the wording can never drift. */
+    itemIds: ['bath-vs-deshed', 'kenneling'],
+  },
+  pricing: {
+    eyebrow: 'Pricing',
+    heading: 'Pricing',
+    note: 'All services are subject to a matting or behavior fee, assessed in person.',
+    tables: [
+      {
+        caption: 'Bath',
+        columns: ['By weight (lbs)', 'Price'],
+        rows: [
+          ['XSmall, 0-10', '$35'],
+          ['Small, 11-25', '$40'],
+          ['Medium, 26-45', '$45'],
+          ['Large, 46-85', '$50'],
+          ['X-Large, 86-100', '$85'],
+          ['Giant / XXL, 101+', '$100'],
+        ],
+      },
+    ],
+  },
+  more: {
+    heading: 'Other ways I can help your dog',
+    items: [
+      {
+        icon: 'wind',
+        title: 'De-Shedding Treatment',
+        description:
+          'A de-shedding treatment removes the dead undercoat trapped beneath your dog\u2019s fur, reducing shedding by up to 90%.',
+        href: '/services/de-shedding-treatment',
+      },
+      { icon: 'scissors', title: 'Full Groom', href: '/services/full-groom' },
+      { icon: 'paw', title: 'Sanitary Groom', href: '/services/sanitary-groom' },
+    ],
+  },
+  cta: {
+    heading: 'Ready to get started?',
+    body: 'Ready for a fresh, clean dog? Book your bath online today.',
+    callLabel: 'Call or text',
+  },
+}
+
+export const catGroomingPage = {
+  breadcrumb: [
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/services' },
+    { label: 'Cat Grooming', href: '/services/cat-grooming' },
+  ],
+  hero: {
+    heading: 'Cat Grooming in Urbandale',
+    body:
+      'Cats get gentle, personal grooming here too, including shave-downs, sanitary trims, and nail and ear care in Urbandale and the Des Moines area.',
+    imageAlt: 'Kaylie holding a long-haired tabby cat in the salon.',
+  },
+  shave: {
+    heading: 'Cat shave',
+    body:
+      'A cat shave-down includes a full shave, nail trim, a clean-up with pet-friendly wipes, and ear cleaning. It\u2019s a calm, quick process built around how differently cats respond to grooming compared to dogs.',
+    imageAlt: 'A ginger cat resting on the grooming table after a shave-down.',
+  },
+  sanitary: {
+    heading: 'Cat sanitary',
+    body:
+      'A cat sanitary service covers a nail trim, ear cleaning, and a shave of any soiled or matted areas, whether that\u2019s the private areas specifically or just the spots where matting has formed.',
+  },
+  /**
+   * This question is specific to the cat page and deliberately not in
+   * `faqPage.items` — adding it there would put it on /faq, which the design
+   * scopes to the ten dog questions.
+   */
+  faq: {
+    eyebrow: 'Questions',
+    heading: 'Frequently asked questions',
+    items: [
+      {
+        question: 'Do you groom cats?',
+        answer:
+          'Yes, cat grooming is available, including shave-downs and sanitary trims. The same calm, one-on-one setting that suits anxious dogs also works well for most cats.',
+      },
+    ],
+  },
+  banner: {
+    imageAlt: 'A cat being blow-dried gently after its groom, licking its nose.',
+  },
+  pricing: {
+    eyebrow: 'Pricing',
+    heading: 'Pricing',
+    note: 'All services are subject to a matting or behavior fee, assessed in person.',
+    tables: [
+      {
+        caption: 'Cat Grooming',
+        columns: ['Service', 'Price'],
+        rows: [
+          ['Cat shave, shave down, nail trim, wipe clean-up, ear cleaning', '$80'],
+          [
+            'Cat sanitary, nail trim, ear cleaning, shave private/soiled areas or matting only',
+            '$35',
+          ],
+        ],
+      },
+    ],
+  },
+  more: {
+    heading: 'Other ways I can help your dog',
+    items: [
+      {
+        icon: 'wind',
+        title: 'De-Shedding Treatment',
+        description:
+          'A de-shedding treatment removes the dead undercoat trapped beneath your dog\u2019s fur, reducing shedding by up to 90%.',
+        href: '/services/de-shedding-treatment',
+      },
+      { icon: 'scissors', title: 'Full Groom', href: '/services/full-groom' },
+      { icon: 'droplet', title: 'Bath', href: '/services/bath' },
+    ],
+  },
+  cta: {
+    heading: 'Ready to get started?',
+    body: 'Ready to book your cat\u2019s groom? Book online or call or text to ask any questions first.',
+    callLabel: 'Call or text',
+  },
+}
+
+export const deSheddingPage = {
+  breadcrumb: [
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/services' },
+    { label: 'De-Shedding Treatment', href: '/services/de-shedding-treatment' },
+  ],
+  hero: {
+    heading: 'De-Shedding Treatment for Dogs in Urbandale',
+    body:
+      'A de-shedding treatment removes the dead undercoat trapped beneath your dog\u2019s fur, reducing shedding by up to 90%. Available in Urbandale for double-coated and heavy-shedding breeds.',
+    callLabel: 'Call or text',
+    imageAlt: 'An Australian shepherd lying on the salon floor with a glossy, de-shedded coat.',
+  },
+  process: {
+    heading: 'What is the process of a de-shed and what does it do for my dog?',
+    paragraphs: [
+      'Dogs use their coat to help control their body temperature. A dead coat no longer helps with that and will fall out, which is the shedding you see at home.',
+      'A de-shed treatment is a multi-step process built specifically to pull dead undercoat out of a double-coated dog, helping them cool naturally. It starts with a high-end de-shedding shampoo and conditioner formulated to loosen and release the dead hair sitting beneath the topcoat.',
+      'The win? Your dog gets to control their temperature and stay comfortable, naturally. For you, it means up to 90% less shedding hair around the house.',
+    ],
+    imageAlt: 'A long-coated chihuahua in a bow tie sitting on the grooming table.',
+  },
+  included: {
+    blocks: [
+      {
+        heading: 'What\u2019s included',
+        body:
+          'Every de-shedding treatment is a complete service. Along with the de-shed process itself, your dog gets a nail trim, ear cleaning, anal gland expression, and a sanitary cut, so nothing else is left undone while you\u2019re already here.',
+      },
+    ],
+    items: [
+      { icon: 'wind', label: 'De-shed process' },
+      { icon: 'ear', label: 'Ear cleaning' },
+      { icon: 'scissors', label: 'Sanitary cut' },
+      { icon: 'scissors', label: 'Nail trim' },
+      { icon: 'droplet', label: 'Anal gland expression' },
+    ],
+    imageAlt: 'An owner lifting a curly-coated water dog, coat loose and clean after a de-shed.',
+  },
+  pricing: {
+    eyebrow: 'Pricing',
+    heading: 'Pricing',
+    note:
+      'My de-shedding treatment is priced by your dog\u2019s coat type - short coat versus long or double coat - and their size, so you can see exactly what to expect below before you book. Huskies have their own pricing, listed separately. Every de-shed is still subject to a matting or behavior fee if your dog\u2019s coat or temperament calls for it, assessed in person on the day. Book online, or call or text if you want to talk it through first.',
+    tables: [
+      {
+        caption: 'De-Shed Bath',
+        columns: ['By weight (lbs)', 'Short coat (SC)', 'Long / double coat (LC)'],
+        rows: [
+          ['XSmall, 0-10', '$40', '$50'],
+          ['Small, 11-25', '$45', '$55'],
+          ['Medium, 26-45', '$60', '$85'],
+          ['Large, 46-85', '$85', '$100'],
+          ['X-Large, 86-101', '$100', '$150'],
+          ['Giant / XXL, 101+', '$120', '$260'],
+        ],
+        footnote:
+          'SC = short coat (under 1\u2033 fur). LC = long or double coat, and includes ear trim and paw-pad trim.',
+      },
+      {
+        caption: 'Husky De-Shed',
+        columns: ['By weight (lbs)', 'Price'],
+        rows: [
+          ['Medium, 25-45', '$100'],
+          ['Large, 56-85', '$150'],
+          ['X-Large, 85-100', '$200'],
+        ],
+      },
+    ],
+  },
+  whereIWork: {
+    heading: 'Where I work',
+    body:
+      'The Diamond Dog Pet Grooming serves Urbandale and the surrounding Des Moines metro, including Clive, Windsor Heights, Johnston, and West Des Moines.',
+  },
+  faq: {
+    eyebrow: 'Questions',
+    heading: 'Frequently asked questions',
+    /** The first is shared with /faq by id; the second is specific to this page. */
+    itemIds: ['bath-vs-deshed'],
+    extraItems: [
+      {
+        question: 'How often should I de-shed my double-coated dog?',
+        answer:
+          'Most double-coated dogs do best with a de-shedding treatment every 4 to 6 weeks. The right cadence depends on your dog\u2019s breed and coat, and I\u2019ll help you build a schedule that actually keeps shedding under control between visits.',
+      },
+    ],
+  },
+  more: {
+    eyebrow: 'More services',
+    heading: 'Other ways I can help your dog',
+    items: [
+      {
+        icon: 'scissors',
+        title: 'Full Groom',
+        description:
+          'A full groom is a complete haircut and bath, personally planned and guided by Kaylie from start to finish, right here in Urbandale.',
+        href: '/services/full-groom',
+      },
+      { icon: 'droplet', title: 'Bath', href: '/services/bath' },
+      { icon: 'paw', title: 'Sanitary Groom', href: '/services/sanitary-groom' },
+    ],
+  },
+  cta: {
+    heading: 'Ready to get started?',
+    body:
+      'Ready to see what a real de-shedding treatment can do for your dog\u2019s coat? Book online, call, or text to talk it through first.',
+    callLabel: 'Call or text',
+  },
+}
+
+export const fullGroomPage = {
+  breadcrumb: [
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/services' },
+    { label: 'Full Groom', href: '/services/full-groom' },
+  ],
+  hero: {
+    heading: 'Full Dog Grooming in Urbandale',
+    body:
+      'A full groom is a complete haircut and bath, personally planned and guided by Kaylie from start to finish, right here in Urbandale.',
+    callLabel: 'Call or text',
+    imageAlt: 'A cream goldendoodle standing in the salon after a full groom.',
+  },
+  included: {
+    blocks: [
+      {
+        heading: 'What\u2019s included',
+        body:
+          'A full groom covers everything your dog needs for a complete refresh, including full-body cut, bath, blow out, nail trim, ear cleaning, and anal gland expression. It\u2019s built as one complete service rather than a menu of things to add on separately, so your dog leaves fully groomed.',
+      },
+      {
+        heading: 'Typical breeds',
+        body:
+          'The full groom is the right fit for doodles, poodles, Shih Tzus, cocker spaniels, Yorkies, Maltese, schnauzers, havanese, and cavapoos.',
+      },
+    ],
+    items: [
+      { icon: 'scissors', label: 'Full-body cut' },
+      { icon: 'wind', label: 'Blow out' },
+      { icon: 'ear', label: 'Ear cleaning' },
+      { icon: 'droplet', label: 'Bath' },
+      { icon: 'scissors', label: 'Nail trim' },
+      { icon: 'droplet', label: 'Anal gland expression' },
+    ],
+    imageAlt: 'Kaylie brushing out a black and tan shepherd on the grooming table.',
+  },
+  matted: {
+    heading: 'Matted dogs - health over hair',
+    body:
+      'If your dog comes in badly matted, the approach is health over hair. That means humanely removing the unhealthy matted coat first, then building a real grow-out plan to get your dog back to the coat you want, rather than ripping through mats just to preserve length. A heavily matted coat traps moisture and irritation against the skin, and it isn\u2019t safe to leave in place for the sake of appearance. A shave-down isn\u2019t the end of the story, it\u2019s the start of a plan.',
+  },
+  pricing: {
+    eyebrow: 'Pricing',
+    heading: 'Pricing',
+    note:
+      'All grooming services are subject to a possible matting or behavior fee, assessed in person, since that\u2019s the only honest way to price a groom that depends on your dog\u2019s coat and temperament that day.',
+    tables: [
+      {
+        caption: 'Full Groom',
+        columns: ['By weight (lbs)', 'Price'],
+        rows: [
+          ['XSmall, 0-10', '$67'],
+          ['Small, 11-25', '$75'],
+          ['Medium, 26-45', '$90'],
+          ['Large, 46-85', '$140'],
+          ['X-Large, 86-100', '$180'],
+          ['Giant / XXL, 101+', '$250'],
+        ],
+        footnote: 'De-shed add-on: $25-$65 depending on size and coat.',
+      },
+    ],
+  },
+  whereIWork: {
+    heading: 'Where I work',
+    body:
+      'Diamond Dog Grooming serves Urbandale and the surrounding Des Moines metro, including Clive, Windsor Heights, Johnston, and West Des Moines.',
+  },
+  faq: {
+    eyebrow: 'Questions',
+    heading: 'Frequently asked questions',
+    /** The first is shared with /faq by id; the second is specific to this page. */
+    itemIds: ['matting'],
+    extraItems: [
+      {
+        question: 'How often should I groom my doodle?',
+        answer:
+          'Most doodles do best with a full groom every 4 to 6 weeks. I work with doodle owners regularly and can help you find the right rhythm for your dog\u2019s specific coat.',
+      },
+    ],
+  },
+  more: {
+    eyebrow: 'More services',
+    heading: 'Other ways I can help your dog',
+    items: [
+      {
+        icon: 'wind',
+        title: 'De-Shedding Treatment',
+        description:
+          'A de-shedding treatment removes the dead undercoat trapped beneath your dog\u2019s fur, reducing shedding by up to 90%.',
+        href: '/services/de-shedding-treatment',
+      },
+      { icon: 'droplet', title: 'Bath', href: '/services/bath' },
+      { icon: 'paw', title: 'Sanitary Groom', href: '/services/sanitary-groom' },
+    ],
+  },
+  cta: {
+    heading: 'Ready to get started?',
+    body: 'Let\u2019s get started! Book online, or call or text anytime.',
+    callLabel: 'Call or text',
+  },
+}
+
+const sanitaryChecklist = [
+  { icon: 'scissors', label: 'Belly and privates shaved' },
+  { icon: 'scissors', label: 'Face trimmed' },
+  { icon: 'paw', label: 'Paw pads cleaned up' },
+  { icon: 'sparkle', label: 'Tidy-up, no length change' },
+]
+
+export const sanitaryGroomPage = {
+  breadcrumb: [
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/services' },
+    { label: 'Sanitary Groom', href: '/services/sanitary-groom' },
+  ],
+  hero: {
+    heading: 'Sanitary Groom in Urbandale',
+    body:
+      'A sanitary groom is a clean tidy-up for the belly, privates, paw pads, and face, without changing your dog\u2019s body length.',
+    imageAlt: 'A tan and white dog rolling contentedly on its back on the salon floor.',
+  },
+  included: {
+    blocks: [
+      {
+        heading: 'What\u2019s included',
+        body:
+          'The sanitary groom covers shaving the belly and privates, cleaning up the feet by shaving the paw pads, trimming up the face, a nail trim, ear cleaning, a bath, and a blow out. The body coat itself stays exactly the length it already is, this service is about hygiene and comfort, not a haircut.',
+      },
+      {
+        heading: 'Typical breeds',
+        body:
+          'This service works well for doodles, poodles, Shih Tzus, cocker spaniels, Yorkies, and Maltese, along with the same double-coated breeds who come in for a de-shedding treatment.',
+      },
+    ],
+    items: sanitaryChecklist,
+    imageAlt: 'A yorkshire terrier being comb-and-scissor trimmed around the face.',
+  },
+  /** Same checklist as above — a sanitary cut is part of every de-shed. */
+  inDeShed: {
+    blocks: [
+      {
+        heading: 'Included in the de-shedding treatment',
+        body:
+          'A sanitary cut is already built into every de-shedding treatment, so if your dog is booked for a de-shed, this part is already covered.',
+      },
+    ],
+    items: sanitaryChecklist,
+  },
+  pricing: {
+    eyebrow: 'Pricing',
+    heading: 'Pricing',
+    note: 'All services are subject to a matting or behavior fee, assessed in person.',
+    tables: [
+      {
+        caption: 'Sanitary Groom',
+        columns: ['By weight (lbs)', 'Price'],
+        rows: [
+          ['XSmall, 0-10', '$45'],
+          ['Small, 11-25', '$60'],
+          ['Medium, 26-45', '$65'],
+          ['Large, 46-85', '$100'],
+          ['X-Large, 86-100', '$150'],
+          ['Giant / XXL, 101+', '$200'],
+        ],
+      },
+    ],
+  },
+  more: {
+    eyebrow: 'More services',
+    heading: 'Other ways I can help your dog',
+    items: [
+      {
+        icon: 'wind',
+        title: 'De-Shedding Treatment',
+        description:
+          'A de-shedding treatment removes the dead undercoat trapped beneath your dog\u2019s fur, reducing shedding by up to 90%.',
+        href: '/services/de-shedding-treatment',
+      },
+      { icon: 'scissors', title: 'Full Groom', href: '/services/full-groom' },
+      { icon: 'droplet', title: 'Bath', href: '/services/bath' },
+    ],
+  },
+  cta: {
+    heading: 'Ready to get started?',
+    body: 'Ready to book a sanitary groom? Book online today.',
+    callLabel: 'Call or text',
+  },
+}
+
 export const footerColumns = [
   {
     title: 'Services',

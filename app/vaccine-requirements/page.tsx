@@ -24,38 +24,38 @@ export const metadata: Metadata = {
   twitter: { title, description },
 }
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'WebPage',
-      '@id': `${SITE_URL}/vaccine-requirements#page`,
-      url: `${SITE_URL}/vaccine-requirements`,
-      name: title,
-      description,
-      isPartOf: { '@id': `${SITE_URL}/#website` },
-      about: { '@id': `${SITE_URL}/#business` },
-      // The four policy sections, so each is addressable in search.
-      hasPart: vaccineRequirements.sections.map((section) => ({
-        '@type': 'WebPageElement',
-        '@id': `${SITE_URL}/vaccine-requirements#${section.id}`,
-        name: section.heading,
-        text: section.body,
-      })),
-    },
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: vaccineRequirements.breadcrumb.map((crumb, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        name: crumb.label,
-        item: `${SITE_URL}${crumb.href === '/' ? '' : crumb.href}`,
-      })),
-    },
-  ],
-}
-
 export default function VaccineRequirementsPage() {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': `${SITE_URL}/vaccine-requirements#page`,
+        url: `${SITE_URL}/vaccine-requirements`,
+        name: title,
+        description,
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        about: { '@id': `${SITE_URL}/#business` },
+        // The four policy sections, so each is addressable in search.
+        hasPart: vaccineRequirements.sections.map((section) => ({
+          '@type': 'WebPageElement',
+          '@id': `${SITE_URL}/vaccine-requirements#${section.id}`,
+          name: section.heading,
+          text: section.body,
+        })),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: vaccineRequirements.breadcrumb.map((crumb, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: crumb.label,
+          item: `${SITE_URL}${crumb.href === '/' ? '' : crumb.href}`,
+        })),
+      },
+    ],
+  }
+
   // Reused verbatim from the FAQ page rather than restated, so the two can
   // never drift. FAQPage markup stays on /faq only.
   const faqItems = faqsById(vaccineRequirements.faq.itemIds)

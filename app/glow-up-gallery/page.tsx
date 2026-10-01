@@ -10,7 +10,6 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { SITE_URL, glowUpGallery } from '@/lib/site'
 import { contactCtaBackdrop } from '@/lib/images'
 
-const title = 'The Glow Up Gallery'
 const description =
   'Real dogs, real transformations. Before-and-after grooms from The Diamond Dog in Urbandale, Iowa, filterable by service: de-shedding, full grooms, baths, sanitary grooms, cat grooming and add-ons.'
 
@@ -22,44 +21,46 @@ export const metadata: Metadata = {
   twitter: { title, description },
 }
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'CollectionPage',
-      '@id': `${SITE_URL}/glow-up-gallery#page`,
-      url: `${SITE_URL}/glow-up-gallery`,
-      name: title,
-      description,
-      isPartOf: { '@id': `${SITE_URL}/#website` },
-      about: { '@id': `${SITE_URL}/#business` },
-      // Every photo is listed, so the set is discoverable even though the grid
-      // is filtered client-side.
-      mainEntity: {
-        '@type': 'ImageGallery',
-        name: glowUpGallery.heading,
-        numberOfItems: glowUpGallery.items.length,
-        associatedMedia: glowUpGallery.items.map((item) => ({
-          '@type': 'ImageObject',
-          contentUrl: `${SITE_URL}/images/glowup-${item.key}.webp`,
-          caption: item.alt,
-          keywords: item.tag,
+export default function GlowUpGalleryPage() {
+  const title = 'The Glow Up Gallery'
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': `${SITE_URL}/glow-up-gallery#page`,
+        url: `${SITE_URL}/glow-up-gallery`,
+        name: title,
+        description,
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        about: { '@id': `${SITE_URL}/#business` },
+        // Every photo is listed, so the set is discoverable even though the grid
+        // is filtered client-side.
+        mainEntity: {
+          '@type': 'ImageGallery',
+          name: glowUpGallery.heading,
+          numberOfItems: glowUpGallery.items.length,
+          associatedMedia: glowUpGallery.items.map((item) => ({
+            '@type': 'ImageObject',
+            contentUrl: `${SITE_URL}/images/glowup-${item.key}.webp`,
+            caption: item.alt,
+            keywords: item.tag,
+          })),
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: glowUpGallery.breadcrumb.map((crumb, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: crumb.label,
+          item: `${SITE_URL}${crumb.href === '/' ? '' : crumb.href}`,
         })),
       },
-    },
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: glowUpGallery.breadcrumb.map((crumb, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        name: crumb.label,
-        item: `${SITE_URL}${crumb.href === '/' ? '' : crumb.href}`,
-      })),
-    },
-  ],
-}
+    ],
+  }
 
-export default function GlowUpGalleryPage() {
   return (
     <>
       <script

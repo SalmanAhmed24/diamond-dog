@@ -8,6 +8,8 @@ type ProseBandProps = {
   surface?: 'sand' | 'cream'
   /** /about sets its paragraph left; the policy pages centre theirs. */
   textAlign?: 'left' | 'center'
+  /** The service pages range the whole block left rather than centring it. */
+  align?: 'left' | 'center'
 }
 
 /** A single centred heading with one paragraph, on a sand or cream band. */
@@ -17,6 +19,7 @@ export function ProseBand({
   headingId,
   surface = 'sand',
   textAlign = 'center',
+  align = 'center',
 }: ProseBandProps) {
   return (
     <section
@@ -24,7 +27,7 @@ export function ProseBand({
       aria-labelledby={headingId}
     >
       <div className="container">
-        <Reveal className={styles.inner}>
+        <Reveal className={`${styles.inner} ${align === 'left' ? styles.alignLeft : ''}`}>
           <h2 id={headingId} className={`serif ${styles.heading}`}>
             {heading}
           </h2>

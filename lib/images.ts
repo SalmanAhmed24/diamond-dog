@@ -29,6 +29,28 @@ import anxiousGentleBrushing from '@/public/images/anxious-gentle-brushing.webp'
 import anxiousPlayPen from '@/public/images/anxious-play-pen.webp'
 import anxiousCtaBackdrop from '@/public/images/anxious-cta-backdrop.webp'
 
+import addOnsHeroNailTrim from '@/public/images/addons-hero-nail-trim.webp'
+import addOnsNailsScissors from '@/public/images/addons-nails-scissors.webp'
+import addOnsFunPaw from '@/public/images/addons-fun-paw.webp'
+import addOnsCtaBackdrop from '@/public/images/addons-cta-backdrop.webp'
+
+import bathHeroSuds from '@/public/images/bath-hero-suds.webp'
+import bathSetterTub from '@/public/images/bath-setter-tub.webp'
+
+import catHeroKaylie from '@/public/images/cat-hero-kaylie.webp'
+import catShaveGinger from '@/public/images/cat-shave-ginger.webp'
+import catBannerBlowdry from '@/public/images/cat-banner-blowdry.webp'
+
+import deshedHeroAussie from '@/public/images/deshed-hero-aussie.webp'
+import deshedProcessChi from '@/public/images/deshed-process-chi.webp'
+import deshedIncludedCurly from '@/public/images/deshed-included-curly.webp'
+
+import fullGroomHeroDoodle from '@/public/images/fullgroom-hero-doodle.webp'
+import fullGroomBrushing from '@/public/images/fullgroom-brushing.webp'
+
+import sanitaryHeroRolling from '@/public/images/sanitary-hero-rolling.webp'
+import sanitaryYorkieComb from '@/public/images/sanitary-yorkie-comb.webp'
+
 import glTerriers from '@/public/images/glowup-terrier-pair-ties.webp'
 import glRolling from '@/public/images/glowup-dog-rolling.webp'
 import glBwCoat from '@/public/images/glowup-bw-coat-before.webp'
@@ -72,6 +94,22 @@ export {
   anxiousGentleBrushing,
   anxiousPlayPen,
   anxiousCtaBackdrop,
+  addOnsHeroNailTrim,
+  addOnsNailsScissors,
+  addOnsFunPaw,
+  addOnsCtaBackdrop,
+  bathHeroSuds,
+  bathSetterTub,
+  catHeroKaylie,
+  catShaveGinger,
+  catBannerBlowdry,
+  deshedHeroAussie,
+  deshedProcessChi,
+  deshedIncludedCurly,
+  fullGroomHeroDoodle,
+  fullGroomBrushing,
+  sanitaryHeroRolling,
+  sanitaryYorkieComb,
 }
 
 /** Keyed by the service slug used in lib/site.ts */

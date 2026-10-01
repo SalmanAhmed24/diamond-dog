@@ -16,7 +16,6 @@ import {
   anxiousPlayPen,
 } from '@/lib/images'
 
-const title = 'Grooming for Anxious & Senior Dogs'
 const description =
   'Calm, unhurried grooming for anxious and senior dogs in Urbandale, Iowa. Never kenneled, one dog at a time, and home in 45 minutes to an hour with no long wait built into the day.'
 
@@ -28,38 +27,40 @@ export const metadata: Metadata = {
   twitter: { title, description },
 }
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'WebPage',
-      '@id': `${SITE_URL}/anxious-and-senior-dogs#page`,
-      url: `${SITE_URL}/anxious-and-senior-dogs`,
-      name: title,
-      description,
-      isPartOf: { '@id': `${SITE_URL}/#website` },
-      about: { '@id': `${SITE_URL}/#business` },
-      // Named audience, so the page can surface for "anxious dog groomer" style
-      // searches rather than competing with the general service pages.
-      audience: {
-        '@type': 'Audience',
-        audienceType: 'Owners of anxious or senior dogs',
-        geographicArea: business.areaServed.join(', '),
-      },
-    },
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: anxiousSeniorDogs.breadcrumb.map((crumb, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        name: crumb.label,
-        item: `${SITE_URL}${crumb.href === '/' ? '' : crumb.href}`,
-      })),
-    },
-  ],
-}
-
 export default function AnxiousSeniorDogsPage() {
+  const title = 'Grooming for Anxious & Senior Dogs'
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': `${SITE_URL}/anxious-and-senior-dogs#page`,
+        url: `${SITE_URL}/anxious-and-senior-dogs`,
+        name: title,
+        description,
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        about: { '@id': `${SITE_URL}/#business` },
+        // Named audience, so the page can surface for "anxious dog groomer" style
+        // searches rather than competing with the general service pages.
+        audience: {
+          '@type': 'Audience',
+          audienceType: 'Owners of anxious or senior dogs',
+          geographicArea: business.areaServed.join(', '),
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: anxiousSeniorDogs.breadcrumb.map((crumb, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: crumb.label,
+          item: `${SITE_URL}${crumb.href === '/' ? '' : crumb.href}`,
+        })),
+      },
+    ],
+  }
+
   // Reused verbatim from the FAQ page rather than restated, so the two can
   // never drift. FAQPage markup stays on /faq only.
   const faqItems = faqsById(anxiousSeniorDogs.faq.itemIds)

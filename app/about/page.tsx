@@ -12,7 +12,6 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { SITE_URL, about, aboutFaqs, business } from '@/lib/site'
 import { aboutCtaBackdrop, aboutGuideDog, aboutHeroCorgi } from '@/lib/images'
 
-const title = 'About The Diamond Dog | Health Over Hair'
 const description =
   'Meet Kaylie Chalupa, the groomer behind The Diamond Dog in Urbandale, Iowa. Over 18 years of experience, never kenneled, one dog at a time, home in 45 minutes to an hour.'
 
@@ -29,43 +28,45 @@ export const metadata: Metadata = {
   twitter: { title, description },
 }
 
-/**
- * Two graphs: the page itself and the breadcrumb trail. FAQPage markup lives
- * only on /faq — emitting it from two pages with differently worded answers
- * gives search engines contradicting data for the same questions.
- */
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'AboutPage',
-      '@id': `${SITE_URL}/about#page`,
-      url: `${SITE_URL}/about`,
-      name: title,
-      description,
-      isPartOf: { '@id': `${SITE_URL}/#website` },
-      about: { '@id': `${SITE_URL}/#business` },
-      mainEntity: {
-        '@type': 'Person',
-        name: business.ownerFullName,
-        jobTitle: business.ownerRole,
-        worksFor: { '@id': `${SITE_URL}/#business` },
-        knowsAbout: ['Dog grooming', 'De-shedding treatments', 'Coat and skin health'],
-      },
-    },
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: about.breadcrumb.map((crumb, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        name: crumb.label,
-        item: `${SITE_URL}${crumb.href === '/' ? '' : crumb.href}`,
-      })),
-    },
-  ],
-}
-
 export default function AboutPage() {
+  const title = 'About The Diamond Dog | Health Over Hair'
+
+  /**
+   * Two graphs: the page itself and the breadcrumb trail. FAQPage markup lives
+   * only on /faq — emitting it from two pages with differently worded answers
+   * gives search engines contradicting data for the same questions.
+   */
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'AboutPage',
+        '@id': `${SITE_URL}/about#page`,
+        url: `${SITE_URL}/about`,
+        name: title,
+        description,
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        about: { '@id': `${SITE_URL}/#business` },
+        mainEntity: {
+          '@type': 'Person',
+          name: business.ownerFullName,
+          jobTitle: business.ownerRole,
+          worksFor: { '@id': `${SITE_URL}/#business` },
+          knowsAbout: ['Dog grooming', 'De-shedding treatments', 'Coat and skin health'],
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: about.breadcrumb.map((crumb, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: crumb.label,
+          item: `${SITE_URL}${crumb.href === '/' ? '' : crumb.href}`,
+        })),
+      },
+    ],
+  }
+
   return (
     <>
       <script

@@ -25,34 +25,34 @@ export const metadata: Metadata = {
   twitter: { title, description },
 }
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'WebPage',
-      '@id': `${SITE_URL}/wellness#page`,
-      url: `${SITE_URL}/wellness`,
-      name: title,
-      description,
-      isPartOf: { '@id': `${SITE_URL}/#website` },
-      about: { '@id': `${SITE_URL}/#business` },
-      // Deliberately not marked up as a bookable Service: this page says
-      // plainly that wellness is a phone conversation, not an appointment.
-      significantLink: [`${SITE_URL}/about`, `${SITE_URL}/contact`],
-    },
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: wellnessPage.breadcrumb.map((crumb, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        name: crumb.label,
-        item: `${SITE_URL}${crumb.href === '/' ? '' : crumb.href}`,
-      })),
-    },
-  ],
-}
-
 export default function WellnessPage() {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': `${SITE_URL}/wellness#page`,
+        url: `${SITE_URL}/wellness`,
+        name: title,
+        description,
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        about: { '@id': `${SITE_URL}/#business` },
+        // Deliberately not marked up as a bookable Service: this page says
+        // plainly that wellness is a phone conversation, not an appointment.
+        significantLink: [`${SITE_URL}/about`, `${SITE_URL}/contact`],
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: wellnessPage.breadcrumb.map((crumb, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: crumb.label,
+          item: `${SITE_URL}${crumb.href === '/' ? '' : crumb.href}`,
+        })),
+      },
+    ],
+  }
+
   return (
     <>
       <script

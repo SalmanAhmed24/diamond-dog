@@ -11,7 +11,6 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { SITE_URL, faqPage } from '@/lib/site'
 import { contactCtaBackdrop } from '@/lib/images'
 
-const title = 'Dog Grooming FAQ'
 const description =
   'Answers to what owners ask most about grooming at The Diamond Dog in Urbandale, Iowa: kenneling, vaccines, matting, de-shedding, timings, puppies, and anxious or senior dogs.'
 
@@ -23,41 +22,43 @@ export const metadata: Metadata = {
   twitter: { title, description },
 }
 
-/**
- * This is the only page that emits FAQPage markup. The two questions repeated
- * on /about are worded differently, and marking both up would hand search
- * engines two answers to the same question.
- */
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'FAQPage',
-      '@id': `${SITE_URL}/faq#page`,
-      url: `${SITE_URL}/faq`,
-      name: title,
-      description,
-      isPartOf: { '@id': `${SITE_URL}/#website` },
-      about: { '@id': `${SITE_URL}/#business` },
-      mainEntity: faqPage.items.map((item) => ({
-        '@type': 'Question',
-        name: item.question,
-        acceptedAnswer: { '@type': 'Answer', text: item.answer },
-      })),
-    },
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: faqPage.breadcrumb.map((crumb, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        name: crumb.label,
-        item: `${SITE_URL}${crumb.href === '/' ? '' : crumb.href}`,
-      })),
-    },
-  ],
-}
-
 export default function FaqPage() {
+  const title = 'Dog Grooming FAQ'
+
+  /**
+   * This is the only page that emits FAQPage markup. The two questions repeated
+   * on /about are worded differently, and marking both up would hand search
+   * engines two answers to the same question.
+   */
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'FAQPage',
+        '@id': `${SITE_URL}/faq#page`,
+        url: `${SITE_URL}/faq`,
+        name: title,
+        description,
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        about: { '@id': `${SITE_URL}/#business` },
+        mainEntity: faqPage.items.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: { '@type': 'Answer', text: item.answer },
+        })),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: faqPage.breadcrumb.map((crumb, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: crumb.label,
+          item: `${SITE_URL}${crumb.href === '/' ? '' : crumb.href}`,
+        })),
+      },
+    ],
+  }
+
   return (
     <>
       <script
