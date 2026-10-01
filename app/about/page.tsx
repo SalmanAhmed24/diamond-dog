@@ -12,6 +12,8 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { SITE_URL, about, aboutFaqs, business } from '@/lib/site'
 import { aboutCtaBackdrop, aboutGuideDog, aboutHeroCorgi } from '@/lib/images'
 
+const title = 'About The Diamond Dog | Health Over Hair'
+
 const description =
   'Meet Kaylie Chalupa, the groomer behind The Diamond Dog in Urbandale, Iowa. Over 18 years of experience, never kenneled, one dog at a time, home in 45 minutes to an hour.'
 
@@ -29,8 +31,6 @@ export const metadata: Metadata = {
 }
 
 export default function AboutPage() {
-  const title = 'About The Diamond Dog | Health Over Hair'
-
   /**
    * Two graphs: the page itself and the breadcrumb trail. FAQPage markup lives
    * only on /faq — emitting it from two pages with differently worded answers

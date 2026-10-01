@@ -11,6 +11,8 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { SITE_URL, faqsById, serviceAgreement } from '@/lib/site'
 import { contactCtaBackdrop } from '@/lib/images'
 
+const title = 'Service Agreement'
+
 const description =
   'The Diamond Dog service agreement in plain terms: how the matting and behavior fee works, and how holding and pickup are handled after your dog\u2019s groom is finished.'
 
@@ -23,8 +25,6 @@ export const metadata: Metadata = {
 }
 
 export default function ServiceAgreementPage() {
-  const title = 'Service Agreement'
-
   const structuredData = {
     '@context': 'https://schema.org',
     '@graph': [

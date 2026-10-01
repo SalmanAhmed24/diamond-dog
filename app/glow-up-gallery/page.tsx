@@ -10,6 +10,8 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { SITE_URL, glowUpGallery } from '@/lib/site'
 import { contactCtaBackdrop } from '@/lib/images'
 
+const title = 'The Glow Up Gallery'
+
 const description =
   'Real dogs, real transformations. Before-and-after grooms from The Diamond Dog in Urbandale, Iowa, filterable by service: de-shedding, full grooms, baths, sanitary grooms, cat grooming and add-ons.'
 
@@ -22,8 +24,6 @@ export const metadata: Metadata = {
 }
 
 export default function GlowUpGalleryPage() {
-  const title = 'The Glow Up Gallery'
-
   const structuredData = {
     '@context': 'https://schema.org',
     '@graph': [

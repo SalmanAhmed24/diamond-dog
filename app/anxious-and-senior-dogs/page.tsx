@@ -16,6 +16,8 @@ import {
   anxiousPlayPen,
 } from '@/lib/images'
 
+const title = 'Grooming for Anxious & Senior Dogs'
+
 const description =
   'Calm, unhurried grooming for anxious and senior dogs in Urbandale, Iowa. Never kenneled, one dog at a time, and home in 45 minutes to an hour with no long wait built into the day.'
 
@@ -28,8 +30,6 @@ export const metadata: Metadata = {
 }
 
 export default function AnxiousSeniorDogsPage() {
-  const title = 'Grooming for Anxious & Senior Dogs'
-
   const structuredData = {
     '@context': 'https://schema.org',
     '@graph': [

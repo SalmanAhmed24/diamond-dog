@@ -12,6 +12,8 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { SITE_URL, book, business, phone } from '@/lib/site'
 import { bookBeforeYouBook, bookCtaBackdrop } from '@/lib/images'
 
+const title = 'Book Your Groom'
+
 const description =
   'Book a groom with The Diamond Dog in Urbandale, Iowa. Pick the service that fits your dog by breed, size and coat, or call or text and Kaylie will help you choose.'
 
@@ -24,8 +26,6 @@ export const metadata: Metadata = {
 }
 
 export default function BookPage() {
-  const title = 'Book Your Groom'
-
   const structuredData = {
     '@context': 'https://schema.org',
     '@graph': [

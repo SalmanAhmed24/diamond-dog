@@ -11,6 +11,8 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { SITE_URL, faqPage } from '@/lib/site'
 import { contactCtaBackdrop } from '@/lib/images'
 
+const title = 'Dog Grooming FAQ'
+
 const description =
   'Answers to what owners ask most about grooming at The Diamond Dog in Urbandale, Iowa: kenneling, vaccines, matting, de-shedding, timings, puppies, and anxious or senior dogs.'
 
@@ -23,8 +25,6 @@ export const metadata: Metadata = {
 }
 
 export default function FaqPage() {
-  const title = 'Dog Grooming FAQ'
-
   /**
    * This is the only page that emits FAQPage markup. The two questions repeated
    * on /about are worded differently, and marking both up would hand search
