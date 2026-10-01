@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import type { CSSProperties, StaticImageData } from 'next/image'
+import type { StaticImageData } from 'next/image'
+import type { CSSProperties } from 'react'
 
 import { Reveal } from './Reveal'
 import { Mark } from './icons'
