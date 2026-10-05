@@ -32,14 +32,17 @@ The nav and footer link to routes that don't exist yet (`/services`, `/about`,
 `/faq` and so on). Add those pages, or trim the arrays in `lib/site.ts` — the
 sitemap generates from the same data, so it stays in sync either way.
 
-### One asset request
+### The logo
 
-The supplied logo is **367 × 70**, which is roughly 1x density. It renders at
-250px wide in the header (the design shows 367px) to keep it from looking soft on
-retina screens. A 2x PNG or, better, an SVG export from Figma would let it sit at
-the design's full size perfectly crisp — drop it in at
-`public/images/logo-the-diamond-dog.png` and raise the `.brand img` width in
-`components/SiteHeader.module.css`.
+`public/images/logo-the-diamond-dog.svg` is the vector original — 141 paths,
+flat fills, no embedded raster — so it is crisp at any size. It scales fluidly:
+200–240px on mobile and 251–352px on desktop, against the design's 367px at
+1440. Sizes live in `.brand img` in `components/SiteHeader.module.css`.
+
+It is a plain `<img>` rather than `next/image`: a vector has nothing for the
+optimiser to resize, and routing SVGs through it would mean enabling
+`dangerouslyAllowSVG`. `width`/`height` are set so the intrinsic 367:70 ratio
+reserves the space and nothing shifts while it loads.
 
 ---
 

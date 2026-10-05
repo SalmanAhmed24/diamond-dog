@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { AnimatePresence, m, useReducedMotion } from 'framer-motion'
@@ -8,7 +7,6 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { ChevronDown, CloseIcon, MenuIcon } from './icons'
 import { BOOKING_URL, business, callHref, primaryNav } from '@/lib/site'
-import { logo } from '@/lib/images'
 import styles from './SiteHeader.module.css'
 import { EASE } from '@/lib/motion'
 
@@ -90,11 +88,13 @@ export function SiteHeader() {
       >
         <div className={`container ${styles.inner}`}>
           <Link href="/" className={styles.brand} aria-label={`${business.name} — home`}>
-            <Image
-              src={logo}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/logo-the-diamond-dog.svg"
               alt={`${business.name} — ${business.subtitle}`}
-              priority
-              sizes="(max-width: 767px) 190px, 250px"
+              width={367}
+              height={70}
+              fetchPriority="high"
             />
           </Link>
 

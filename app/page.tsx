@@ -37,7 +37,7 @@ export default function HomePage() {
         description: seo.description,
         url: SITE_URL,
         image: `${SITE_URL}/images/og-cover.jpg`,
-        logo: `${SITE_URL}/images/logo-the-diamond-dog.png`,
+        logo: `${SITE_URL}/images/logo-the-diamond-dog.svg`,
         priceRange: business.priceRange,
         telephone: phone.number,
         address: {

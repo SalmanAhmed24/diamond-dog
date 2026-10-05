@@ -40,9 +40,10 @@
   flex-shrink: 0;
 }
 
-/* Width-driven so the intrinsic 367x70 ratio sets the height and nothing shifts. */
+/* Width-driven so the intrinsic 367x70 ratio sets the height and nothing
+   shifts. Vector, so it stays crisp at any of these sizes. */
 .brand img {
-  width: 190px;
+  width: clamp(12.5rem, 48vw, 15rem);
   height: auto;
 }
 
@@ -215,7 +216,8 @@
   }
 
   .brand img {
-    width: 250px;
+    /* Up to 352px at wide viewports, close to the 367px in the design. */
+    width: clamp(15rem, 22vw, 22rem);
   }
 
   .inner {

@@ -4,7 +4,6 @@
  */
 import type { StaticImageData } from 'next/image'
 
-import logo from '@/public/images/logo-the-diamond-dog.png'
 import heroKaylie from '@/public/images/hero-kaylie-with-dogs.webp'
 import philosophyKaylie from '@/public/images/philosophy-kaylie-and-dog.webp'
 import differenceBackdrop from '@/public/images/difference-backdrop.webp'
@@ -75,7 +74,6 @@ import galCat from '@/public/images/gallery-orange-cat.webp'
 import galCorgi from '@/public/images/gallery-corgi-deshed.webp'
 
 export {
-  logo,
   heroKaylie,
   philosophyKaylie,
   differenceBackdrop,
