@@ -102,10 +102,13 @@
 }
 
 .studio {
+  display: grid;
+  gap: 0.15rem;
   margin-top: 0.5rem;
   font-style: normal;
   color: var(--text-muted);
   font-size: 0.9375rem;
+  line-height: 1.5;
 }
 
 @media (min-width: 900px) {

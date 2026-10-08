@@ -1,7 +1,9 @@
 import { Reveal } from './Reveal'
 import styles from './DetailPanel.module.css'
 
-export type DetailRow = { label: string; value: string | string[]; href?: string }
+/* `readonly string[]`, not `string[]`: the address lines come from an `as const`
+   object, so a mutable array type would reject them. */
+export type DetailRow = { label: string; value: string | readonly string[]; href?: string }
 
 /** Heading and copy on the left, a labelled detail list on the right. */
 export function DetailPanel({

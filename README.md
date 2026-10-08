@@ -22,7 +22,7 @@ Everything editable lives in **`lib/site.ts`** — no copy is hard-coded in comp
 | Production domain | `SITE_URL` | `https://thediamonddog.com` — drives canonical URLs, OG tags, sitemap and JSON-LD |
 | Booking link | `BOOKING_URL` | `/book` — the booking page. Service buttons append `?service=<slug>` |
 | MoeGo embed | `BOOKING_EMBED_URL` | `null`. Until it is set, `/book` renders the design's placeholder panel; paste the MoeGo share URL and the real scheduler appears in its place with no code change |
-| Map coordinates | `business.geo` | Approximate centre of Urbandale — replace with the salon's exact position |
+| Map coordinates | `business.geo` | `null`. The street address geocodes on its own, so the map pin and the schema are already correct without it. To add exact coordinates anyway: open the address in Google Maps, right-click the pin, copy the lat/long from the top of the menu. The `geo` block is then emitted automatically |
 | Social profiles | `social` | Placeholder Facebook / Instagram / X URLs |
 
 The phone number (`515-315-5354`) is live throughout — every Call / Text control
@@ -259,6 +259,19 @@ rich result.
 
 Nav highlighting is route-aware via `usePathname`, so `aria-current="page"` lands
 on the right item on every route.
+
+### The address
+
+The street address lives once, in `business` in `lib/site.ts`, as four fields:
+`street`, `postalCode`, `addressFull` (one line, for running text) and
+`addressLines` (two lines, for postal blocks). Everything else reads from
+those — the footer, the contact card, the Studio rows on the de-shedding and
+full-groom pages, the contact page's meta description, the `PostalAddress` in
+the LocalBusiness schema, and the map. Changing the address is a one-place
+edit.
+
+`addressLines` is a `readonly` tuple because `business` is `as const`, which is
+why `DetailPanel`'s row type takes `readonly string[]` rather than `string[]`.
 
 ### The map
 

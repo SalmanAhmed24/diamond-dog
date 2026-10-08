@@ -42,15 +42,23 @@ export default function HomePage() {
         telephone: phone.number,
         address: {
           '@type': 'PostalAddress',
+          streetAddress: business.street,
           addressLocality: business.city,
           addressRegion: business.region,
+          postalCode: business.postalCode,
           addressCountry: business.country,
         },
-        geo: {
-          '@type': 'GeoCoordinates',
-          latitude: business.geo.latitude,
-          longitude: business.geo.longitude,
-        },
+        // Only emitted once real coordinates are set in lib/site.ts. The street
+        // address geocodes on its own, and a guessed pair would contradict it.
+        ...(business.geo
+          ? {
+              geo: {
+                '@type': 'GeoCoordinates',
+                latitude: business.geo.latitude,
+                longitude: business.geo.longitude,
+              },
+            }
+          : {}),
         areaServed: business.areaServed.map((name) => ({
           '@type': 'City',
           name,

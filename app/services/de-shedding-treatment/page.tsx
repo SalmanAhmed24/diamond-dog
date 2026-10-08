@@ -160,7 +160,7 @@ export default function DeSheddingTreatmentPage() {
           body={deSheddingPage.whereIWork.body}
           headingId="where-i-work-heading"
           rows={[
-            { label: 'Studio', value: `${business.city}, ${business.regionName}` },
+            { label: 'Studio', value: business.addressLines },
             { label: 'Phone & text', value: phone.display, href: callHref },
             { label: 'Hours', value: business.hours.map((slot) => slot.labelLong) },
             { label: 'Service area', value: business.areaServed.slice(1).join(', ') },

@@ -30,7 +30,10 @@
 /* Wide price strings shouldn't force the page to scroll sideways. */
 .frame {
   border: 1px solid var(--rule);
+  /* A last-resort escape hatch; below 600px the table is sized to fit instead,
+     so this should never actually engage. */
   overflow-x: auto;
+  max-width: 100%;
 }
 
 /* Several tables stack on the de-shed page. */
@@ -103,7 +106,42 @@
   margin-top: clamp(1.5rem, 3vw, 2rem);
 }
 
+/* ==========================================================================
+   Phones
+   The figures themselves are short; only the labels and column headers are
+   long. So rather than hold a 34rem table and make people scroll sideways to
+   reach the price — the column they came for — the table is allowed to fit and
+   the text wraps. The markup stays a real <table>, so the row and column
+   semantics survive.
+   ========================================================================== */
+
 @media (max-width: 599px) {
+  .table {
+    min-width: 0;
+  }
+
+  .caption,
+  .table thead th,
+  .table tbody th,
+  .table tbody td,
+  .table tfoot td {
+    padding-inline: 0.75rem;
+  }
+
+  .table thead th {
+    font-size: 0.625rem;
+    letter-spacing: 0.06em;
+  }
+
+  .table tbody th,
+  .table tbody td {
+    font-size: 0.875rem;
+    line-height: 1.45;
+  }
+
+  /* Let the price wrap rather than run off under the edge. Auto table layout
+     then splits the row in proportion to each column's content, which gives a
+     better balance here than pinning the price column to min-content. */
   .table tbody td {
     white-space: normal;
   }

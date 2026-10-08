@@ -60,7 +60,13 @@ export function ContactHero() {
             </span>
             <div>
               <p className={styles.label}>{details.studioLabel}</p>
-              <address className={styles.studio}>{details.studioValue}</address>
+              {/* Street and locality on their own lines, the way a postal
+                  address is normally set. */}
+              <address className={styles.studio}>
+                {details.studioValue.map((line) => (
+                  <span key={line}>{line}</span>
+                ))}
+              </address>
             </div>
           </div>
         </aside>

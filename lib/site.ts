@@ -23,14 +23,26 @@ export const business = {
   owner: 'Kaylie',
   ownerFullName: 'Kaylie Chalupa',
   ownerRole: 'Owner and groomer',
+  street: '2799 100th Street',
   city: 'Urbandale',
   region: 'IA',
   regionName: 'Iowa',
+  postalCode: '50322',
   country: 'US',
-  addressLine: 'Urbandale, Iowa. Serving Clive, Windsor Heights, Johnston and West Des Moines.',
+  /** One line, for running text and meta descriptions. */
+  addressFull: '2799 100th Street, Urbandale, IA 50322',
+  /** Two lines, the way a postal address is normally set. */
+  addressLines: ['2799 100th Street', 'Urbandale, IA 50322'],
+  addressLine:
+    '2799 100th Street, Urbandale, IA 50322. Serving Clive, Windsor Heights, Johnston and West Des Moines.',
   areaServed: ['Urbandale', 'Clive', 'Windsor Heights', 'Johnston', 'West Des Moines'],
-  // Approximate centre of Urbandale, IA. Replace with the exact salon coordinates.
-  geo: { latitude: 41.6266, longitude: -93.7124 },
+  /**
+   * Exact coordinates for the LocalBusiness geo field, left unset on purpose.
+   * The full street address geocodes on its own, and a guessed pair would
+   * contradict it. To fill it in: open the address in Google Maps, right-click
+   * the pin, and copy the latitude/longitude from the top of the menu.
+   */
+  geo: null as { latitude: number; longitude: number } | null,
   hours: [
     {
       days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
@@ -462,11 +474,14 @@ export const book = {
  *   https://www.google.com/maps/embed/v1/place?key=YOUR_KEY&q=Urbandale,IA
  */
 export const map = {
-  query: 'Urbandale, Iowa',
-  zoom: 12,
-  embedUrl: 'https://maps.google.com/maps?q=Urbandale%2C%20Iowa&z=12&output=embed',
-  linkUrl: 'https://www.google.com/maps/place/Urbandale,+IA',
-  title: 'Map showing Urbandale, Iowa, where The Diamond Dog is based',
+  query: '2799 100th Street, Urbandale, IA 50322',
+  /** Street level — close enough to find the door, wide enough to orient. */
+  zoom: 16,
+  embedUrl:
+    'https://maps.google.com/maps?q=2799%20100th%20Street%2C%20Urbandale%2C%20IA%2050322&z=16&output=embed',
+  linkUrl:
+    'https://www.google.com/maps/search/?api=1&query=2799%20100th%20Street%2C%20Urbandale%2C%20IA%2050322',
+  title: 'Map showing The Diamond Dog at 2799 100th Street, Urbandale, Iowa',
 }
 
 export const contact = {
@@ -483,7 +498,7 @@ export const contact = {
     phoneLabel: 'Phone and text',
     hoursLabel: 'Hours',
     studioLabel: 'Studio',
-    studioValue: 'Urbandale, Iowa',
+    studioValue: business.addressLines,
   },
   reach: {
     eyebrow: 'Contact',

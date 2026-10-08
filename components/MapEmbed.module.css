@@ -1,9 +1,15 @@
+/* `aspect-ratio` and `min-height` must never both apply here. When min-height
+   won (it did at every width up to 768px) the block size became definite and
+   larger than the ratio allowed, so the engine resolved the inline size from
+   the height instead: 260px x 2.876 = 748px, nearly twice a phone viewport.
+   That was the horizontal overflow. The ratio now changes per breakpoint
+   instead, so the height is comfortable without anything to clamp, and an
+   explicit width keeps the inline size authoritative either way. */
 .holder {
   position: relative;
-  /* The placeholder and the iframe share this box, so mounting the map shifts
-     nothing on the page. */
-  aspect-ratio: 1280 / 445;
-  min-height: 260px;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 4 / 3;
   background-color: #e8eef0;
   border: 1px solid var(--rule);
   overflow: hidden;
@@ -38,4 +44,17 @@
 
 .openLink:hover {
   background-color: #ffffff;
+}
+
+@media (min-width: 600px) {
+  .holder {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* The design's wide strip, which only has room to work on a real desktop. */
+@media (min-width: 900px) {
+  .holder {
+    aspect-ratio: 1280 / 445;
+  }
 }
