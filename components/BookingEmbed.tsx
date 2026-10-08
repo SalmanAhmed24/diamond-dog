@@ -31,13 +31,13 @@ export function BookingEmbed() {
 
         <div className={styles.frame}>
           <iframe
-            src="https://booking.moego.pet/ol/TheDiamondDogPetGrooming130030/book?utm_medium=embed"
+            src="https://booking.moego.pet/ol/TheDiamondDogPetGrooming130030/landing?utm_medium=embed"
             width="100%"
             height="100%"
             frameBorder="0"
             title="Online booking"
             scrolling="no"
-          ></iframe>{" "}
+          ></iframe>
           {/* {BOOKING_EMBED_URL ? (
             <iframe
               src={BOOKING_EMBED_URL}
