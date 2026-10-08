@@ -1,7 +1,7 @@
-import { Reveal } from './Reveal'
-import { Diamond } from './icons'
-import { BOOKING_EMBED_URL, book } from '@/lib/site'
-import styles from './BookingEmbed.module.css'
+import { Reveal } from "./Reveal";
+import { Diamond } from "./icons";
+import { BOOKING_EMBED_URL, book } from "@/lib/site";
+import styles from "./BookingEmbed.module.css";
 
 /**
  * Renders the MoeGo scheduler when `BOOKING_EMBED_URL` is set in lib/site.ts,
@@ -9,10 +9,14 @@ import styles from './BookingEmbed.module.css'
  * before the embed URL exists, and swapping it in needs no code change.
  */
 export function BookingEmbed() {
-  const { booking } = book
+  const { booking } = book;
 
   return (
-    <section id="booking" className={`section ${styles.section}`} aria-labelledby="booking-heading">
+    <section
+      id="booking"
+      className={`section ${styles.section}`}
+      aria-labelledby="booking-heading"
+    >
       <div className="container">
         <Reveal className={styles.head}>
           <p className="eyebrow">
@@ -26,7 +30,15 @@ export function BookingEmbed() {
         </Reveal>
 
         <div className={styles.frame}>
-          {BOOKING_EMBED_URL ? (
+          <iframe
+            src="https://booking.moego.pet/ol/TheDiamondDogPetGrooming130030/book?utm_medium=embed"
+            width="100%"
+            height="100%"
+            frameBorder="0"
+            title="Online booking"
+            scrolling="no"
+          ></iframe>{" "}
+          {/* {BOOKING_EMBED_URL ? (
             <iframe
               src={BOOKING_EMBED_URL}
               title="Book an appointment with The Diamond Dog"
@@ -38,11 +50,11 @@ export function BookingEmbed() {
             />
           ) : (
             <p className={styles.placeholder}>{booking.placeholder}</p>
-          )}
+          )} */}
         </div>
 
         <p className={styles.caption}>{booking.caption}</p>
       </div>
     </section>
-  )
+  );
 }
