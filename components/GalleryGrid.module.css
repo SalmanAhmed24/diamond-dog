@@ -41,12 +41,21 @@
 }
 
 /* ---------- Grid ----------
-   Six columns: landscape tiles span three, squares span two. At 1280px that
-   gives 630px and 413px cells with a 20px gutter, matching the design. */
+   Six columns: landscape tiles span three, squares and portraits span two. At
+   1280px that gives 630px and 413px cells with a 20px gutter, matching the
+   design; a portrait cell is therefore 413 x 551.
+
+   `align-items: start` is load-bearing. Grid items stretch by default, so a row
+   holding both a square and a portrait would take the portrait's height and the
+   square's tile would stretch with it — the declared 1/1 ratio only applies
+   while the block size is indefinite, so the square's photo would silently
+   cover-crop to a portrait box. Starting items instead lets every tile keep its
+   own ratio, at the cost of a ragged bottom edge on mixed rows. */
 
 .grid {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: start;
   gap: 20px;
   margin-top: clamp(1.5rem, 3vw, 2.25rem);
 }
@@ -55,14 +64,14 @@
   grid-column: span 3;
 }
 
-.square {
+.square,
+.portrait {
   grid-column: span 2;
 }
 
 .tile {
   overflow: hidden;
   background-color: var(--sand);
-  height: 100%;
 }
 
 .wide .tile {
@@ -71,6 +80,10 @@
 
 .square .tile {
   aspect-ratio: 1 / 1;
+}
+
+.portrait .tile {
+  aspect-ratio: 3 / 4;
 }
 
 .photo {
@@ -89,7 +102,8 @@
     grid-column: span 6;
   }
 
-  .square {
+  .square,
+  .portrait {
     grid-column: span 3;
   }
 }
@@ -99,7 +113,8 @@
     gap: 12px;
   }
 
-  .square {
+  .square,
+  .portrait {
     grid-column: span 6;
   }
 }

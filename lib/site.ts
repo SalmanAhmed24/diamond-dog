@@ -508,7 +508,8 @@ export const contact = {
     heading: 'Where I work',
     body:
       'Diamond Dog Grooming serves Urbandale and the surrounding area, including Clive, Windsor Heights, Johnston, and West Des Moines.',
-    imageAlt: 'A deep red velvet sofa in the bright, plant-filled waiting area.',
+    imageAlt:
+      'The front desk at The Diamond Dog, with a framed dachshund print, fresh flowers and trailing plants in the bright entry.',
   },
   cta: {
     heading: 'Ready to get started?',
@@ -544,17 +545,42 @@ export const glowUpGallery = {
   heading: 'The gallery',
   /** Order here is the order shown under "All". */
   items: [
+    /* ---- De-Shedding Treatment ---- */
     {
-      key: 'terrier-pair-ties',
-      tag: 'Add-Ons & Single Services',
-      shape: 'wide',
-      alt: 'Two freshly groomed terriers in matching donut-print ties on the grooming table.',
+      key: 'deshed-white-spitz',
+      tag: 'De-Shedding Treatment',
+      shape: 'portrait',
+      alt: 'A white spitz in a teal plaid necktie sitting on the grooming table, coat brushed out.',
     },
     {
-      key: 'dog-rolling',
-      tag: 'Sanitary Groom',
-      shape: 'wide',
-      alt: 'A tan and white dog rolling happily on its back on the salon floor after a sanitary groom.',
+      key: 'deshed-black-collie',
+      tag: 'De-Shedding Treatment',
+      shape: 'portrait',
+      alt: 'A black collie mix on the grooming table with the brushed-out undercoat on the floor below.',
+    },
+    {
+      key: 'deshed-corgi',
+      tag: 'De-Shedding Treatment',
+      shape: 'portrait',
+      alt: 'A Pembroke Welsh corgi on the grooming table after a de-shedding treatment.',
+    },
+    {
+      key: 'deshed-newfoundland',
+      tag: 'De-Shedding Treatment',
+      shape: 'portrait',
+      alt: 'A black Newfoundland lying down with a green toy after having its double coat blown out.',
+    },
+    {
+      key: 'deshed-kelpie',
+      tag: 'De-Shedding Treatment',
+      shape: 'portrait',
+      alt: 'A black-and-tan kelpie standing on the grooming table, coat brushed through.',
+    },
+    {
+      key: 'deshed-border-collie',
+      tag: 'De-Shedding Treatment',
+      shape: 'portrait',
+      alt: 'A black-and-white border collie sitting on the salon floor after a de-shedding treatment.',
     },
     {
       key: 'bw-coat-before',
@@ -569,10 +595,65 @@ export const glowUpGallery = {
       alt: 'An Australian shepherd resting on the salon floor with a bright, de-shedded coat.',
     },
     {
-      key: 'bath-suds',
-      tag: 'Bath',
+      key: 'deshed-three-dogs',
+      tag: 'De-Shedding Treatment',
       shape: 'square',
-      alt: 'A short-coated dog covered in suds standing in the grooming tub.',
+      alt: 'Three dogs — a brindle terrier, a hound in a bandana and a white retriever — looking up together.',
+    },
+    /* ---- Full Groom ---- */
+    {
+      key: 'fullgroom-orange-bandana',
+      tag: 'Full Groom',
+      shape: 'portrait',
+      alt: 'A cream cockapoo in an orange patterned bandana sitting on the grooming table.',
+    },
+    {
+      key: 'fullgroom-cream-doodle-sit',
+      tag: 'Full Groom',
+      shape: 'portrait',
+      alt: 'A cream goldendoodle sitting on the grooming table after a full haircut.',
+    },
+    {
+      key: 'fullgroom-tan-doodle-floor',
+      tag: 'Full Groom',
+      shape: 'portrait',
+      alt: 'A tan goldendoodle in a rust bandana sitting on the salon floor, tail fanned out.',
+    },
+    {
+      key: 'fullgroom-apricot-poodle',
+      tag: 'Full Groom',
+      shape: 'portrait',
+      alt: 'An apricot poodle in a burgundy check bandana, freshly scissored into a rounded trim.',
+    },
+    {
+      key: 'fullgroom-poodle-necktie',
+      tag: 'Full Groom',
+      shape: 'portrait',
+      alt: 'A silver poodle wearing a plaid necktie, tongue out, on the grooming table.',
+    },
+    {
+      key: 'fullgroom-chocolate-poodle',
+      tag: 'Full Groom',
+      shape: 'portrait',
+      alt: 'A chocolate poodle in an orange plaid bandana sitting after a full groom.',
+    },
+    {
+      key: 'fullgroom-brown-terrier',
+      tag: 'Full Groom',
+      shape: 'portrait',
+      alt: 'A small brown terrier mix in an orange harness standing on the grooming table.',
+    },
+    {
+      key: 'fullgroom-lavender-bandana',
+      tag: 'Full Groom',
+      shape: 'portrait',
+      alt: 'A cream cockapoo in a lavender bandana, tongue out, sitting on the grooming table.',
+    },
+    {
+      key: 'fullgroom-red-doodle-stand',
+      tag: 'Full Groom',
+      shape: 'portrait',
+      alt: 'A red goldendoodle standing in profile on the grooming table after a full haircut.',
     },
     {
       key: 'cream-doodle',
@@ -586,6 +667,76 @@ export const glowUpGallery = {
       shape: 'square',
       alt: 'A red goldendoodle lying on a wooden floor after a full groom, wearing a patterned collar.',
     },
+    /* ---- Bath ---- */
+    {
+      key: 'bath-shower-cap',
+      tag: 'Bath',
+      shape: 'portrait',
+      alt: 'A brown pit bull in a pink shower cap standing in the stainless bathing tub.',
+    },
+    {
+      key: 'bath-pointer-doorway',
+      tag: 'Bath',
+      shape: 'portrait',
+      alt: 'A brown-and-white pointer mix on a pink lead sitting by the salon door after a bath.',
+    },
+    {
+      key: 'bath-boston-pair',
+      tag: 'Bath',
+      shape: 'portrait',
+      alt: 'Two Boston terriers standing side by side on the grooming table after their baths.',
+    },
+    {
+      key: 'bath-basset-tub',
+      tag: 'Bath',
+      shape: 'portrait',
+      alt: 'A basset hound standing in the stainless bathing tub.',
+    },
+    {
+      key: 'bath-suds',
+      tag: 'Bath',
+      shape: 'square',
+      alt: 'A short-coated dog covered in suds standing in the grooming tub.',
+    },
+    /* ---- Sanitary Groom ---- */
+    {
+      key: 'sanitary-apricot-poodle',
+      tag: 'Sanitary Groom',
+      shape: 'portrait',
+      alt: 'An apricot toy poodle sitting on the salon floor after a sanitary tidy-up.',
+    },
+    {
+      key: 'sanitary-bichon-bowtie',
+      tag: 'Sanitary Groom',
+      shape: 'portrait',
+      alt: 'A cream bichon in a navy bow tie sitting on the grooming table.',
+    },
+    {
+      key: 'sanitary-cockapoo-table',
+      tag: 'Sanitary Groom',
+      shape: 'portrait',
+      alt: 'An apricot cockapoo sitting on the grooming table during a sanitary trim.',
+    },
+    {
+      key: 'sanitary-yorkie',
+      tag: 'Sanitary Groom',
+      shape: 'portrait',
+      alt: 'A Yorkshire terrier in a red collar standing on the grooming table after a sanitary trim.',
+    },
+    {
+      key: 'dog-rolling',
+      tag: 'Sanitary Groom',
+      shape: 'wide',
+      alt: 'A tan and white dog rolling happily on its back on the salon floor after a sanitary groom.',
+    },
+    /* ---- Cat Grooming ---- */
+    {
+      key: 'orange-cat',
+      tag: 'Cat Grooming',
+      shape: 'square',
+      alt: 'An orange cat resting on the table after a lion-cut shave-down.',
+    },
+    /* ---- Add-Ons & Single Services ---- */
     {
       key: 'red-poodle-bandana',
       tag: 'Add-Ons & Single Services',
@@ -593,15 +744,15 @@ export const glowUpGallery = {
       alt: 'A red poodle in a paw-print bandana sitting on the grooming table.',
     },
     {
-      key: 'orange-cat',
-      tag: 'Cat Grooming',
-      shape: 'square',
-      alt: 'An orange cat resting on the table after a lion-cut shave-down.',
+      key: 'terrier-pair-ties',
+      tag: 'Add-Ons & Single Services',
+      shape: 'wide',
+      alt: 'Two freshly groomed terriers in matching donut-print ties on the grooming table.',
     },
   ] satisfies {
     key: string
     tag: GalleryTag
-    shape: 'wide' | 'square'
+    shape: 'wide' | 'square' | 'portrait'
     alt: string
   }[],
   cta: {
@@ -784,7 +935,8 @@ export const anxiousSeniorDogs = {
     heading: 'The one exception',
     body:
       'I have a play pen provided should your dog need, or want to be in their own space away from other dogs. Otherwise, it\u2019s toys and play in the main grooming room while we wait for you to arrive! Reminder, we do not provide daycare services and ask for pick up to be within 40 minutes of their finished appointment.',
-    imageAlt: 'A bichon resting beside a soft bed and water bowl inside the open play pen.',
+    imageAlt:
+      'A red-coated dog resting on a bed inside the open play pen, with a water bowl beside it and leashes hanging on the wall.',
   },
   faq: {
     eyebrow: 'Questions',
@@ -1081,7 +1233,8 @@ export const deSheddingPage = {
       { icon: 'scissors', label: 'Nail trim' },
       { icon: 'droplet', label: 'Anal gland expression' },
     ],
-    imageAlt: 'An owner lifting a curly-coated water dog, coat loose and clean after a de-shed.',
+    imageAlt:
+      'Three dogs in bandanas — a brindle terrier, a hound and a white retriever — sitting together on the salon floor after their de-sheds.',
   },
   pricing: {
     eyebrow: 'Pricing',

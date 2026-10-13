@@ -354,9 +354,22 @@ panels, so the tags are toggle buttons with `aria-pressed` rather than a
 tablist, and a visually hidden live region announces the result count on each
 change.
 
-The grid is six columns: landscape tiles span three, squares span two. At 1280px
-that resolves to 630px and 413px cells with a 20px gutter, matching the design
-exactly, and it reflows to two-up then one-up without special cases.
+The grid is six columns: landscape tiles span three, squares and portraits span
+two. At 1280px that resolves to 630px, 413px and 413x551 cells with a 20px
+gutter, matching the design exactly, and it reflows to two-up then one-up
+without special cases.
+
+`align-items: start` on the grid is load-bearing. Grid items stretch by default,
+so a row holding both a square and a portrait would take the portrait's height
+and the square's tile would stretch with it — a declared `aspect-ratio` only
+applies while the block size is indefinite, so the square's photo would silently
+cover-crop to a portrait box with no warning anywhere. Starting the items
+instead lets every tile keep its own ratio, at the cost of a ragged bottom edge
+on rows that mix shapes. For the same reason `.tile` must not set `height:
+100%`. Both are asserted by the validation script.
+
+Items are ordered by tag, portraits first within each tag, so each filtered view
+packs into flush rows and any ragged row lands at the bottom of the tab.
 
 Filtering replays a short stagger by re-keying the list rather than using
 Framer's `layout` prop. That is deliberate: layout animations need the `domMax`
@@ -367,10 +380,43 @@ Gallery-page photos are prefixed `glowup-` and the home page's own gallery crops
 `gallery-`. They are different crops of overlapping subjects, so the prefixes
 stop one silently overwriting the other.
 
+Within `glowup-`, the per-tab photo drop is prefixed again by tab
+(`glowup-bath-`, `glowup-sanitary-`, `glowup-fullgroom-`, `glowup-deshed-`)
+because two unrelated originals arrived as `IMG_3588` — a Boston terrier pair
+for Bath and a Yorkshire terrier for Sanitary Groom.
+
 Add a photo by dropping the file in `public/images`, adding a line to
 `glowUpImages` in `lib/images.ts` and an entry to `glowUpGallery.items`. The
 filter, the count and the `ImageGallery` structured data all follow from that
 one array.
+
+**Source resolution.** The supplied gallery photos are small: 620x827 for the
+Bath and Sanitary sets, 409x545 for Full Groom and De-Shedding, against tiles
+that render at 413x551. They are therefore roughly 1:1 with the CSS pixel size
+and will look soft on a 2x display, which would want ~826x1102. The same is true
+of the original nine (414px). Re-exporting at 2x from the originals is the only
+fix; upscaling here would add weight without detail. Flagged to the client.
+
+### Service card photos must be landscape
+
+`.media` and `.featuredMedia` in `Services.module.css` are a fixed `3 / 2` box
+with `object-fit: cover`, so the source is cropped to the slot rather than
+fitted to it. On desktop the featured cell switches to `aspect-ratio: auto` and
+the crop follows the card height, which hides the problem; on mobile it does
+not. A portrait `828x994` de-shed photo therefore lost 44% of its height and cut
+the dog in half on phones while looking fine on a laptop. Keep these sources
+near `1.5`; the validation script fails anything that keeps under 75%.
+
+A matching frame is not the whole story, though. The de-shed hero was framed at
+`577 / 455` against an `828x653` file — the same ratio, so no component cropped
+it — yet it still read as cropped because the *asset itself* was a tight crop
+with the dog's ears cut off. No CSS can recover what was never in the file. The
+hero and the service card now share one source, `deshed-collie.webp`, imported
+twice; webpack emits it once.
+
+The validation script also checks every `aspect` prop on `MediaHero`,
+`SplitSection` and `ServiceIncludes` against its image's native ratio, so a
+frame and a file can no longer silently disagree.
 
 ### Scrim opacities
 

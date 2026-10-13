@@ -24,6 +24,21 @@ const itemVariants: Variants = {
   shown: { opacity: 1, y: 0, transition: { duration: 0.32, ease: EASE } },
 }
 
+/* Keyed off the shape so a new shape can't fall through to a default that
+   happens to render but crops wrongly. Squares and portraits occupy the same
+   track count, so they share a `sizes` string. */
+const shapeClass = {
+  wide: styles.wide,
+  square: styles.square,
+  portrait: styles.portrait,
+} as const
+
+const shapeSizes = {
+  wide: '(max-width: 1023px) 100vw, 630px',
+  square: '(max-width: 599px) 100vw, (max-width: 1023px) 50vw, 414px',
+  portrait: '(max-width: 599px) 100vw, (max-width: 1023px) 50vw, 414px',
+} as const
+
 export function GalleryGrid() {
   const [activeTag, setActiveTag] = useState<GalleryTag>('All')
 
@@ -82,7 +97,7 @@ export function GalleryGrid() {
               key={item.key}
               data-reveal=""
               variants={itemVariants}
-              className={item.shape === 'wide' ? styles.wide : styles.square}
+              className={shapeClass[item.shape]}
             >
               <div className={styles.tile}>
                 <Image
@@ -90,11 +105,7 @@ export function GalleryGrid() {
                   alt={item.alt}
                   placeholder="blur"
                   className={styles.photo}
-                  sizes={
-                    item.shape === 'wide'
-                      ? '(max-width: 599px) 100vw, (max-width: 1023px) 100vw, 630px'
-                      : '(max-width: 599px) 100vw, (max-width: 1023px) 50vw, 414px'
-                  }
+                  sizes={shapeSizes[item.shape]}
                 />
               </div>
             </m.li>

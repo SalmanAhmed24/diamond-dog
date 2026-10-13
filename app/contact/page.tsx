@@ -88,8 +88,9 @@ export default function ContactPage() {
           headingId="where-heading"
           image={contactWhereIWork}
           imageAlt={contact.whereIWork.imageAlt}
-          aspect="412 / 312"
+          aspect="600 / 480"
           mediaRatio={0.6}
+          bodyMeasure={96}
         />
         <ResourceLinks heading={book.resources.heading} items={book.resources.items} />
         <FinalCta

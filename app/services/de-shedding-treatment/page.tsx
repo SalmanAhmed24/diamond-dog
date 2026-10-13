@@ -15,8 +15,8 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { SITE_URL, business, callHref, deSheddingPage, faqsById, phone } from '@/lib/site'
 import {
   addOnsCtaBackdrop,
-  deshedHeroAussie,
-  deshedIncludedCurly,
+  deshedHeroCollie,
+  deshedIncludedTrio,
   deshedProcessChi,
 } from '@/lib/images'
 
@@ -119,9 +119,9 @@ export default function DeSheddingTreatmentPage() {
           heading={deSheddingPage.hero.heading}
           headingId="de-shedding-heading"
           body={deSheddingPage.hero.body}
-          image={deshedHeroAussie}
+          image={deshedHeroCollie}
           imageAlt={deSheddingPage.hero.imageAlt}
-          aspect="577 / 455"
+          aspect="577 / 454"
           callLabel={deSheddingPage.hero.callLabel}
         />
 
@@ -140,7 +140,7 @@ export default function DeSheddingTreatmentPage() {
           headingId="de-shed-included-heading"
           blocks={deSheddingPage.included.blocks}
           items={deSheddingPage.included.items}
-          image={deshedIncludedCurly}
+          image={deshedIncludedTrio}
           imageAlt={deSheddingPage.included.imageAlt}
           aspect="600 / 480"
           mediaSide="right"

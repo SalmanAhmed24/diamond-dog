@@ -40,9 +40,9 @@ import catHeroKaylie from '@/public/images/cat-hero-kaylie.webp'
 import catShaveGinger from '@/public/images/cat-shave-ginger.webp'
 import catBannerBlowdry from '@/public/images/cat-banner-blowdry.webp'
 
-import deshedHeroAussie from '@/public/images/deshed-hero-aussie.webp'
+import deshedHeroCollie from '@/public/images/deshed-collie.webp'
 import deshedProcessChi from '@/public/images/deshed-process-chi.webp'
-import deshedIncludedCurly from '@/public/images/deshed-included-curly.webp'
+import deshedIncludedTrio from '@/public/images/deshed-included-trio.webp'
 
 import fullGroomHeroDoodle from '@/public/images/fullgroom-hero-doodle.webp'
 import fullGroomBrushing from '@/public/images/fullgroom-brushing.webp'
@@ -60,7 +60,38 @@ import glRedDoodle from '@/public/images/glowup-red-doodle-floor.webp'
 import glRedPoodle from '@/public/images/glowup-red-poodle-bandana.webp'
 import glOrangeCat from '@/public/images/glowup-orange-cat.webp'
 
-import svcDeShedding from '@/public/images/service-de-shedding.webp'
+/* Glow Up Gallery — client photo drop, one set per tab. Keys are prefixed with
+   the tab so the two unrelated `IMG_3588` originals (a Boston terrier pair for
+   Bath, a Yorkshire terrier for Sanitary Groom) can't collide. */
+import glBathShowerCap from '@/public/images/glowup-bath-shower-cap.webp'
+import glBathPointer from '@/public/images/glowup-bath-pointer-doorway.webp'
+import glBathBostons from '@/public/images/glowup-bath-boston-pair.webp'
+import glBathBasset from '@/public/images/glowup-bath-basset-tub.webp'
+
+import glSanPoodle from '@/public/images/glowup-sanitary-apricot-poodle.webp'
+import glSanBichon from '@/public/images/glowup-sanitary-bichon-bowtie.webp'
+import glSanCockapoo from '@/public/images/glowup-sanitary-cockapoo-table.webp'
+import glSanYorkie from '@/public/images/glowup-sanitary-yorkie.webp'
+
+import glFgOrangeBandana from '@/public/images/glowup-fullgroom-orange-bandana.webp'
+import glFgCreamDoodle from '@/public/images/glowup-fullgroom-cream-doodle-sit.webp'
+import glFgTanDoodle from '@/public/images/glowup-fullgroom-tan-doodle-floor.webp'
+import glFgApricotPoodle from '@/public/images/glowup-fullgroom-apricot-poodle.webp'
+import glFgPoodleNecktie from '@/public/images/glowup-fullgroom-poodle-necktie.webp'
+import glFgChocolatePoodle from '@/public/images/glowup-fullgroom-chocolate-poodle.webp'
+import glFgBrownTerrier from '@/public/images/glowup-fullgroom-brown-terrier.webp'
+import glFgLavenderBandana from '@/public/images/glowup-fullgroom-lavender-bandana.webp'
+import glFgRedDoodle from '@/public/images/glowup-fullgroom-red-doodle-stand.webp'
+
+import glDsWhiteSpitz from '@/public/images/glowup-deshed-white-spitz.webp'
+import glDsBlackCollie from '@/public/images/glowup-deshed-black-collie.webp'
+import glDsCorgi from '@/public/images/glowup-deshed-corgi.webp'
+import glDsNewfoundland from '@/public/images/glowup-deshed-newfoundland.webp'
+import glDsThreeDogs from '@/public/images/glowup-deshed-three-dogs.webp'
+import glDsKelpie from '@/public/images/glowup-deshed-kelpie.webp'
+import glDsBorderCollie from '@/public/images/glowup-deshed-border-collie.webp'
+
+import svcDeShedding from '@/public/images/deshed-collie.webp'
 import svcFullGroom from '@/public/images/service-full-groom.webp'
 import svcBath from '@/public/images/service-bath.webp'
 import svcSanitary from '@/public/images/service-sanitary-groom.webp'
@@ -101,9 +132,9 @@ export {
   catHeroKaylie,
   catShaveGinger,
   catBannerBlowdry,
-  deshedHeroAussie,
+  deshedHeroCollie,
   deshedProcessChi,
-  deshedIncludedCurly,
+  deshedIncludedTrio,
   fullGroomHeroDoodle,
   fullGroomBrushing,
   sanitaryHeroRolling,
@@ -131,6 +162,34 @@ export const glowUpImages: Record<string, StaticImageData> = {
   'red-doodle-floor': glRedDoodle,
   'red-poodle-bandana': glRedPoodle,
   'orange-cat': glOrangeCat,
+
+  'bath-shower-cap': glBathShowerCap,
+  'bath-pointer-doorway': glBathPointer,
+  'bath-boston-pair': glBathBostons,
+  'bath-basset-tub': glBathBasset,
+
+  'sanitary-apricot-poodle': glSanPoodle,
+  'sanitary-bichon-bowtie': glSanBichon,
+  'sanitary-cockapoo-table': glSanCockapoo,
+  'sanitary-yorkie': glSanYorkie,
+
+  'fullgroom-orange-bandana': glFgOrangeBandana,
+  'fullgroom-cream-doodle-sit': glFgCreamDoodle,
+  'fullgroom-tan-doodle-floor': glFgTanDoodle,
+  'fullgroom-apricot-poodle': glFgApricotPoodle,
+  'fullgroom-poodle-necktie': glFgPoodleNecktie,
+  'fullgroom-chocolate-poodle': glFgChocolatePoodle,
+  'fullgroom-brown-terrier': glFgBrownTerrier,
+  'fullgroom-lavender-bandana': glFgLavenderBandana,
+  'fullgroom-red-doodle-stand': glFgRedDoodle,
+
+  'deshed-white-spitz': glDsWhiteSpitz,
+  'deshed-black-collie': glDsBlackCollie,
+  'deshed-corgi': glDsCorgi,
+  'deshed-newfoundland': glDsNewfoundland,
+  'deshed-three-dogs': glDsThreeDogs,
+  'deshed-kelpie': glDsKelpie,
+  'deshed-border-collie': glDsBorderCollie,
 }
 
 /** Keyed by the `key` field on each home-page gallery entry in lib/site.ts */
