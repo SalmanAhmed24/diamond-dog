@@ -16,6 +16,14 @@ export const callHref = `tel:${phone.number}`
 /** Booking provider URL. Swap for the real scheduler (Square, Vagaro, Gingr, …). */
 export const BOOKING_URL = '/book'
 
+/**
+ * Google Business Profile reviews link. Placeholder: this search URL resolves to
+ * the business, but swap it for the profile's own "write/see all reviews" link
+ * so the badge lands on the real place page.
+ */
+export const GOOGLE_REVIEWS_URL =
+  'https://www.google.com/search?q=The+Diamond+Dog+Pet+Grooming+Urbandale+IA+reviews'
+
 export const business = {
   name: 'The Diamond Dog',
   legalName: 'The Diamond Dog',
@@ -182,6 +190,81 @@ export const whyChoose = {
   ],
 }
 
+export const testimonials = {
+  eyebrow: 'Google Reviews',
+  heading: 'What owners say',
+  lede: 'Nervous paws, rescue pups, first haircuts and seniors, in their owners’ own words.',
+  /**
+   * Replace with the business's own Google reviews link — Maps place page, or
+   * the "see all reviews" URL from the Google Business Profile.
+   */
+  reviewsUrl: GOOGLE_REVIEWS_URL,
+  reviewsLabel: 'Read all reviews on Google',
+  /**
+   * Verbatim from the Google Business Profile. These are republished
+   * third-party reviews, so they deliberately carry no Review/AggregateRating
+   * structured data — see the README.
+   */
+  items: [
+    {
+      quote:
+        'Our dog is a rescue hunting dog who never had regular grooming so she is admittedly not the easiest to work with. But Kaylie is knowledgeable, confident, and has a way of putting Sissy girl at ease.',
+      name: 'Rachael Salazar',
+      pet: 'Sissy',
+      detail: 'rescue hunting dog',
+    },
+    {
+      quote:
+        'Murphy is usually very nervous when it comes to having his paws handled, but Kaylie is so patient and gentle that she never has any problems with him.',
+      name: 'Crystal Tjeerdsma',
+      pet: 'Murphy',
+      detail: 'goldendoodle',
+    },
+    {
+      quote:
+        'Kaylie is so knowledgeable and easy to work with. She also always takes time to teach me the best ways to brush my dog! She does fantastic work!',
+      name: 'Hannah Clark',
+      pet: 'Maple',
+      detail: 'doodle',
+    },
+    {
+      quote:
+        'Marlo doesn’t really enjoy getting groomed, but Kaylie always makes him feel comfortable, and he comes out looking and feeling happy every time.',
+      name: 'Lai Pham',
+      pet: 'Marlo',
+      detail: 'poodle',
+    },
+    {
+      quote:
+        'Kaylie was excellent with River’s first grooming. Loved our entire experience from booking to finish. River was a happy puppy on both drop-off and pick-up.',
+      name: 'Eryn Wernimont',
+      pet: 'River',
+      detail: 'cockapoo, first groom',
+    },
+    {
+      quote:
+        'We took our senior female golden retriever, Stella here and she came back looking absolutely stunning! We’ll definitely be back!',
+      name: 'Mark Easler',
+      pet: 'Stella',
+      detail: 'senior golden retriever',
+    },
+    {
+      quote:
+        'Bear had his first haircut today. I was nervous because I loved his long puppy hair. Kaylie did amazing and Bear loved it!',
+      name: 'Angela Saari',
+      pet: 'Bear',
+      detail: 'first haircut',
+    },
+    {
+      quote:
+        'Going on towards 2 years, Baron looks forward to his day spa experience. Gets bathed, groomed, a handsome bow tie, scarf, it varies, but he comes home happy!',
+      name: 'Kathy Hecker',
+      pet: 'Baron',
+      detail: 'regular client',
+    },
+  ],
+}
+
 export const gallery = {
   eyebrow: 'The Glow Up Gallery',
   heading: 'Glow up gallery',
@@ -190,28 +273,28 @@ export const gallery = {
   link: { label: 'See more work', href: '/glow-up-gallery' },
   images: [
     {
-      key: 'doodle-bookshelf',
-      alt: 'A cream goldendoodle standing in front of a bookshelf after a full groom.',
+      key: 'corgi-table',
+      alt: 'A Pembroke Welsh corgi standing on the grooming table, coat brushed out and gleaming.',
       size: 'large' as const,
     },
     {
-      key: 'terrier-pair',
-      alt: 'Two freshly groomed terriers in matching donut-print ties on the grooming table.',
+      key: 'boston-pair',
+      alt: 'Two Boston terriers side by side on the grooming table, one in a plaid tie.',
       size: 'large' as const,
     },
     {
-      key: 'red-poodle',
-      alt: 'A red poodle in a patterned bandana sitting on the grooming table.',
+      key: 'trio-floor',
+      alt: 'A brindle terrier and a white retriever sitting on the salon floor in bandanas.',
       size: 'small' as const,
     },
     {
-      key: 'orange-cat',
-      alt: 'An orange cat resting on the table after a lion-cut shave-down.',
+      key: 'newfoundland',
+      alt: 'A black Newfoundland lying down with a green toy after a de-shedding treatment.',
       size: 'small' as const,
     },
     {
-      key: 'corgi-deshed',
-      alt: 'A corgi beside the pile of undercoat removed during its de-shedding treatment.',
+      key: 'white-spitz',
+      alt: 'A white spitz in a teal plaid necktie sitting on the grooming table.',
       size: 'small' as const,
     },
   ],
@@ -285,7 +368,7 @@ export const aboutFaqs = {
     {
       question: 'How long will my dog\u2019s grooming take?',
       answer:
-        'I have most dogs home in 45 minutes to an hour. Large and extra large dogs typically take a bit longer. The exact time depends on the service and your dog\u2019s size and coat, and I personally plan and guide every groom.',
+        'I have most dogs home in 45 minutes to an hour. Large and extra-large dogs typically take a bit longer. The exact time depends on the service, your dog\u2019s size and coat.',
     },
   ],
 }
@@ -302,35 +385,35 @@ export const faqPage = {
       id: 'kenneling',
       question: 'Is my dog kenneled during grooming?',
       answer:
-        'No, I don\u2019t kennel your dog during grooming. While waiting, dogs stay in a comfortable, open play pen rather than a cage.',
+        'No, I don\u2019t kennel your dog during grooming. While waiting, dogs stay in a comfortable, open room or a play pen if they feel more comfortable in a smaller space rather than a cage.',
       readMoreHref: '/about',
     },
     {
       id: 'bordetella',
       question: 'Why don\u2019t you require the Bordetella vaccine?',
       answer:
-        'I don\u2019t require Bordetella, because it\u2019s meant for long-term boarding, not a grooming visit. The vaccine protects against kennel cough, which spreads through prolonged, close contact between dogs in boarding environments. Since I groom your dog and send them home the same day rather than boarding them, that level of exposure doesn\u2019t apply.',
+        'I do not require Bordetella. It is generally required for boarding dogs that stay kenneled for long periods of time. Dogs are here for a short period of time, making it unnecessary.',
       readMoreHref: '/vaccine-requirements',
     },
     {
       id: 'how-long',
       question: 'How long will my dog\u2019s grooming take?',
       answer:
-        'I have most dogs home in 45 minutes to an hour. Large and extra large dogs typically take a bit longer. The exact time depends on the service and your dog\u2019s size and coat, and I personally plan and guide every groom.',
+        'I have most dogs home in 45 minutes to an hour. Large and extra-large dogs typically take a bit longer. The exact time depends on the service, your dog\u2019s size and coat.',
       readMoreHref: '/about',
     },
     {
       id: 'matting',
-      question: 'My dog is matted - what will you do?',
+      question: 'My dog is matted \u2013 what will you do?',
       answer:
-        'I\u2019ll remove the unhealthy matted coat humanely, then build a grow-out plan back to the coat you want. Health over hair means I take the mats out safely first, then work back toward your dog\u2019s full coat over time.',
+        'I remove the matted coat humanely. Next, I create a plan that combines a regular grooming schedule with at-home brushing, with the goal of growing the coat back out to the length desired.',
       readMoreHref: '/services/full-groom',
     },
     {
       id: 'vaccines',
       question: 'What vaccines does my dog need before grooming?',
       answer:
-        'I only need your dog to have distemper/parvo and rabies - nothing more. Puppies can start after two sets of distemper/parvo, typically around 12 weeks, with rabies added after 16 weeks.',
+        'I only require Rabies and Distemper/Parvo vaccines per Iowa law. Puppies can begin grooming after their second round of Distemper/Parvo (usually around 12 weeks of age). Rabies is required at 16 weeks or later.',
       readMoreHref: '/vaccine-requirements',
     },
     {

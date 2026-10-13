@@ -98,11 +98,11 @@ import svcSanitary from '@/public/images/service-sanitary-groom.webp'
 import svcCat from '@/public/images/service-cat-grooming.webp'
 import svcAddOns from '@/public/images/service-add-ons.webp'
 
-import galDoodle from '@/public/images/gallery-doodle-bookshelf.webp'
-import galTerriers from '@/public/images/gallery-terrier-pair.webp'
-import galPoodle from '@/public/images/gallery-red-poodle.webp'
-import galCat from '@/public/images/gallery-orange-cat.webp'
-import galCorgi from '@/public/images/gallery-corgi-deshed.webp'
+import galCorgiTable from '@/public/images/gallery-corgi-table.webp'
+import galBostons from '@/public/images/gallery-boston-pair.webp'
+import galTrio from '@/public/images/gallery-trio-floor.webp'
+import galNewfoundland from '@/public/images/gallery-newfoundland.webp'
+import galSpitz from '@/public/images/gallery-white-spitz.webp'
 
 export {
   heroKaylie,
@@ -194,9 +194,10 @@ export const glowUpImages: Record<string, StaticImageData> = {
 
 /** Keyed by the `key` field on each home-page gallery entry in lib/site.ts */
 export const galleryImages: Record<string, StaticImageData> = {
-  'doodle-bookshelf': galDoodle,
-  'terrier-pair': galTerriers,
-  'red-poodle': galPoodle,
-  'orange-cat': galCat,
-  'corgi-deshed': galCorgi,
+  'corgi-table': galCorgiTable,
+  'boston-pair': galBostons,
+  'trio-floor': galTrio,
+  'newfoundland': galNewfoundland,
+  'white-spitz': galSpitz,
 }
+

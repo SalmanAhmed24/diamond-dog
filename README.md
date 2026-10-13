@@ -347,6 +347,30 @@ rather than restating them, so editing an answer on the FAQ page updates every
 page that shows it.
 Validation fails if an `itemIds` entry names an id that doesn't exist.
 
+### Testimonials
+
+Eight Google reviews, verbatim in `testimonials` in `lib/site.ts`. Two details
+are deliberate:
+
+**No review structured data.** It is tempting to add `Review` and
+`AggregateRating` to get stars in search results, but these are reviews *about
+this business* shown *on this business's own site* — the self-serving case
+Google explicitly excludes from review rich results, and republishing
+third-party review content as markup is against the same guidance. The markup
+would not earn stars and could attract a manual action, so the section ships
+without it. Stars in search come from the Google Business Profile itself.
+
+**The attribution block reserves a fixed height.** `Stella · senior golden
+retriever` does not fit on one line at any readable size in a 305px card — the
+design only gets away with it because Figma let that label overflow its card.
+The label therefore wraps, and without a `min-height` on `.attribution` the
+rule above it would sit higher on the cards that wrap, staggering the dividers
+across a row. The reserved height keeps every divider in a row level.
+
+The `G` on the badge is a typographic letter in the brand teal, not Google's
+logo mark. Swap in Google's official review badge asset if the real mark is
+wanted; it has its own brand terms.
+
 ### The gallery filter
 
 `components/GalleryGrid.tsx` filters one grid rather than switching between

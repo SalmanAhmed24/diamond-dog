@@ -25,7 +25,12 @@
 
   /* Lines */
   --rule: #e6ddcc;
+  --rule-soft: #ede8df; /* testimonial card borders + inner divider */
   --rule-on-dark: #2e2e2e;
+
+  /* Testimonials */
+  --quote-mark: #a9d6e5; /* decorative opening quote on each review card */
+  --avatar-bg: #f1f7f9;  /* initial badge behind the reviewer's first letter */
 
   /* Geometry — the new design is square-cornered throughout */
   --radius: 0px;

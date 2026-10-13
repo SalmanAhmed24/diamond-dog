@@ -5,6 +5,7 @@ import { Hero } from '@/components/Hero'
 import { Philosophy } from '@/components/Philosophy'
 import { Services } from '@/components/Services'
 import { WhyChooseMe } from '@/components/WhyChooseMe'
+import { Testimonials } from '@/components/Testimonials'
 import { Gallery } from '@/components/Gallery'
 import { Wellness } from '@/components/Wellness'
 import { FinalCta } from '@/components/FinalCta'
@@ -125,6 +126,7 @@ export default function HomePage() {
         <Philosophy />
         <Services />
         <WhyChooseMe />
+        <Testimonials />
         <Gallery />
         <Wellness />
         <FinalCta />

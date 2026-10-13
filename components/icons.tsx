@@ -39,6 +39,22 @@ export function ArrowRight({ className, size = 16 }: IconProps) {
   )
 }
 
+export function Star({ className, size = 12 }: IconProps) {
+  return (
+    <svg
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M10 1.5l2.47 5.63 6.03.53-4.55 4.03 1.34 5.96L10 14.5l-5.29 3.15 1.34-5.96L1.5 7.66l6.03-.53z" />
+    </svg>
+  )
+}
+
 export function ChevronDown({ className, size = 14 }: IconProps) {
   return (
     <svg
