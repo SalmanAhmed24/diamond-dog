@@ -14,7 +14,7 @@ import { contactCtaBackdrop, contactWhereIWork } from '@/lib/images'
 
 const title = 'Contact & Hours'
 
-const description = `The Diamond Dog is at ${business.addressFull}. Call or text ${phone.display}. Open Monday to Friday 8 to 5 and Saturday 8 to 3 by appointment, serving Clive, Windsor Heights, Johnston and West Des Moines.`
+const description = `The Diamond Dog is at ${business.addressFull}. Call or text ${phone.display}. Open Monday to Friday 8 to 5 and Saturday 9 to 3 by appointment, serving Clive, Windsor Heights, Johnston and West Des Moines.`
 
 export const metadata: Metadata = {
   title,

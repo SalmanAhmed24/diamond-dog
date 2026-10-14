@@ -72,7 +72,13 @@ export function Testimonials() {
                 <p className="visuallyHidden">
                   Rated {RATING} out of {RATING}.
                 </p>
-                <blockquote className={styles.quote}>{item.quote}</blockquote>
+                <blockquote className={styles.quote}>
+                  {(Array.isArray(item.quote) ? item.quote : [item.quote]).map(
+                    (paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ),
+                  )}
+                </blockquote>
 
                 <figcaption className={styles.attribution}>
                   <span className={styles.person}>

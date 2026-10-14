@@ -52,7 +52,7 @@ export function Hero() {
           priority
           placeholder="blur"
           className={styles.photo}
-          sizes="(max-width: 899px) 100vw, 52vw"
+          sizes="(max-width: 1199px) 100vw, min(52vw, 1041px)"
         />
 
         {/* Cream feather over the photo's left edge, so it dissolves into the

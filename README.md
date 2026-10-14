@@ -347,6 +347,42 @@ rather than restating them, so editing an answer on the FAQ page updates every
 page that shows it.
 Validation fails if an `itemIds` entry names an id that doesn't exist.
 
+### The hero photo's frame
+
+The hero is a two-column bleed: copy left, photo right, `object-fit: cover`.
+The photo's height is driven by the copy column (grid `align-items: stretch`)
+and capped at `44.375rem`, while its width tracks the viewport, so unchecked
+the frame widens into a letterbox as the screen grows — the ratio ran from 0.54
+at 900px to **2.52 at 3440px**, against a photo that is 1.4665. `cover` never
+distorts, but it does re-crop, and this is a tightly filled group shot with
+Kaylie and four dogs spanning edge to edge, so each width cut a different part
+of the group out.
+
+The fix caps the **section**, not the media column, at `125.125rem` (2002px)
+and centres it. 52% of 2002px is 1041px, and 1041 / 710 is 1.4665 — the photo's
+own ratio — so from 2002px up the frame matches the photo exactly and the whole
+group is in shot with nothing cropped at all. Below 2002px nothing changes from
+the original design, so 1440 renders exactly as drawn.
+
+Capping the media column instead is the obvious-looking move and it is wrong
+twice over. It holds a ratio, but the wrong one: the width at which the frame
+reaches its *maximum height* gives 769 / 710 = 1.083, which crops *harder* than
+no cap at all did at 1920. And because the copy column then absorbs all the
+remaining width and the copy is right-aligned within it, the copy ends up
+marooned against the photo — at 3440px it started at x=2071 while the centred
+page container starts at x=1080. Capping and centring the section puts it at
+x=1032, in line with every other section.
+
+The split also starts at 1200px rather than 900px: just above the old
+breakpoint the copy column was so cramped that it forced the frame to 0.597 and
+showed only 40% of the photo. Below 1200 the stacked layout runs at a steady
+1.333 and shows 91%.
+
+Converting the photo to SVG, which is sometimes suggested for this, would not
+help: SVG is a vector format, and a photograph put inside one is either the
+same raster image in a wrapper (identical cropping) or an unrecognisable trace.
+The frame was the problem, not the file format.
+
 ### Testimonials
 
 Eight Google reviews, verbatim in `testimonials` in `lib/site.ts`. Two details
@@ -360,12 +396,18 @@ third-party review content as markup is against the same guidance. The markup
 would not earn stars and could attract a manual action, so the section ships
 without it. Stars in search come from the Google Business Profile itself.
 
-**The attribution block reserves a fixed height.** `Stella · senior golden
-retriever` does not fit on one line at any readable size in a 305px card — the
-design only gets away with it because Figma let that label overflow its card.
-The label therefore wraps, and without a `min-height` on `.attribution` the
-rule above it would sit higher on the cards that wrap, staggering the dividers
-across a row. The reserved height keeps every divider in a row level.
+**The cards are masonry, not a grid.** The design draws eight short reviews in
+an even four-across grid. The real reviews run from about 350 to 1,300
+characters, and a grid row sizes to its tallest item, so the short cards would
+have sat half empty beside the long one. `.grid` therefore uses CSS columns:
+two at 600px and up, one below. Each card is exactly as tall as its quote.
+Column count is a judgement call about balance, not a fixed rule — at three
+columns these four reviews leave a 576px hole under the short column; at two
+the columns fill to 997px and 735px. Re-check it if the set of reviews changes
+much.
+
+`quote` takes a string or an array of strings; the one long review is stored as
+paragraphs.
 
 The `G` on the badge is a typographic letter in the brand teal, not Google's
 logo mark. Swap in Google's official review badge asset if the real mark is

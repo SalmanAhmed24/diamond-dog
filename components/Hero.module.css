@@ -138,11 +138,26 @@
   text-transform: uppercase;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1200px) {
   .hero {
-    /* 52% matches the 750 / 1440 split in the design; the image bleeds right. */
+    /* 52% matches the 750 / 1440 split in the design; the image bleeds right.
+       The cap is what keeps the photo framed the same on every large screen.
+       The frame's height tops out at 44.375rem while its width keeps tracking
+       the viewport, so unchecked the box widens into a letterbox and
+       `object-fit: cover` shaves more off the top and bottom: the ratio ran
+       1.02 at 1440 to 2.52 at 3440, cropping Kaylie's head and the dogs' feet.
+
+       Capping the section (not the media column) at 125.125rem is what fixes
+       it. 52% of 2002px is 1041px, and 1041 / 710 is 1.4665 — the photo's own
+       ratio — so at and above that width the frame matches the photo exactly
+       and the whole group is in shot with nothing cropped. Capping the media
+       column instead would hold a ratio of its own but crop harder, and would
+       leave the copy marooned against the right edge of an ultrawide screen,
+       out of line with the centred container every other section uses. */
     grid-template-columns: minmax(0, 1fr) minmax(0, 52%);
     align-items: stretch;
+    max-width: 125.125rem;
+    margin-inline: auto;
   }
 
   .copy {

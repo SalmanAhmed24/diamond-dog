@@ -67,18 +67,25 @@
 
 /* ---------- Grid ---------- */
 
+/* Masonry, not a grid. These four reviews run from ~350 to ~1,300 characters;
+   in an equal-height grid the row would size to the longest and leave the short
+   cards half empty. Columns let every card be exactly as tall as its quote. */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.5rem 1.25rem;
+  columns: 2;
+  column-gap: 1.25rem;
 }
 
-/* Each card is a column so the attribution can be pushed to the bottom; grid
-   rows stretch items, so cards in a row stay level however long the quote is. */
+.grid > li {
+  break-inside: avoid;
+  /* `break-inside: avoid` is honoured per fragment, so a card must also not be
+     the thing that establishes a fragmentation break: keep the margin on the
+     item, not the card, or Chrome can clip the last line against a column end. */
+  margin-bottom: 1.25rem;
+}
+
 .card {
   display: flex;
   flex-direction: column;
-  height: 100%;
   padding: 1.5rem;
   background-color: var(--cream);
   border: 1px solid var(--rule-soft);
@@ -113,15 +120,18 @@
   line-height: 1.625;
 }
 
+.quote p {
+  margin: 0;
+}
+
+.quote p + p {
+  margin-top: 0.875rem;
+}
+
 .attribution {
   margin-top: auto;
   padding-top: 1.125rem;
   border-top: 1px solid var(--rule-soft);
-  /* Reserves room for a two-line meta ("Stella - senior golden retriever" does
-     not fit on one line at any readable size). Without it the rule would sit
-     higher on the cards that wrap, so the dividers across a row would stagger.
-     The design dodges this because Figma let that label overflow its card. */
-  min-height: 4.375rem;
 }
 
 .person {
@@ -167,15 +177,11 @@
   text-transform: uppercase;
 }
 
-@media (max-width: 1023px) {
-  .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
+
 
 @media (max-width: 599px) {
   .grid {
-    grid-template-columns: minmax(0, 1fr);
+    columns: 1;
   }
 
   .head {
