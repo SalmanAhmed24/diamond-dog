@@ -351,7 +351,7 @@ export const aboutFaqs = {
     {
       question: 'How long will my dog\u2019s grooming take?',
       answer:
-        'I have most dogs home in 45 minutes to an hour. Large and extra-large dogs typically take a bit longer. The exact time depends on the service, your dog\u2019s size and coat.',
+        'The exact time depends on the service, your dog\u2019s size and coat.',
     },
   ],
 }
@@ -382,7 +382,7 @@ export const faqPage = {
       id: 'how-long',
       question: 'How long will my dog\u2019s grooming take?',
       answer:
-        'I have most dogs home in 45 minutes to an hour. Large and extra-large dogs typically take a bit longer. The exact time depends on the service, your dog\u2019s size and coat.',
+        'The exact time depends on the service, your dog\u2019s size and coat.',
       readMoreHref: '/about',
     },
     {
@@ -396,7 +396,7 @@ export const faqPage = {
       id: 'vaccines',
       question: 'What vaccines does my dog need before grooming?',
       answer:
-        'I only require Rabies and Distemper/Parvo vaccines per Iowa law. Puppies can begin grooming after their second round of Distemper/Parvo (usually around 12 weeks of age). Rabies is required at 16 weeks or later.',
+        'I only require Rabies and Distemper Parvo vaccines per Iowa law. Puppies can begin grooming after their second round of Distemper Parvo (usually around 12 weeks of age). Rabies is required at 16 weeks or later.',
       readMoreHref: '/vaccine-requirements',
     },
     {
