@@ -21,7 +21,7 @@ Everything editable lives in **`lib/site.ts`** — no copy is hard-coded in comp
 | --- | --- | --- |
 | Production domain | `SITE_URL` | `https://thediamonddog.com` — drives canonical URLs, OG tags, sitemap and JSON-LD |
 | Booking link | `BOOKING_URL` | `/book` — the booking page. Service buttons append `?service=<slug>` |
-| MoeGo embed | `BOOKING_EMBED_URL` | `null`. Until it is set, `/book` renders the design's placeholder panel; paste the MoeGo share URL and the real scheduler appears in its place with no code change |
+| MoeGo embed | `BOOKING_EMBED_URL` | Set to the live MoeGo scheduler. Setting it back to `null` restores the design's placeholder panel, so `/book` still renders if the scheduler moves |
 | Map coordinates | `business.geo` | `null`. The street address geocodes on its own, so the map pin and the schema are already correct without it. To add exact coordinates anyway: open the address in Google Maps, right-click the pin, copy the lat/long from the top of the menu. The `geo` block is then emitted automatically |
 | Social profiles | `social` | Placeholder Facebook / Instagram / X URLs |
 
@@ -297,10 +297,21 @@ Add a street address and the marker can be exact.
 ### The booking embed
 
 `components/BookingEmbed.tsx` renders an iframe when `BOOKING_EMBED_URL` is set
-and the design's placeholder panel when it isn't, so the page ships before the
-embed URL exists. The panel and the iframe share a `min-height`, which means the
-slot reserves its space either way and the sections below never jump when the
-scheduler loads.
+and the design's placeholder panel when it isn't, so the page still renders if
+the scheduler ever moves. The panel and the iframe share a height, which means
+the slot reserves its space either way and the sections below never jump when
+the scheduler loads.
+
+That height is a flat `50rem` (800px), MoeGo's own recommended embed height,
+rather than the responsive clamp used before. The iframe is cross-origin, so the
+page cannot measure the scheduler's content and size itself to fit; the height
+has to be declared, and 800px is the vendor's figure.
+
+MoeGo's own snippet also carries `scrolling="no"`. That is deliberately not
+copied: the attribute is obsolete in HTML5, and if any step of the booking flow
+(service, calendar, details, payment) runs past 800px it would put that content
+permanently out of reach. Leaving scrolling at its default costs an inner
+scrollbar at worst and keeps the flow completable.
 
 ### Footer
 

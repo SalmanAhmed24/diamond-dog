@@ -457,11 +457,12 @@ export const faqPage = {
 }
 
 /**
- * MoeGo booking embed. Leave null and the page renders the design's placeholder
- * panel instead of an empty iframe; set the share URL from MoeGo and the real
- * scheduler appears in its place with no other change.
+ * MoeGo booking embed. Set to null and the page renders the design's
+ * placeholder panel instead of an empty iframe, so the page stays shippable if
+ * the scheduler is ever moved or retired.
  */
-export const BOOKING_EMBED_URL: string | null = null
+export const BOOKING_EMBED_URL: string | null =
+  'https://booking.moego.pet/ol/TheDiamondDogPetGrooming130030/landing?utm_medium=embed'
 
 export const book = {
   breadcrumb: [
