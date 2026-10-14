@@ -924,7 +924,7 @@ export const wellnessPage = {
   hero: {
     heading: 'Where Grooming Meets Wellness',
     body:
-      'When I groom your dog, I\u2019m looking at more than the haircut - I\u2019m looking at their comfort, their skin, and their coat health. That\u2019s where grooming meets wellness. Call or text to book a wellness check or visit.',
+      'I\u2019m looking at their skin, coat, dental, gland expression and ear health\u2026 since I\u2019m based around wellness I want it all there.',
     callLabel: 'Call or text',
     imageAlt: 'A freshly bathed white spitz wrapped in a bright blue towel, tongue out and happy.',
   },
@@ -932,17 +932,28 @@ export const wellnessPage = {
     eyebrow: 'What I watch while I work',
     heading: 'A groom is a window into how your dog is doing',
     items: [
-      { icon: 'sparkle', title: 'Coat health', description: 'A coat that\u2019s gone dull' },
-      { icon: 'leaf', title: 'Skin', description: 'Skin that reacts differently than it used to' },
+      {
+        icon: 'sparkle',
+        title: 'Coat health',
+        description:
+          'Hydrate dry, curly coats to prevent matting, exfoliation for our extra oily coats, de-sheds and more!',
+      },
+      {
+        icon: 'leaf',
+        title: 'Skin',
+        description: 'We look at hydration, redness, oil production, flaky or healthy!',
+      },
       {
         icon: 'heart',
         title: 'Comfort',
-        description: 'A dog suddenly uncomfortable being brushed in one spot',
+        description:
+          'We watch for joint comfort, anxiety level, handling tolerance and touch sensitivity.',
       },
       {
         icon: 'calendar',
         title: 'The right schedule',
-        description: 'The right bath, the right schedule, the things to watch',
+        description:
+          'We create a schedule to get your dog\u2019s skin and coat back to top notch.',
       },
     ],
   },
@@ -1231,13 +1242,12 @@ export const catGroomingPage = {
     tables: [
       {
         caption: 'Cat Grooming',
-        columns: ['Service', 'Price'],
+        columns: ['Service', 'Time', 'Price'],
         rows: [
-          ['Cat shave, shave down, nail trim, wipe clean-up, ear cleaning', '$80'],
-          [
-            'Cat sanitary, nail trim, ear cleaning, shave private/soiled areas or matting only',
-            '$35',
-          ],
+          ['Cat shave', '20 min', '$80 onsite'],
+          ['Cat Sanitary / Spot Shave', '10 min', '$35 onsite'],
+          ['Nail Trim (Cat)', '', '$28 add'],
+          ['Brush Out', '10 min', '$20 add'],
         ],
       },
     ],
