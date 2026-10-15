@@ -2,7 +2,7 @@
   "name": "diamond-dog-landing",
   "version": "1.0.0",
   "private": true,
-  "description": "Landing page for The Diamond Dog \u2014 personally guided dog grooming in Urbandale, Iowa.",
+  "description": "Landing page for The Diamond Dog — personally guided dog grooming in Urbandale, Iowa.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "framer-motion": "^12.4.0",
     "next": "^15.2.0",
     "react": "^19.0.0",

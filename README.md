@@ -294,6 +294,20 @@ Maps Embed API, swap in
 `https://www.google.com/maps/embed/v1/place?key=YOUR_KEY&q=Urbandale,IA`.
 Add a street address and the marker can be exact.
 
+### Analytics
+
+Vercel Web Analytics, via `@vercel/analytics` rendered once in `app/layout.tsx`.
+The component renders no markup; it injects a small first-party script that
+reports page views and client-side route changes, so there is no third-party
+request and nothing to consent-gate beyond Vercel's own policy. It is a client
+component (`"use client"` inside the package) wrapping itself in `Suspense`, so
+rendering it from the server layout is correct and does not opt the layout into
+client rendering.
+
+Installing the package is not enough on its own: Web Analytics also has to be
+switched on for the project in the Vercel dashboard, and data only flows from
+Vercel deployments, not from `next dev`.
+
 ### The booking embed
 
 `components/BookingEmbed.tsx` renders an iframe when `BOOKING_EMBED_URL` is set

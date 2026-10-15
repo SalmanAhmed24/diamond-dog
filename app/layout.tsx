@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
 import { Playfair_Display, Hanken_Grotesk } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 
 import { MotionProvider } from '@/components/MotionProvider'
 import { SITE_URL, business, seo } from '@/lib/site'
@@ -91,6 +92,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
       <body>
         <MotionProvider>{children}</MotionProvider>
+        {/* Vercel Web Analytics. Renders nothing; injects a small first-party
+            script that reports page views and route changes. It only sends
+            anything from a Vercel deployment with Analytics enabled for the
+            project, so local and preview builds stay silent. */}
+        <Analytics />
       </body>
     </html>
   )
