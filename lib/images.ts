@@ -63,6 +63,7 @@ import glOrangeCat from '@/public/images/glowup-orange-cat.webp'
 /* Glow Up Gallery — client photo drop, one set per tab. Keys are prefixed with
    the tab so the two unrelated `IMG_3588` originals (a Boston terrier pair for
    Bath, a Yorkshire terrier for Sanitary Groom) can't collide. */
+import tmHannah from '@/public/images/testimonial-hannah.webp'
 import tmGia from '@/public/images/testimonial-gia.webp'
 import tmWinnie from '@/public/images/testimonial-winnie.webp'
 
@@ -158,6 +159,7 @@ export const serviceImages: Record<string, StaticImageData> = {
 export const testimonialPhotos: Record<string, StaticImageData> = {
   gia: tmGia,
   winnie: tmWinnie,
+  hannah: tmHannah,
 }
 
 /** Keyed by the `key` field on each entry in `glowUpGallery.items` */

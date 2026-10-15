@@ -239,8 +239,9 @@ export const testimonials = {
         'I can honestly say I would follow Kaylie to the ends of the earth. She has earned my complete trust, and I wouldn\u2019t want anyone else grooming my dog. If you\u2019re looking for a groomer who truly cares and delivers amazing results every time, Kaylie is the one.',
       ],
       name: 'Stacee McCrea',
-      pet: 'Curly girl',
+      pet: 'Hannah',
       detail: 'coat grow-out',
+      photo: 'hannah',
     },
   ] satisfies {
     quote: string | string[]
