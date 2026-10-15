@@ -19,7 +19,7 @@ Everything editable lives in **`lib/site.ts`** — no copy is hard-coded in comp
 
 | What | Where | Current value |
 | --- | --- | --- |
-| Production domain | `SITE_URL` | `https://thediamonddog.com` — drives canonical URLs, OG tags, sitemap and JSON-LD |
+| Production domain | `SITE_URL` | `https://www.diamonddogpetgrooming.com` — drives canonical URLs, OG tags, sitemap, robots and JSON-LD. Must match the host the site is actually served on, **including the `www.`**, or every page's canonical points somewhere the site isn't |
 | Booking link | `BOOKING_URL` | `/book` — the booking page. Service buttons append `?service=<slug>` |
 | MoeGo embed | `BOOKING_EMBED_URL` | Set to the live MoeGo scheduler. Setting it back to `null` restores the design's placeholder panel, so `/book` still renders if the scheduler moves |
 | Map coordinates | `business.geo` | `null`. The street address geocodes on its own, so the map pin and the schema are already correct without it. To add exact coordinates anyway: open the address in Google Maps, right-click the pin, copy the lat/long from the top of the menu. The `geo` block is then emitted automatically |

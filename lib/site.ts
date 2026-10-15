@@ -4,7 +4,7 @@
  */
 
 /** Change to the real production domain before deploying. Used for canonical URLs, OG tags and the sitemap. */
-export const SITE_URL = 'https://thediamonddog.com'
+export const SITE_URL = 'https://www.diamonddogpetgrooming.com'
 
 export const phone = {
   number: '+15153155354',
@@ -17,12 +17,10 @@ export const callHref = `tel:${phone.number}`
 export const BOOKING_URL = '/book'
 
 /**
- * Google Business Profile reviews link. Placeholder: this search URL resolves to
- * the business, but swap it for the profile's own "write/see all reviews" link
- * so the badge lands on the real place page.
+ * Google Business Profile link, used by the testimonials badge. Shares the
+ * destination with the Google entry in `social` below.
  */
-export const GOOGLE_REVIEWS_URL =
-  'https://www.google.com/search?q=The+Diamond+Dog+Pet+Grooming+Urbandale+IA+reviews'
+export const GOOGLE_REVIEWS_URL = 'https://share.google/6Qu9YPF8bAQF6VVAG'
 
 export const business = {
   name: 'The Diamond Dog',
@@ -73,9 +71,13 @@ export const business = {
 } as const
 
 export const social = [
-  { name: 'Facebook', href: 'https://www.facebook.com/', icon: 'facebook' as const },
-  { name: 'Instagram', href: 'https://www.instagram.com/', icon: 'instagram' as const },
-  { name: 'Google', href: 'https://www.google.com/maps', icon: 'google' as const },
+  {
+    name: 'Facebook',
+    href: 'https://www.facebook.com/p/The-Diamond-Dog-Pet-Grooming-Urbandale-61594372232376/',
+    icon: 'facebook' as const,
+  },
+  { name: 'Instagram', href: 'https://www.instagram.com/diamonddogpet/', icon: 'instagram' as const },
+  { name: 'Google', href: 'https://share.google/6Qu9YPF8bAQF6VVAG', icon: 'google' as const },
 ]
 
 export const primaryNav = [
