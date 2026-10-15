@@ -128,14 +128,15 @@
   margin-top: 0.875rem;
 }
 
-/* The dog, under the review. 4:3 because both sources are portrait phone
-   photos: a wider frame cropped the ears off one and the muzzle off the other,
-   and the card is far wider than it is tall. */
+/* The dog, under the review. Square, not 4:3: every source is a 3:4 portrait
+   phone photo, and a 4:3 frame is only 56% of their height - not enough to hold
+   a whole sitting dog, so it cut tails and paws. A square takes 75% of the
+   height and fits each dog complete. */
 .photo {
   width: 100%;
   height: auto;
   margin-top: 1.25rem;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   background-color: var(--sand);
 }

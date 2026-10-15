@@ -229,6 +229,7 @@ export const testimonials = {
       name: 'Crystal Tjeerdsma',
       pet: 'Murphy',
       detail: 'goldendoodle',
+      photo: 'murphy',
     },
     {
       quote: [
