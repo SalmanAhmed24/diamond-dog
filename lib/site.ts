@@ -924,7 +924,7 @@ export const wellnessPage = {
   hero: {
     heading: 'Where Grooming Meets Wellness',
     body:
-      'I\u2019m looking at their skin, coat, dental, gland expression and ear health\u2026 since I\u2019m based around wellness I want it all there.',
+      'I\u2019m looking at their skin, coat, dental, gland expression and ear health.',
     callLabel: 'Call or text',
     imageAlt: 'A freshly bathed white spitz wrapped in a bright blue towel, tongue out and happy.',
   },
