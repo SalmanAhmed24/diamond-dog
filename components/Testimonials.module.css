@@ -128,6 +128,18 @@
   margin-top: 0.875rem;
 }
 
+/* The dog, under the review. 4:3 because both sources are portrait phone
+   photos: a wider frame cropped the ears off one and the muzzle off the other,
+   and the card is far wider than it is tall. */
+.photo {
+  width: 100%;
+  height: auto;
+  margin-top: 1.25rem;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background-color: var(--sand);
+}
+
 .attribution {
   margin-top: auto;
   padding-top: 1.125rem;

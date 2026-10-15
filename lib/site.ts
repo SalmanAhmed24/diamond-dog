@@ -213,6 +213,7 @@ export const testimonials = {
       name: 'Craig and VonDe Stoever',
       pet: 'Winnie',
       detail: 'corgi',
+      photo: 'winnie',
     },
     {
       quote:
@@ -220,6 +221,7 @@ export const testimonials = {
       name: 'Britton Emery',
       pet: 'Gia',
       detail: 'senior german shepherd',
+      photo: 'gia',
     },
     {
       quote:
@@ -245,6 +247,8 @@ export const testimonials = {
     name: string
     pet: string
     detail: string
+    /** Key into `testimonialPhotos`; falls back to the name's initial. */
+    photo?: string
   }[],
 }
 
@@ -324,7 +328,7 @@ export const about = {
   guide: {
     heading: 'Tell me about your dog, and I\u2019ll guide you',
     body:
-      'The best grooming plans start with a real conversation. Come in, tell me about your dog, their coat, their temperament, what\u2019s worked and what hasn\u2019t, and I\u2019ll guide you toward the plan that fits. I don\u2019t do one-size-fits-all packages. Call and tell me about your dog\u2019s skin and coat problems so I can give you a solution that works for you and your pet. I follow up after building a plan, because every client should feel like they\u2019re my only client, not one of many moving through on a schedule.',
+      'The best grooming plans start with a real conversation. Come in, tell me about your dog, their coat, their temperament, what\u2019s worked and what hasn\u2019t, and I\u2019ll guide you toward the plan that fits. I do not do one-size-fits-all packages. Call and tell me about your dog\u2019s skin and coat problems so I can give you a solution that works for you and your pet. I follow up after building a plan, because every client should feel like they\u2019re my only client, not one of many moving through on a schedule.',
     imageAlt: 'A tan and white dog rolling happily on its back on the salon floor.',
   },
   cta: {

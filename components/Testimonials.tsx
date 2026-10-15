@@ -1,6 +1,9 @@
+import Image from 'next/image'
+
 import { Reveal } from './Reveal'
 import { ArrowRight, Star } from './icons'
 import { testimonials } from '@/lib/site'
+import { testimonialPhotos } from '@/lib/images'
 import styles from './Testimonials.module.css'
 
 const RATING = 5
@@ -79,6 +82,18 @@ export function Testimonials() {
                     ),
                   )}
                 </blockquote>
+
+                {/* The dog the review is about, under the review itself.
+                    Decorative: the pet's name and breed follow in text, so an
+                    alt would only repeat them to a screen reader. */}
+                {item.photo && testimonialPhotos[item.photo] && (
+                  <Image
+                    src={testimonialPhotos[item.photo]}
+                    alt=""
+                    className={styles.photo}
+                    sizes="(max-width: 599px) calc(100vw - 4.5rem), (max-width: 1023px) calc(50vw - 3rem), 582px"
+                  />
+                )}
 
                 <figcaption className={styles.attribution}>
                   <span className={styles.person}>
