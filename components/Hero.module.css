@@ -110,9 +110,14 @@
 
 /* ---------- Experience badge ---------- */
 
+/* Centred horizontally on the photo at every width. `left: 50%` plus a -50%
+   translate rather than `inset-inline: 0; margin-inline: auto`, because the
+   badge is a grid whose width comes from its content; auto margins would need
+   it to be a block with a resolved width. */
 .badge {
   position: absolute;
-  right: clamp(1rem, 4.5vw, 4.5rem);
+  left: 50%;
+  transform: translateX(-50%);
   bottom: clamp(1rem, 5vw, 5.625rem);
   display: grid;
   justify-items: center;

@@ -48,15 +48,12 @@ import fullGroomHeroDoodle from '@/public/images/fullgroom-hero-doodle.webp'
 import fullGroomBrushing from '@/public/images/fullgroom-brushing.webp'
 
 import sanitaryHeroRolling from '@/public/images/sanitary-hero-rolling.webp'
-import sanitaryYorkieComb from '@/public/images/sanitary-yorkie-comb.webp'
+import sanitaryChihuahua from '@/public/images/sanitary-chihuahua-bowtie.webp'
 
-import glTerriers from '@/public/images/glowup-terrier-pair-ties.webp'
 import glRolling from '@/public/images/glowup-dog-rolling.webp'
-import glBwCoat from '@/public/images/glowup-bw-coat-before.webp'
 import glAussie from '@/public/images/glowup-aussie-resting.webp'
 import glBath from '@/public/images/glowup-bath-suds.webp'
 import glCreamDoodle from '@/public/images/glowup-cream-doodle.webp'
-import glRedDoodle from '@/public/images/glowup-red-doodle-floor.webp'
 import glRedPoodle from '@/public/images/glowup-red-poodle-bandana.webp'
 import glOrangeCat from '@/public/images/glowup-orange-cat.webp'
 
@@ -143,7 +140,7 @@ export {
   fullGroomHeroDoodle,
   fullGroomBrushing,
   sanitaryHeroRolling,
-  sanitaryYorkieComb,
+  sanitaryChihuahua,
 }
 
 /** Keyed by the service slug used in lib/site.ts */
@@ -166,13 +163,10 @@ export const testimonialPhotos: Record<string, StaticImageData> = {
 
 /** Keyed by the `key` field on each entry in `glowUpGallery.items` */
 export const glowUpImages: Record<string, StaticImageData> = {
-  'terrier-pair-ties': glTerriers,
   'dog-rolling': glRolling,
-  'bw-coat-before': glBwCoat,
   'aussie-resting': glAussie,
   'bath-suds': glBath,
   'cream-doodle': glCreamDoodle,
-  'red-doodle-floor': glRedDoodle,
   'red-poodle-bandana': glRedPoodle,
   'orange-cat': glOrangeCat,
 

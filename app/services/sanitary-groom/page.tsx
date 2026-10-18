@@ -10,7 +10,7 @@ import { FinalCta } from '@/components/FinalCta'
 import { SiteFooter } from '@/components/SiteFooter'
 
 import { SITE_URL, business, sanitaryGroomPage } from '@/lib/site'
-import { addOnsCtaBackdrop, sanitaryHeroRolling, sanitaryYorkieComb } from '@/lib/images'
+import { addOnsCtaBackdrop, sanitaryHeroRolling, sanitaryChihuahua } from '@/lib/images'
 
 const title = 'Sanitary Groom in Urbandale'
 const description =
@@ -98,7 +98,7 @@ export default function SanitaryGroomPage() {
           headingId="sanitary-included-heading"
           blocks={sanitaryGroomPage.included.blocks}
           items={sanitaryGroomPage.included.items}
-          image={sanitaryYorkieComb}
+          image={sanitaryChihuahua}
           imageAlt={sanitaryGroomPage.included.imageAlt}
           aspect="600 / 480"
         />

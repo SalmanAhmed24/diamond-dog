@@ -327,7 +327,7 @@ export const about = {
   process: {
     heading: 'How a groom works with me',
     body:
-      'Every groom is personally planned and guided by Kaylie. Most dogs are home in 45 minutes to an hour, with large and extra large dogs taking a bit longer, depending on the service and their coat. About 15 minutes before your dog is ready, you\u2019ll get a call, so there\u2019s no unnecessary waiting around while you\u2019re on your way. It\u2019s a small detail, but it\u2019s built directly out of the idea that your dog\u2019s time matters just as much as yours.',
+      'Every groom is personally planned and guided. Most dogs are home in 45 minutes to an hour, with large and extra large dogs taking a bit longer, depending on the service and their coat. About 15 minutes before your dog is ready, you\u2019ll get a call, so there\u2019s no unnecessary waiting around while you\u2019re on your way. It\u2019s a small detail, but it\u2019s built directly out of the idea that your dog\u2019s time matters just as much as yours.',
   },
   guide: {
     heading: 'Tell me about your dog, and I\u2019ll guide you',
@@ -658,12 +658,6 @@ export const glowUpGallery = {
       alt: 'A black-and-white border collie sitting on the salon floor after a de-shedding treatment.',
     },
     {
-      key: 'bw-coat-before',
-      tag: 'De-Shedding Treatment',
-      shape: 'square',
-      alt: 'A black and white double-coated dog standing on the table before its de-shedding treatment.',
-    },
-    {
       key: 'aussie-resting',
       tag: 'De-Shedding Treatment',
       shape: 'square',
@@ -735,12 +729,6 @@ export const glowUpGallery = {
       tag: 'Full Groom',
       shape: 'square',
       alt: 'A cream goldendoodle standing in front of a bookshelf after a full groom.',
-    },
-    {
-      key: 'red-doodle-floor',
-      tag: 'Full Groom',
-      shape: 'square',
-      alt: 'A red goldendoodle lying on a wooden floor after a full groom, wearing a patterned collar.',
     },
     /* ---- Bath ---- */
     {
@@ -817,12 +805,6 @@ export const glowUpGallery = {
       tag: 'Add-Ons & Single Services',
       shape: 'square',
       alt: 'A red poodle in a paw-print bandana sitting on the grooming table.',
-    },
-    {
-      key: 'terrier-pair-ties',
-      tag: 'Add-Ons & Single Services',
-      shape: 'wide',
-      alt: 'Two freshly groomed terriers in matching donut-print ties on the grooming table.',
     },
   ] satisfies {
     key: string
@@ -1528,7 +1510,7 @@ export const sanitaryGroomPage = {
       },
     ],
     items: sanitaryChecklist,
-    imageAlt: 'A yorkshire terrier being comb-and-scissor trimmed around the face.',
+    imageAlt: 'A long-haired chihuahua in an orange bow tie sitting on the grooming table after a sanitary trim.',
   },
   /** Same checklist as above — a sanitary cut is part of every de-shed. */
   inDeShed: {
