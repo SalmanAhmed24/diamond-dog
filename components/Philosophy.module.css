@@ -4,14 +4,29 @@
   padding-bottom: clamp(3.5rem, 7vw, 6.25rem);
 }
 
+/* The hero stacks below 1200px, which puts its photo directly above this
+   section's photo. The full 3.5rem section gap then reads as a dead band
+   between two images rather than breathing room around text, so it is cut
+   back. Above 1200px the hero is side by side and the gap is doing its job. */
+@media (max-width: 1199px) {
+  .section {
+    padding-top: 1.25rem;
+  }
+}
+
 .grid {
   display: grid;
   gap: clamp(2rem, 5vw, 4.5rem);
   align-items: center;
 }
 
+/* 12/7, matching the file exactly. The photo was 4:3 with a 180px band of
+   blank wall across the top, which left Kaylie and the dog sitting 11% below
+   the frame's centre. Trimming that band centres them and costs no resolution,
+   where cropping inward to keep 4:3 would have dropped the width from 1080 to
+   840 - under what a 3x phone needs for this frame. */
 .media {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 12 / 7;
 }
 
 .copy {

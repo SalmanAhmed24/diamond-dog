@@ -756,6 +756,12 @@ export const glowUpGallery = {
       alt: 'A basset hound standing in the stainless bathing tub.',
     },
     {
+      key: 'bath-hound-pair',
+      tag: 'Bath',
+      shape: 'portrait',
+      alt: 'Two hounds looking up from the open play pen, clean and dry after their baths.',
+    },
+    {
       key: 'bath-suds',
       tag: 'Bath',
       shape: 'square',
@@ -785,6 +791,12 @@ export const glowUpGallery = {
       tag: 'Sanitary Groom',
       shape: 'portrait',
       alt: 'A Yorkshire terrier in a red collar standing on the grooming table after a sanitary trim.',
+    },
+    {
+      key: 'sanitary-chihuahua',
+      tag: 'Sanitary Groom',
+      shape: 'portrait',
+      alt: 'A long-haired chihuahua in an orange bow tie sitting on the grooming table after a sanitary trim.',
     },
     {
       key: 'dog-rolling',

@@ -65,6 +65,8 @@ import tmHannah from '@/public/images/testimonial-hannah.webp'
 import tmGia from '@/public/images/testimonial-gia.webp'
 import tmWinnie from '@/public/images/testimonial-winnie.webp'
 
+import glBathHounds from '@/public/images/glowup-bath-hound-pair.webp'
+import glSanChihuahua from '@/public/images/glowup-sanitary-chihuahua.webp'
 import glBathShowerCap from '@/public/images/glowup-bath-shower-cap.webp'
 import glBathPointer from '@/public/images/glowup-bath-pointer-doorway.webp'
 import glBathBostons from '@/public/images/glowup-bath-boston-pair.webp'
@@ -174,11 +176,13 @@ export const glowUpImages: Record<string, StaticImageData> = {
   'bath-pointer-doorway': glBathPointer,
   'bath-boston-pair': glBathBostons,
   'bath-basset-tub': glBathBasset,
+  'bath-hound-pair': glBathHounds,
 
   'sanitary-apricot-poodle': glSanPoodle,
   'sanitary-bichon-bowtie': glSanBichon,
   'sanitary-cockapoo-table': glSanCockapoo,
   'sanitary-yorkie': glSanYorkie,
+  'sanitary-chihuahua': glSanChihuahua,
 
   'fullgroom-orange-bandana': glFgOrangeBandana,
   'fullgroom-cream-doodle-sit': glFgCreamDoodle,
