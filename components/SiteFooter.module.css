@@ -110,14 +110,24 @@
 
 /* ---------- Meta row ---------- */
 
+/* Carrier disclosures for the SMS programme. Quiet but legible — they have to
+   be readable to pass campaign review, so this sits at the muted body size
+   rather than the fine-print size used for the copyright. */
+.sms {
+  margin-top: clamp(2.5rem, 5vw, 3.75rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule-on-dark);
+  color: var(--text-on-dark-muted);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
 .meta {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.5rem 2.25rem;
-  margin-top: clamp(2.5rem, 5vw, 3.75rem);
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--rule-on-dark);
+  margin-top: 1.25rem;
   font-size: 0.8125rem;
   color: var(--text-on-dark);
 }

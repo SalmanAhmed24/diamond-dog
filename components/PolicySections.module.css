@@ -7,6 +7,24 @@
   padding-block: clamp(2.25rem, 4.5vw, 3.5rem);
 }
 
+/* The document's own title, when a policy is nested inside a page whose <h1>
+   belongs to something else. A step above the section headings so the group
+   reads as one document rather than more sections of the page above it. */
+.docHeading {
+  max-width: 18ch;
+  font-size: clamp(1.875rem, 1.3rem + 2.4vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.note {
+  margin-top: 0.75rem;
+  color: var(--text-soft);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+}
+
 .heading {
   /* Narrower than the body, so longer titles break onto two lines the way the
      design does rather than running the full measure. */
@@ -23,4 +41,60 @@
   color: var(--text-muted);
   font-size: 0.9375rem;
   line-height: 1.75;
+}
+
+.list {
+  margin-top: 1rem;
+  /* Markers hang in the gutter so the text edge lines up with the paragraphs
+     above and below it. */
+  padding-left: 1.125rem;
+  max-width: 75ch;
+  list-style: disc;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+
+.list li + li {
+  margin-top: 0.4rem;
+}
+
+.list ::marker {
+  color: var(--text-soft);
+}
+
+/* Short lines set as a block — a postal address, a contact panel — where each
+   line breaks on purpose rather than at the measure. */
+.lines {
+  margin-top: 1rem;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.9;
+}
+
+.link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.link:hover {
+  color: var(--teal-ink);
+}
+
+/* ---------- Nested level ----------
+   When the policy sits inside a page that already has an <h1>, its sections
+   drop to <h3> and take these. The 18ch measure above exists to make the
+   vaccine page's titles break onto two lines the way its design does; at this
+   level that same break reads as an accident ("Links to / Other Websites"), so
+   the measure widens and the size steps down under the document title. */
+.itemSub {
+  padding-block: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.headingSub {
+  max-width: 34ch;
+  font-size: clamp(1.1875rem, 1.05rem + 0.6vw, 1.5rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
 }

@@ -4,17 +4,18 @@ import { SiteHeader } from '@/components/SiteHeader'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { PageHero } from '@/components/PageHero'
 import { ProseBand } from '@/components/ProseBand'
+import { PolicySections } from '@/components/PolicySections'
 import { Faq } from '@/components/Faq'
 import { FinalCta } from '@/components/FinalCta'
 import { SiteFooter } from '@/components/SiteFooter'
 
-import { SITE_URL, faqsById, serviceAgreement } from '@/lib/site'
+import { SITE_URL, faqsById, privacyPolicy, serviceAgreement } from '@/lib/site'
 import { contactCtaBackdrop } from '@/lib/images'
 
 const title = 'Service Agreement'
 
 const description =
-  'The Diamond Dog service agreement in plain terms: how the matting and behavior fee works, and how holding and pickup are handled after your dog\u2019s groom is finished.'
+  'The Diamond Dog service agreement and privacy policy in plain terms: the matting and behavior fee, holding and pickup, and what we do with your information.'
 
 export const metadata: Metadata = {
   title,
@@ -91,6 +92,19 @@ export default function ServiceAgreementPage() {
           eyebrow={serviceAgreement.faq.eyebrow}
           items={faqItems}
           headingId="agreement-faq-heading"
+        />
+
+        {/* The privacy policy closes the page, ahead of the call to action that
+            ends every page on the site. Its own heading carries
+            id="privacy-policy", so /service-agreement#privacy-policy is a
+            direct link for anyone reviewing it. */}
+        <PolicySections
+          heading={privacyPolicy.heading}
+          headingId={privacyPolicy.id}
+          note={privacyPolicy.effective}
+          intro={privacyPolicy.intro}
+          sections={privacyPolicy.sections}
+          level={3}
         />
 
         <FinalCta

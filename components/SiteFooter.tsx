@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 import { SocialIcon } from './icons'
-import { business, callHref, footerColumns, phone, social } from '@/lib/site'
+import { business, callHref, footerColumns, phone, smsDisclosure, social } from '@/lib/site'
 import styles from './SiteFooter.module.css'
 
 export function SiteFooter() {
@@ -54,6 +54,10 @@ export function SiteFooter() {
             </nav>
           ))}
         </div>
+
+        <p className={styles.sms}>
+          {smsDisclosure.join(' ')}
+        </p>
 
         <div className={styles.meta}>
           <span>

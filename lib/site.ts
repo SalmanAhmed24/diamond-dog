@@ -80,6 +80,18 @@ export const social = [
   { name: 'Google', href: 'https://share.google/6Qu9YPF8bAQF6VVAG', icon: 'google' as const },
 ]
 
+/**
+ * Carrier-required disclosures for the ClickSend A2P/10DLC text programme.
+ * These have to be visible on the public site for campaign approval, which is
+ * why they sit in the footer on every page rather than only where numbers are
+ * collected.
+ */
+export const smsDisclosure = [
+  'Message and data rates may apply.',
+  'Opt out at any time by replying STOP.',
+  'For customer care, reply HELP.',
+]
+
 export const primaryNav = [
   { label: 'Home', href: '/' },
   {
@@ -865,6 +877,130 @@ export const serviceAgreement = {
   },
 }
 
+/**
+ * Privacy policy, supplied by the client and reproduced here as the text of
+ * record. It runs at the foot of /service-agreement so there is one public URL
+ * carrying both the terms and the privacy terms — which is what the SMS
+ * carriers ask to see when reviewing the text programme.
+ *
+ * The source document left five bracketed placeholders. Four are filled from
+ * the business details above so they can never drift from the rest of the
+ * site; the fifth, an email address, has no value anywhere in this project, so
+ * the contact page stands in for it.
+ */
+export const privacyPolicy = {
+  id: 'privacy-policy',
+  heading: 'Privacy Policy',
+  effective: 'Effective date: October 21, 2026',
+  intro: `The Diamond Dog Pet Grooming (“Diamond Dog,” “we,” “us,” or “our”) respects your privacy. This Privacy Policy explains what information we collect when you visit ${SITE_URL.replace(/^https?:\/\//, '')} (the “Site”), how we use it, and the choices you have.`,
+  sections: [
+    {
+      id: 'privacy-information-we-collect',
+      heading: 'Information We Collect',
+      body: [
+        '**Information you give us.** When you fill out a contact, booking request, or quote form on our Site, we collect the information you choose to provide, which may include:',
+        {
+          list: [
+            'Your name, email address, and phone number',
+            'Your pet’s name, breed, size, age, and grooming needs',
+            'Preferred appointment dates or times',
+            'Any other details you include in your message',
+          ],
+        },
+        '**Information collected automatically.** Like most websites, our hosting provider may automatically record basic technical information such as your IP address, browser type, device type, and the pages you visit. This information is used to keep the Site running securely and is not used to identify you personally.',
+      ],
+    },
+    {
+      id: 'privacy-how-we-use-your-information',
+      heading: 'How We Use Your Information',
+      body: [
+        {
+          list: [
+            'To respond to your questions and quote requests',
+            'To schedule, confirm, or follow up on grooming appointments',
+            'To provide the services you request and care for your pet',
+            'To maintain, secure, and improve our Site',
+            'To comply with legal obligations',
+          ],
+        },
+        'We will only send you promotional emails or text messages if you have agreed to receive them. You can opt out at any time by following the unsubscribe instructions or replying STOP to a text message.',
+      ],
+    },
+    {
+      id: 'privacy-how-we-share-your-information',
+      heading: 'How We Share Your Information',
+      body: [
+        'We do not sell, rent, or trade your personal information. We share it only in these limited situations:',
+        {
+          list: [
+            '**Service providers** who help us operate our Site and business, such as website hosting, form processing, email, and scheduling services. They may use your information only to perform services for us.',
+            '**Legal reasons**, when required by law or to protect the rights, safety, or property of Diamond Dog, our customers, or others.',
+            '**Business transfers**, if our business is sold or merged, in which case your information may be transferred to the new owner.',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'privacy-cookies',
+      heading: 'Cookies',
+      body:
+        'Our Site may use essential cookies needed for basic functions such as submitting forms and preventing spam. You can set your browser to refuse cookies, but some parts of the Site may not work properly as a result.',
+    },
+    {
+      id: 'privacy-data-retention',
+      heading: 'Data Retention',
+      body:
+        'We keep your information only as long as needed to respond to you, provide our services, keep accurate business records, and meet legal requirements. When it is no longer needed, we delete it or store it securely.',
+    },
+    {
+      id: 'privacy-how-we-protect-your-information',
+      heading: 'How We Protect Your Information',
+      body:
+        'We use reasonable administrative, technical, and physical safeguards to protect your information. No method of transmission over the internet or electronic storage is completely secure, so we cannot guarantee absolute security.',
+    },
+    {
+      id: 'privacy-your-choices-and-rights',
+      heading: 'Your Choices and Rights',
+      body:
+        'You may contact us at any time to request access to, correction of, or deletion of the personal information we hold about you. Depending on where you live, you may have additional rights under state privacy laws. We will respond to verified requests within the time required by law.',
+    },
+    {
+      id: 'privacy-childrens-privacy',
+      heading: 'Children’s Privacy',
+      body:
+        'Our Site is not intended for children under 13, and we do not knowingly collect personal information from children under 13. If you believe a child has provided us with information, please contact us and we will delete it.',
+    },
+    {
+      id: 'privacy-links-to-other-websites',
+      heading: 'Links to Other Websites',
+      body:
+        'Our Site may link to third-party websites, such as social media pages or map services. We are not responsible for the privacy practices of those sites and encourage you to review their policies.',
+    },
+    {
+      id: 'privacy-changes-to-this-policy',
+      heading: 'Changes to This Policy',
+      body:
+        'We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated effective date.',
+    },
+    {
+      id: 'privacy-contact-us',
+      heading: 'Contact Us',
+      body: [
+        'If you have questions about this Privacy Policy or your information, please contact us:',
+        {
+          lines: [
+            'The Diamond Dog Pet Grooming',
+            business.street,
+            `${business.city}, ${business.region} ${business.postalCode}`,
+            { text: `Phone: ${phone.display}`, href: callHref },
+            { text: 'Or send a message from our contact page', href: '/contact' },
+          ],
+        },
+      ],
+    },
+  ],
+}
+
 /** Look up FAQ entries by id for pages that reuse a question. */
 export function faqsById(ids: string[]) {
   return ids
@@ -1604,6 +1740,11 @@ export const footerColumns = [
       { label: 'FAQ', href: '/faq' },
       { label: 'Vaccine Requirements', href: '/vaccine-requirements' },
       { label: 'Service Agreement', href: '/service-agreement' },
+      /* The policy lives at the foot of the service agreement, so this is a
+         deep link rather than a page of its own. Carriers reviewing the text
+         programme look for a privacy link in the footer, which is why it is
+         listed separately rather than left for people to scroll to. */
+      { label: 'Privacy Policy', href: '/service-agreement#privacy-policy' },
       { label: 'Contact', href: '/contact' },
       { label: 'Book now', href: BOOKING_URL },
     ],
