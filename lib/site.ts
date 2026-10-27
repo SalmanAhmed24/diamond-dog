@@ -13,6 +13,10 @@ export const phone = {
 
 export const callHref = `tel:${phone.number}`
 
+export const email = 'info@diamonddogpetgrooming.com'
+
+export const mailtoHref = `mailto:${email}`
+
 /** Booking provider URL. Swap for the real scheduler (Square, Vagaro, Gingr, …). */
 export const BOOKING_URL = '/book'
 
@@ -883,10 +887,8 @@ export const serviceAgreement = {
  * carrying both the terms and the privacy terms — which is what the SMS
  * carriers ask to see when reviewing the text programme.
  *
- * The source document left five bracketed placeholders. Four are filled from
- * the business details above so they can never drift from the rest of the
- * site; the fifth, an email address, has no value anywhere in this project, so
- * the contact page stands in for it.
+ * All five of the source document's bracketed placeholders are filled from the
+ * business details above, so none of them can drift from the rest of the site.
  */
 export const privacyPolicy = {
   id: 'privacy-policy',
@@ -993,7 +995,7 @@ export const privacyPolicy = {
             business.street,
             `${business.city}, ${business.region} ${business.postalCode}`,
             { text: `Phone: ${phone.display}`, href: callHref },
-            { text: 'Or send a message from our contact page', href: '/contact' },
+            { text: `Email: ${email}`, href: mailtoHref },
           ],
         },
       ],
