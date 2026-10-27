@@ -5,8 +5,13 @@ import { useEffect, useRef } from 'react'
 import { trackEvent } from '@/lib/analytics'
 import { BOOKING_EMBED_URL } from '@/lib/site'
 
-/** The MoeGo origin, used to reject messages from anywhere else. */
+/**
+ * The MoeGo origin, used to reject messages from anywhere else. `null` when the
+ * embed URL is unset or unparseable, in which case the message listener below
+ * never attaches — there is no origin to trust.
+ */
 const bookingOrigin = (() => {
+  if (!BOOKING_EMBED_URL) return null
   try {
     return new URL(BOOKING_EMBED_URL).origin
   } catch {
