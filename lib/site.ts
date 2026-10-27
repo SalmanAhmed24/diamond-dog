@@ -933,7 +933,7 @@ export const privacyPolicy = {
         'We do not sell, rent, or trade your personal information. We share it only in these limited situations:',
         {
           list: [
-            '**Service providers** who help us operate our Site and business, such as website hosting, form processing, email, and scheduling services. They may use your information only to perform services for us.',
+            '**Service providers** who help us operate our Site and business, such as website hosting, form processing, email, scheduling, and website analytics services. They may use your information only to perform services for us.',
             '**Legal reasons**, when required by law or to protect the rights, safety, or property of Diamond Dog, our customers, or others.',
             '**Business transfers**, if our business is sold or merged, in which case your information may be transferred to the new owner.',
           ],
@@ -944,7 +944,7 @@ export const privacyPolicy = {
       id: 'privacy-cookies',
       heading: 'Cookies',
       body:
-        'Our Site may use essential cookies needed for basic functions such as submitting forms and preventing spam. You can set your browser to refuse cookies, but some parts of the Site may not work properly as a result.',
+        'Our Site uses essential cookies needed for basic functions such as submitting forms and preventing spam. We also use Google Analytics, which sets cookies that tell us how visitors find and use the Site — for example which pages are viewed and roughly where visitors are. That information is reported to us in aggregate and is not used to identify you personally. You can set your browser to refuse cookies, but some parts of the Site may not work properly as a result.',
     },
     {
       id: 'privacy-data-retention',

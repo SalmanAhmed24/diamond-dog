@@ -3,6 +3,8 @@ import type { ReactNode } from 'react'
 import { Playfair_Display, Hanken_Grotesk } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 
+import { AnalyticsEvents } from '@/components/AnalyticsEvents'
+import { GoogleAnalytics } from '@/components/GoogleAnalytics'
 import { MotionProvider } from '@/components/MotionProvider'
 import { SITE_URL, business, seo } from '@/lib/site'
 
@@ -97,6 +99,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             anything from a Vercel deployment with Analytics enabled for the
             project, so local and preview builds stay silent. */}
         <Analytics />
+
+        {/* Google Analytics 4. The tag handles pageviews; AnalyticsEvents adds
+            the click-to-call and click-to-text events on top of it. */}
+        <GoogleAnalytics />
+        <AnalyticsEvents />
       </body>
     </html>
   )

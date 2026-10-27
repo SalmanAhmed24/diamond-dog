@@ -1,3 +1,4 @@
+import { BookingEvents } from './BookingEvents'
 import { Reveal } from './Reveal'
 import { Diamond } from './icons'
 import { BOOKING_EMBED_URL, book } from '@/lib/site'
@@ -28,6 +29,7 @@ export function BookingEmbed() {
         <div className={styles.frame}>
           {BOOKING_EMBED_URL ? (
             <iframe
+              id="booking-frame"
               src={BOOKING_EMBED_URL}
               title="Book an appointment with The Diamond Dog"
               className={styles.iframe}
@@ -42,6 +44,8 @@ export function BookingEmbed() {
         </div>
 
         <p className={styles.caption}>{booking.caption}</p>
+
+        {BOOKING_EMBED_URL ? <BookingEvents frameId="booking-frame" /> : null}
       </div>
     </section>
   )
