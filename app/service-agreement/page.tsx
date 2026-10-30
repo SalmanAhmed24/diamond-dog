@@ -9,7 +9,7 @@ import { Faq } from '@/components/Faq'
 import { FinalCta } from '@/components/FinalCta'
 import { SiteFooter } from '@/components/SiteFooter'
 
-import { SITE_URL, faqsById, privacyPolicy, serviceAgreement } from '@/lib/site'
+import { SITE_URL, faqsById, privacyPolicy, serviceAgreement, smsTerms } from '@/lib/site'
 import { contactCtaBackdrop } from '@/lib/images'
 
 const title = 'Service Agreement'
@@ -92,6 +92,16 @@ export default function ServiceAgreementPage() {
           eyebrow={serviceAgreement.faq.eyebrow}
           items={faqItems}
           headingId="agreement-faq-heading"
+        />
+
+        {/* The terms sit directly above the privacy policy, so the carrier's
+            checklist and the policy it links to read as one block. Anchored at
+            #terms-and-conditions for a direct link. */}
+        <PolicySections
+          heading={smsTerms.heading}
+          headingId={smsTerms.id}
+          blocks={smsTerms.blocks}
+          sections={[]}
         />
 
         {/* The privacy policy closes the page, ahead of the call to action that

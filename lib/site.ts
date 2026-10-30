@@ -92,6 +92,7 @@ export const social = [
  */
 export const smsDisclosure = [
   'Message and data rates may apply.',
+  'Message frequency may vary.',
   'Opt out at any time by replying STOP.',
   'For customer care, reply HELP.',
 ]
@@ -890,11 +891,41 @@ export const serviceAgreement = {
  * All five of the source document's bracketed placeholders are filled from the
  * business details above, so none of them can drift from the rest of the site.
  */
+/**
+ * Terms for the text message programme, written to the checklist a carrier
+ * applies when approving an A2P/10DLC campaign: the sending company by name,
+ * what messages cost, how often they arrive, how to stop them, how to get help
+ * including an email address, and a link to the privacy policy. ClickSend
+ * reviews this against the service agreement URL, which is why it lives here
+ * rather than on a page of its own.
+ *
+ * The heading is "Terms and Conditions" and the six points are kept in the
+ * reviewer's own order and wording on purpose: approval is a checklist match,
+ * so paraphrasing costs more than it gains.
+ */
+export const smsTerms = {
+  id: 'terms-and-conditions',
+  heading: 'Terms and Conditions',
+  blocks: [
+    {
+      list: [
+        `${business.legalName} ${business.subtitle}`,
+        'Message and data rates may apply',
+        'Message frequency may vary',
+        `Text STOP to [${phone.display}](${callHref}) to unsubscribe`,
+        `Reply HELP to receive help, or email us at [${email}](${mailtoHref})`,
+        `Privacy Policy: [${SITE_URL}/service-agreement#privacy-policy](${SITE_URL}/service-agreement#privacy-policy)`,
+      ],
+    },
+  ],
+}
+
 export const privacyPolicy = {
   id: 'privacy-policy',
   heading: 'Privacy Policy',
   effective: 'Effective date: October 21, 2026',
-  intro: `The Diamond Dog Pet Grooming (“Diamond Dog,” “we,” “us,” or “our”) respects your privacy. This Privacy Policy explains what information we collect when you visit ${SITE_URL.replace(/^https?:\/\//, '')} (the “Site”), how we use it, and the choices you have.`,
+  intro:
+    'No mobile information will be shared or sold with third parties/affiliates for marketing/promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.',
   sections: [
     {
       id: 'privacy-information-we-collect',
@@ -965,12 +996,6 @@ export const privacyPolicy = {
       heading: 'Your Choices and Rights',
       body:
         'You may contact us at any time to request access to, correction of, or deletion of the personal information we hold about you. Depending on where you live, you may have additional rights under state privacy laws. We will respond to verified requests within the time required by law.',
-    },
-    {
-      id: 'privacy-childrens-privacy',
-      heading: 'Children’s Privacy',
-      body:
-        'Our Site is not intended for children under 13, and we do not knowingly collect personal information from children under 13. If you believe a child has provided us with information, please contact us and we will delete it.',
     },
     {
       id: 'privacy-links-to-other-websites',

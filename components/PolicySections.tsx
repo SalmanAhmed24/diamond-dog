@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react'
+
 import { Reveal } from './Reveal'
 import styles from './PolicySections.module.css'
 
@@ -7,8 +9,8 @@ export type PolicyLine = string | { text: string; href: string }
 /**
  * One piece of a section's body. A bare string is a paragraph; the object forms
  * are a bullet list and an address-style run of short lines. Any string here
- * may carry `**bold**` lead-ins, which `Inline` turns into real `<strong>`
- * elements — no HTML is ever injected.
+ * may carry `**bold**` lead-ins and `[text](href)` links, which `Inline` turns
+ * into real `<strong>` and `<a>` elements — no HTML is ever injected.
  */
 export type PolicyBlock = string | { list: string[] } | { lines: PolicyLine[] }
 
@@ -19,16 +21,32 @@ export type PolicySection = {
   body: string | PolicyBlock[]
 }
 
+/** `**bold**` or `[text](href)`, matched in one pass so either can appear. */
+const INLINE = /\*\*(.+?)\*\*|\[(.+?)\]\(([^)]+)\)/g
+
 function Inline({ text }: { text: string }) {
-  // Odd indices are the captured groups, i.e. the bolded runs.
-  const parts = text.split(/\*\*(.+?)\*\*/g)
-  return (
-    <>
-      {parts.map((part, index) =>
-        index % 2 === 1 ? <strong key={index}>{part}</strong> : part,
-      )}
-    </>
-  )
+  const nodes: ReactNode[] = []
+  let cursor = 0
+
+  for (const match of text.matchAll(INLINE)) {
+    const at = match.index ?? 0
+    if (at > cursor) nodes.push(text.slice(cursor, at))
+
+    if (match[1] !== undefined) {
+      nodes.push(<strong key={at}>{match[1]}</strong>)
+    } else {
+      nodes.push(
+        <a key={at} className={styles.link} href={match[3]}>
+          {match[2]}
+        </a>,
+      )
+    }
+
+    cursor = at + match[0].length
+  }
+
+  if (cursor < text.length) nodes.push(text.slice(cursor))
+  return <>{nodes}</>
 }
 
 function Block({ block }: { block: PolicyBlock }) {
@@ -86,6 +104,7 @@ export function PolicySections({
   headingId,
   note,
   intro,
+  blocks,
   level = 2,
 }: {
   sections: PolicySection[]
@@ -93,6 +112,8 @@ export function PolicySections({
   headingId?: string
   note?: string
   intro?: string
+  /** Body content that belongs to the document itself, not to a subsection. */
+  blocks?: PolicyBlock[]
   level?: 2 | 3
 }) {
   const nested = level === 3
@@ -112,6 +133,7 @@ export function PolicySections({
                 <Inline text={intro} />
               </p>
             ) : null}
+            {blocks?.map((block, index) => <Block key={index} block={block} />)}
           </Reveal>
         </div>
       ) : null}

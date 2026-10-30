@@ -65,6 +65,21 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Jumping to an anchor — /service-agreement#privacy-policy, say — otherwise
+   lands the target under the sticky header, which measures 75px up to 1140px
+   wide and 125px above it. The heading ends up offscreen and the page looks
+   like it opened halfway down. `:where` keeps this at zero specificity so any
+   element that needs its own offset can simply set one. */
+:where([id]) {
+  scroll-margin-top: 5.75rem;
+}
+
+@media (min-width: 1140px) {
+  :where([id]) {
+    scroll-margin-top: 9rem;
+  }
+}
+
 body {
   background-color: var(--cream);
   color: var(--text);
