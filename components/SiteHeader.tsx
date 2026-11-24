@@ -118,6 +118,14 @@ export function SiteHeader() {
                   )
                 }
 
+                const submenuId = `nav-submenu-${item.label.toLowerCase().replace(/\W+/g, '-')}`
+
+                /* The label is a real link to the hub page and the chevron is a
+                   separate toggle, so the item can be both crawled and opened.
+                   It used to be a single <button>, which meant "Services" linked
+                   nowhere. The submenu is always in the HTML and only hidden
+                   with CSS when closed: mounting it on hover kept its six links
+                   out of the server-rendered page entirely. */
                 return (
                   <li
                     key={item.label}
@@ -125,40 +133,45 @@ export function SiteHeader() {
                     onMouseEnter={() => setOpenSubmenu(item.label)}
                     onMouseLeave={() => setOpenSubmenu(null)}
                   >
-                    <button
-                      type="button"
-                      className={styles.navLink}
-                      aria-expanded={isOpen}
-                      aria-haspopup="true"
-                      onClick={() => setOpenSubmenu(isOpen ? null : item.label)}
-                    >
-                      {item.label}
-                      <ChevronDown className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ''}`} />
-                    </button>
+                    <span className={`${styles.navSplit} ${isOpen ? styles.navSplitOpen : ''}`}>
+                      <Link
+                        href={item.href}
+                        className={`${styles.navLink} ${styles.navLinkSplit}`}
+                        aria-current={pathname === item.href ? 'page' : undefined}
+                        onClick={() => setOpenSubmenu(null)}
+                      >
+                        {item.label}
+                      </Link>
+                      <button
+                        type="button"
+                        className={`${styles.navLink} ${styles.navToggle}`}
+                        aria-expanded={isOpen}
+                        aria-controls={submenuId}
+                        aria-label={`Show ${item.label} menu`}
+                        onClick={() => setOpenSubmenu(isOpen ? null : item.label)}
+                      >
+                        <ChevronDown
+                          className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ''}`}
+                        />
+                      </button>
+                    </span>
 
-                    <AnimatePresence>
-                      {isOpen && (
-                        <m.ul
-                          className={styles.submenu}
-                          initial={reduce ? false : { opacity: 0, y: -6 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={reduce ? { opacity: 0 } : { opacity: 0, y: -6 }}
-                          transition={{ duration: 0.18, ease: EASE }}
-                        >
-                          {item.children?.map((child) => (
-                            <li key={child.href}>
-                              <Link
-                                href={child.href}
-                                className={styles.submenuLink}
-                                onClick={() => setOpenSubmenu(null)}
-                              >
-                                {child.label}
-                              </Link>
-                            </li>
-                          ))}
-                        </m.ul>
-                      )}
-                    </AnimatePresence>
+                    <ul
+                      id={submenuId}
+                      className={`${styles.submenu} ${isOpen ? styles.submenuOpen : ''}`}
+                    >
+                      {item.children?.map((child) => (
+                        <li key={child.href}>
+                          <Link
+                            href={child.href}
+                            className={styles.submenuLink}
+                            onClick={() => setOpenSubmenu(null)}
+                          >
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   </li>
                 )
               })}

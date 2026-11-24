@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { Reveal } from './Reveal'
 import { Diamond } from './icons'
@@ -6,6 +7,21 @@ import { BOOKING_URL, callHref, services } from '@/lib/site'
 import { serviceImages } from '@/lib/images'
 import styles from './Services.module.css'
 
+/**
+ * The card's main link: its title, stretched over the whole card by
+ * `.cardLink::after`, so clicking the photo or the description opens the
+ * service page too. The cards used to link only to booking, which left the six
+ * service pages reachable from the footer alone.
+ */
+function ServiceLink({ slug, title }: { slug: string; title: string }) {
+  return (
+    <Link href={`/services/${slug}`} className={styles.cardLink}>
+      {title}
+    </Link>
+  )
+}
+
+/** The booking shortcut, kept as the card's secondary action. */
 function BookLink({ slug, title, className }: { slug: string; title: string; className?: string }) {
   return (
     <a href={`${BOOKING_URL}?service=${slug}`} className={`btn btn--teal ${className ?? ''}`}>
@@ -48,7 +64,9 @@ export function Services() {
 
             <div className={styles.featuredBody}>
               {featured.badge && <p className={`eyebrow ${styles.badge}`}>{featured.badge}</p>}
-              <h3 className={`serif ${styles.titleLarge}`}>{featured.title}</h3>
+              <h3 className={`serif ${styles.titleLarge}`}>
+                <ServiceLink slug={featured.slug} title={featured.title} />
+              </h3>
               <p className={styles.description}>{featured.description}</p>
               <BookLink slug={featured.slug} title={featured.title} className={styles.book} />
             </div>
@@ -67,7 +85,9 @@ export function Services() {
               </div>
 
               <div className={styles.cardBody}>
-                <h3 className={`serif ${styles.title}`}>{service.title}</h3>
+                <h3 className={`serif ${styles.title}`}>
+                  <ServiceLink slug={service.slug} title={service.title} />
+                </h3>
                 <p className={styles.description}>{service.description}</p>
                 <BookLink slug={service.slug} title={service.title} className={styles.book} />
               </div>
@@ -86,7 +106,9 @@ export function Services() {
             </div>
 
             <div className={styles.addOnsBody}>
-              <h3 className={`serif ${styles.title}`}>{addOns.title}</h3>
+              <h3 className={`serif ${styles.title}`}>
+                <ServiceLink slug={addOns.slug} title={addOns.title} />
+              </h3>
               <p className={styles.description}>{addOns.description}</p>
             </div>
 

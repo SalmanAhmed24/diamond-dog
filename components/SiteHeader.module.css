@@ -95,6 +95,36 @@
   position: relative;
 }
 
+/* A link and a toggle that read as one item. Each keeps half of the original
+   0.3rem gap between label and chevron, so "Services ⌄" measures exactly what
+   it did when it was a single button. */
+.navSplit {
+  display: inline-flex;
+  align-items: center;
+}
+
+.navLinkSplit {
+  padding-right: 0.15rem;
+}
+
+.navToggle {
+  padding-left: 0.15rem;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+/* Hovering either half, or having the menu open, lights up both halves, as the
+   single button used to. */
+.navSplit:hover .navLink,
+.navSplitOpen .navLink {
+  color: var(--text);
+}
+
+/* Always rendered so its links are in the server HTML; hidden with CSS while
+   closed. `visibility` takes it out of the tab order and the accessibility tree
+   as unmounting did, and it switches only after the fade on the way out so the
+   menu doesn't vanish mid-transition. */
 .submenu {
   position: absolute;
   top: calc(100% + 0.5rem);
@@ -105,6 +135,41 @@
   border: 1px solid var(--rule);
   border-radius: var(--radius);
   box-shadow: 0 14px 40px rgba(11, 11, 11, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition:
+    opacity 0.18s var(--ease),
+    transform 0.18s var(--ease),
+    visibility 0s linear 0.18s;
+}
+
+.submenuOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  pointer-events: auto;
+  transition:
+    opacity 0.18s var(--ease),
+    transform 0.18s var(--ease),
+    visibility 0s;
+}
+
+/* Bridges the 0.5rem gap above the menu. Without it, moving the pointer from
+   "Services" down to the menu crossed empty space, fired mouseleave, and closed
+   the menu before it could be reached. */
+.submenu::before {
+  content: '';
+  position: absolute;
+  inset: -0.5rem 0 auto;
+  height: 0.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .submenu {
+    transform: none;
+  }
 }
 
 .submenuLink {

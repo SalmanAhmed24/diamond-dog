@@ -36,9 +36,9 @@ export const metadata: Metadata = {
   authors: [{ name: business.name, url: SITE_URL }],
   creator: business.name,
   publisher: business.name,
-  alternates: {
-    canonical: '/',
-  },
+  // No default canonical here. Every page declares its own, and a layout-level
+  // '/' would quietly point any page that forgot one at the home page.
+  // scripts/check-seo.mjs fails the build if a page is missing its canonical.
   category: 'Pet Services',
   openGraph: {
     type: 'website',

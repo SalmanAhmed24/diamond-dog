@@ -97,6 +97,21 @@ export const smsDisclosure = [
   'For customer care, reply HELP.',
 ]
 
+/**
+ * The /services hub. It lists every service by reusing the home page's service
+ * mosaic, so the two can never disagree about what's offered. This object only
+ * carries what the hub adds on top: its breadcrumb and its page heading.
+ */
+export const servicesHub = {
+  breadcrumb: [
+    { label: 'Home', href: '/' },
+    { label: 'Services', href: '/services' },
+  ],
+  heading: 'Dog grooming services in Urbandale',
+  body:
+    'Salon-grade grooming, personally guided by me, with no kenneling and home in 45 minutes to an hour.',
+}
+
 export const primaryNav = [
   { label: 'Home', href: '/' },
   {
@@ -1758,7 +1773,6 @@ export const footerColumns = [
       { label: 'Anxious & Senior Dogs', href: '/anxious-and-senior-dogs' },
       { label: 'About', href: '/about' },
       { label: 'Glow Up Gallery', href: '/glow-up-gallery' },
-      { label: 'Blog', href: '/blog' },
     ],
   },
   {

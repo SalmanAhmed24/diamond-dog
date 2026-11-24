@@ -32,10 +32,53 @@
 .featured,
 .card,
 .addOns {
+  /* The containing block for the title link's stretched hit area. */
+  position: relative;
   display: flex;
   flex-direction: column;
   background-color: var(--cream);
   min-width: 0;
+}
+
+/* ---------- Card links ---------- */
+
+/* The title is the card's link to its service page. Its ::after covers the
+   whole card, so the photo and description are clickable too while there is
+   still only one link per card for crawlers and screen readers. */
+.cardLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cardLink::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.featured:hover .cardLink,
+.card:hover .cardLink,
+.addOns:hover .cardLink {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+/* Focus outlines the whole card, matching what the link covers. */
+.cardLink:focus-visible {
+  outline: none;
+}
+
+.cardLink:focus-visible::after {
+  outline: 2px solid var(--teal);
+  outline-offset: -2px;
+}
+
+/* The booking buttons sit above the stretched link so they stay clickable. */
+.book,
+.addOnsBook {
+  position: relative;
+  z-index: 1;
 }
 
 .photo {

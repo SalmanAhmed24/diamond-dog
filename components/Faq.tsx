@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { AnimatePresence, m } from 'framer-motion'
+import { m } from 'framer-motion'
 import { useId, useState } from 'react'
 
 import { ArrowRight, Diamond } from './icons'
@@ -82,34 +82,38 @@ export function Faq({
                   </button>
                 </h3>
 
-                {/* initial={false} stops every panel animating on first paint. */}
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <m.div
-                      id={panelId}
-                      role="region"
-                      aria-labelledby={buttonId}
-                      className={styles.panel}
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{
-                        height: { duration: 0.28, ease: EASE },
-                        opacity: { duration: 0.2 },
-                      }}
-                    >
-                      <div className={styles.panelInner}>
-                        <p className={styles.answer}>{item.answer}</p>
-                        {item.readMoreHref && (
-                          <Link href={item.readMoreHref} className={`arrowLink ${styles.readMore}`}>
-                            Read more
-                            <ArrowRight />
-                          </Link>
-                        )}
-                      </div>
-                    </m.div>
-                  )}
-                </AnimatePresence>
+                {/* Every answer is always in the HTML; closed ones are collapsed,
+                    not unmounted. Mounting only the open panel meant the server
+                    sent one answer per list, so search engines saw questions
+                    with no answers, and /faq's FAQPage markup described text the
+                    page didn't contain. `inert` keeps a closed answer and its
+                    "Read more" link out of the tab order and away from screen
+                    readers, which is what unmounting used to do for free.
+                    initial={false} renders each panel straight into its state
+                    on first paint, so nothing animates on load. */}
+                <m.div
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={buttonId}
+                  className={styles.panel}
+                  inert={!isOpen}
+                  initial={false}
+                  animate={isOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+                  transition={{
+                    height: { duration: 0.28, ease: EASE },
+                    opacity: { duration: 0.2 },
+                  }}
+                >
+                  <div className={styles.panelInner}>
+                    <p className={styles.answer}>{item.answer}</p>
+                    {item.readMoreHref && (
+                      <Link href={item.readMoreHref} className={`arrowLink ${styles.readMore}`}>
+                        Read more
+                        <ArrowRight />
+                      </Link>
+                    )}
+                  </div>
+                </m.div>
               </li>
             )
           })}
