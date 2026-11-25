@@ -14,6 +14,9 @@
  *     no page behind it, or a build timestamp instead of a real date
  *   - a real page is missing from the sitemap
  *   - robots.txt stops pointing at the sitemap
+ *   - any internal link points at a page that doesn't exist (e.g. /blog)
+ *   - the nav "Services" item isn't a real <a href="/services">, or the home
+ *     page and nav dropdown don't link to every /services/<slug> page
  *
  * It reads the prerendered HTML Next writes to .next/server/app, so it checks
  * exactly what will be served. No dependencies.
@@ -156,6 +159,48 @@ for (const file of pageFiles) {
     robots: robots ? robots[1] : '(default: index, follow)',
     faq: faqAnswers,
   })
+}
+
+/* ---------- Internal links ---------- */
+
+// Every internal <a href> must land on a real page or a real file, so a link
+// to a page that doesn't exist (a footer "Blog" with no blog) fails the build.
+const publicDir = join(ROOT, 'public')
+const servedFiles = new Set(['/robots.txt', '/sitemap.xml', '/icon.svg', '/apple-icon.png', '/favicon.ico'])
+if (existsSync(publicDir)) {
+  for (const file of walk(publicDir)) servedFiles.add('/' + relative(publicDir, file).split(sep).join('/'))
+}
+
+const linksOn = (dom) =>
+  [...dom.matchAll(/<a\b[^>]*?\shref="([^"]+)"/g)].map((m) => decode(m[1]))
+
+for (const file of pageFiles) {
+  const path = pathOf(file)
+  const dom = readFileSync(file, 'utf8').replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, ' ')
+  for (const href of new Set(linksOn(dom))) {
+    if (!href.startsWith('/') || href.startsWith('//')) continue
+    const target = href.split(/[?#]/)[0].replace(/\/$/, '') || '/'
+    if (!pagePaths.has(target) && !servedFiles.has(target)) {
+      problems.push(`${path}: links to ${href}, which is not a page on this site (would 404)`)
+    }
+  }
+}
+
+// Links the SEO brief depends on: the nav's "Services" item must be a real link
+// to the hub, and the home page must link straight to every service page.
+const homeFile = pageFiles.find((file) => pathOf(file) === '/')
+if (homeFile) {
+  const home = readFileSync(homeFile, 'utf8').replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, ' ')
+  const header = home.match(/<header\b[\s\S]*?<\/header>/)?.[0] ?? ''
+  const main = home.match(/<main\b[\s\S]*?<\/main>/)?.[0] ?? ''
+  if (!linksOn(header).includes('/services')) {
+    problems.push('/: the header has no <a href="/services"> (nav "Services" must be a real link)')
+  }
+  const mainLinks = new Set(linksOn(main))
+  for (const service of [...pagePaths].filter((p) => p.startsWith('/services/'))) {
+    if (!mainLinks.has(service)) problems.push(`/: the home page body has no <a href="${service}">`)
+    if (!linksOn(header).includes(service)) problems.push(`/: the nav dropdown has no <a href="${service}"> in the server HTML`)
+  }
 }
 
 /* ---------- Sitemap ---------- */
